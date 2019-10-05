@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */; };
-		5BBD71C02348B75C00D0B9EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD71BF2348B75C00D0B9EA /* SceneDelegate.swift */; };
 		5BBD71C22348B75C00D0B9EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD71C12348B75C00D0B9EA /* ViewController.swift */; };
 		5BBD71C52348B75C00D0B9EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C32348B75C00D0B9EA /* Main.storyboard */; };
 		5BBD71C72348B76000D0B9EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C62348B76000D0B9EA /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		5BBD71BA2348B75C00D0B9EA /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BBD71BF2348B75C00D0B9EA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5BBD71C12348B75C00D0B9EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5BBD71C42348B75C00D0B9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BBD71C62348B76000D0B9EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */,
-				5BBD71BF2348B75C00D0B9EA /* SceneDelegate.swift */,
 				5BBD71C12348B75C00D0B9EA /* ViewController.swift */,
 				5BBD71C32348B75C00D0B9EA /* Main.storyboard */,
 				5BBD71C62348B76000D0B9EA /* Assets.xcassets */,
@@ -140,7 +137,6 @@
 			files = (
 				5BBD71C22348B75C00D0B9EA /* ViewController.swift in Sources */,
 				5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */,
-				5BBD71C02348B75C00D0B9EA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

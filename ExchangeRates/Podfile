@@ -9,4 +9,5 @@ target 'ExchangeRates' do
 pod 'Alamofire'
 pod 'Kingfisher'
 pod 'R.swift'
+pod 'SnapKit'
 end

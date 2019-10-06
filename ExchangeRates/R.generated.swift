@@ -31,10 +31,31 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
+    /// Image `analysis`.
+    static let analysis = Rswift.ImageResource(bundle: R.hostingBundle, name: "analysis")
+    /// Image `cashCoins`.
+    static let cashCoins = Rswift.ImageResource(bundle: R.hostingBundle, name: "cashCoins")
+    /// Image `money`.
+    static let money = Rswift.ImageResource(bundle: R.hostingBundle, name: "money")
     /// Image `piggyBank`.
     static let piggyBank = Rswift.ImageResource(bundle: R.hostingBundle, name: "piggyBank")
+    
+    /// `UIImage(named: "analysis", bundle: ..., traitCollection: ...)`
+    static func analysis(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.analysis, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "cashCoins", bundle: ..., traitCollection: ...)`
+    static func cashCoins(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.cashCoins, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "money", bundle: ..., traitCollection: ...)`
+    static func money(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.money, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: "piggyBank", bundle: ..., traitCollection: ...)`
     static func piggyBank(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {

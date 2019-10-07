@@ -34,7 +34,7 @@ class CreateTutorialView: UIView {
         self.imageView.image = image
         imageView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(80)
-            make.leading.equalToSuperview().offset(60)
+            make.centerX.equalToSuperview()
             make.width.height.equalTo(250)
         }
         
@@ -55,6 +55,7 @@ class CreateTutorialView: UIView {
         self.descriptionLabel.textAlignment = .center
         self.descriptionLabel.textColor = R.color.lightGrey()
         self.descriptionLabel.numberOfLines = 0
+        // add correct fonts
         self.descriptionLabel.font = .systemFont(ofSize: 16)
         descriptionLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(30)

@@ -12,22 +12,24 @@ import UIKit
 class TutorialVC: UIViewController {
     
     private let button = UIButton()
-    private let tutorialViewArray = [CreateTutorialView(frame: .zero, image: R.image.piggyBank(), titleLabelText: Localizable.titleTutorialFirstSlide(), descriptionLabelText: Localizable.descriptionTutorialFirstSlide()),
+    private let tutorialViewArray = [CreateTutorialView(frame: .zero,
+                                                        image: R.image.piggyBank(),
+                                                        titleLabelText: Localizable.titleTutorialFirstSlide(),
+                                                        descriptionLabelText: Localizable.descriptionTutorialFirstSlide()),
                                      CreateTutorialView(frame: .zero, image: R.image.money(), titleLabelText: Localizable.titleTutorialSecondSlide(), descriptionLabelText: Localizable.descriptionTutorialSecondSlide()),
                                      CreateTutorialView(frame: .zero, image: R.image.analysis(), titleLabelText: Localizable.titleTutorialThirdSlide(), descriptionLabelText: Localizable.descriptionTutorialThirdSlide())]
     
     override func loadView() {
         let contentView = TutorialView(frame: .zero, imageArray: tutorialViewArray)
         view = contentView
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(button)
-       setButton()
+     //  setButton()
         }
-    
+    // TODO: Move to View
         func setButton() {
             self.button.backgroundColor = R.color.lightBlue()
             self.button.titleLabel?.font = .boldSystemFont(ofSize: 20)
@@ -36,8 +38,9 @@ class TutorialVC: UIViewController {
             button.snp.makeConstraints { (make) in
                 make.width.equalTo(250)
                 make.height.equalTo(60)
-                make.top.equalTo(550)
-                make.leading.equalTo(60)
+                // TODO: no big numbers
+                make.bottom.equalToSuperview().offset(-60)
+                make.centerX.equalToSuperview()
         }
     }
 }

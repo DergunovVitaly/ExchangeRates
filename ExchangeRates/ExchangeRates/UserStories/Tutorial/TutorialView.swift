@@ -24,12 +24,12 @@ class TutorialView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     private func setupLayout() {
         
         addSubview(scrollView)
         scrollView.contentSize = CGSize(width: UIScreen.main.bounds.width * CGFloat(imageArray.count), height: UIScreen.main.bounds.height)
-        scrollView.backgroundColor = .red
+        scrollView.backgroundColor = .white
+        scrollView.isPagingEnabled = true
         scrollView.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
             make.height.equalToSuperview()

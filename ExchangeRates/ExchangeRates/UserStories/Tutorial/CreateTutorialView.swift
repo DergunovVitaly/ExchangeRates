@@ -41,7 +41,8 @@ class CreateTutorialView: UIView {
         addSubview(titleLabel)
         self.titleLabel.text = titleLabelText
         self.titleLabel.textAlignment = .center
-        self.titleLabel.textColor = .black
+        self.titleLabel.textColor = R.color.lightBlue()
+        self.titleLabel.font = .boldSystemFont(ofSize: 22)
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(imageView.snp.bottom).offset(25)
             make.centerX.equalTo(imageView)
@@ -52,13 +53,23 @@ class CreateTutorialView: UIView {
         addSubview(descriptionLabel)
         self.descriptionLabel.text = descriptionLabelText
         self.descriptionLabel.textAlignment = .center
-        self.descriptionLabel.textColor = .black
+        self.descriptionLabel.textColor = R.color.lightGrey()
         self.descriptionLabel.numberOfLines = 0
+        self.descriptionLabel.font = .systemFont(ofSize: 16)
         descriptionLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(30)
             make.centerX.equalTo(titleLabel)
             make.width.equalTo(titleLabel)
             make.height.greaterThanOrEqualTo(65)
         }
+        
+       
+    
+    
+    func coinsPosition(position: Int) {
+        descriptionLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(position)
+        }
     }
+}
 }

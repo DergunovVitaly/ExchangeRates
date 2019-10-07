@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048C5390234BA13600ED883F /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C538F234BA13600ED883F /* TutorialVC.swift */; };
 		04ACED9D2349F31300264199 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9C2349F31300264199 /* Typealias.swift */; };
 		04ACED9F234A04F700264199 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9E234A04F700264199 /* TutorialView.swift */; };
-		04D5F6B42349D71300B25A05 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B32349D71300B25A05 /* TutorialVC.swift */; };
 		04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */; };
 		04D5F6B82349D94400B25A05 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B72349D94400B25A05 /* Bank.swift */; };
 		04D5F6C22349E26400B25A05 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6C12349E26400B25A05 /* R.generated.swift */; };
@@ -23,9 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		048C538F234BA13600ED883F /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		04ACED9C2349F31300264199 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		04ACED9E234A04F700264199 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
-		04D5F6B32349D71300B25A05 /* TutorialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TutorialVC.swift; path = "../../../../../udemy couse/Udemy Courses/Udemy Courses/ExchangeRates/TutorialVC.swift"; sourceTree = "<group>"; };
 		04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTutorialView.swift; sourceTree = "<group>"; };
 		04D5F6B72349D94400B25A05 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		04D5F6C12349E26400B25A05 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -73,7 +73,7 @@
 		04D5F6B12349D6E600B25A05 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				04D5F6B32349D71300B25A05 /* TutorialVC.swift */,
+				048C538F234BA13600ED883F /* TutorialVC.swift */,
 				04ACED9E234A04F700264199 /* TutorialView.swift */,
 				04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */,
 			);
@@ -294,9 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048C5390234BA13600ED883F /* TutorialVC.swift in Sources */,
 				04ACED9F234A04F700264199 /* TutorialView.swift in Sources */,
 				04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */,
-				04D5F6B42349D71300B25A05 /* TutorialVC.swift in Sources */,
 				04D5F6C22349E26400B25A05 /* R.generated.swift in Sources */,
 				04D5F6B82349D94400B25A05 /* Bank.swift in Sources */,
 				04ACED9D2349F31300264199 /* Typealias.swift in Sources */,

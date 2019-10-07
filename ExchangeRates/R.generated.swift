@@ -16,16 +16,25 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 1 colors.
+  /// This `R.color` struct is generated, and contains static references to 2 colors.
   struct color {
     /// Color `lightBlue`.
     static let lightBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "lightBlue")
+    /// Color `lightGrey`.
+    static let lightGrey = Rswift.ColorResource(bundle: R.hostingBundle, name: "lightGrey")
     
     /// `UIColor(named: "lightBlue", bundle: ..., traitCollection: ...)`
     @available(tvOS 11.0, *)
     @available(iOS 11.0, *)
     static func lightBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.lightBlue, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "lightGrey", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func lightGrey(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.lightGrey, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -87,16 +96,43 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 2 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
     struct localizable {
+      /// en translation: Аналізуйте
+      /// 
+      /// Locales: en
+      static let titleTutorialThirdSlide = Rswift.StringResource(key: "titleTutorialThirdSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Заощаджуйте кошти
       /// 
       /// Locales: en
       static let titleTutorialFirstSlide = Rswift.StringResource(key: "titleTutorialFirstSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Заробляйте
+      /// 
+      /// Locales: en
+      static let titleTutorialSecondSlide = Rswift.StringResource(key: "titleTutorialSecondSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Отримайте вигідний відсоток з вигідним вкладом
+      /// 
+      /// Locales: en
+      static let descriptionTutorialSecondSlide = Rswift.StringResource(key: "descriptionTutorialSecondSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Переглядайте інформацію щодо банківських курсів та вибирайте оптимальний варіант
       /// 
       /// Locales: en
       static let descriptionTutorialFirstSlide = Rswift.StringResource(key: "descriptionTutorialFirstSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Повна інформація про грошові курси та банки
+      /// 
+      /// Locales: en
+      static let descriptionTutorialThirdSlide = Rswift.StringResource(key: "descriptionTutorialThirdSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Розпочати
+      /// 
+      /// Locales: en
+      static let titleButton = Rswift.StringResource(key: "titleButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      
+      /// en translation: Аналізуйте
+      /// 
+      /// Locales: en
+      static func titleTutorialThirdSlide(_: Void = ()) -> String {
+        return NSLocalizedString("titleTutorialThirdSlide", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: Заощаджуйте кошти
       /// 
@@ -105,11 +141,39 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("titleTutorialFirstSlide", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Заробляйте
+      /// 
+      /// Locales: en
+      static func titleTutorialSecondSlide(_: Void = ()) -> String {
+        return NSLocalizedString("titleTutorialSecondSlide", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Отримайте вигідний відсоток з вигідним вкладом
+      /// 
+      /// Locales: en
+      static func descriptionTutorialSecondSlide(_: Void = ()) -> String {
+        return NSLocalizedString("descriptionTutorialSecondSlide", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Переглядайте інформацію щодо банківських курсів та вибирайте оптимальний варіант
       /// 
       /// Locales: en
       static func descriptionTutorialFirstSlide(_: Void = ()) -> String {
         return NSLocalizedString("descriptionTutorialFirstSlide", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Повна інформація про грошові курси та банки
+      /// 
+      /// Locales: en
+      static func descriptionTutorialThirdSlide(_: Void = ()) -> String {
+        return NSLocalizedString("descriptionTutorialThirdSlide", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Розпочати
+      /// 
+      /// Locales: en
+      static func titleButton(_: Void = ()) -> String {
+        return NSLocalizedString("titleButton", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

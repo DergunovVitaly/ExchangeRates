@@ -9,14 +9,14 @@
 import UIKit
 
 class CreateTutorialView: UIView {
-   
+    
     private let imageView = UIImageView()
     private let image: UIImage?
     private let titleLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let titleLabelText: String
     private let descriptionLabelText: String
-
+    
     init(frame: CGRect, image: UIImage?, titleLabelText: String, descriptionLabelText: String) {
         self.image = image
         self.titleLabelText = titleLabelText
@@ -63,13 +63,10 @@ class CreateTutorialView: UIView {
             make.height.greaterThanOrEqualTo(65)
         }
         
-       
-    
-    
-    func coinsPosition(position: Int) {
-        descriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(position)
+        func coinsPosition(position: Int) {
+            descriptionLabel.snp.makeConstraints { (make) in
+                make.top.equalToSuperview().offset(position)
+            }
         }
     }
-}
 }

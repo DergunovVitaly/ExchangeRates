@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class TutorialView: UIView {
-
+    
     private var imageArray: [CreateTutorialView]
     private let scrollView = UIScrollView()
     
@@ -34,12 +34,12 @@ class TutorialView: UIView {
             make.width.equalToSuperview()
             make.height.equalToSuperview()
         }
-
+        
         scrollView.addSubview(imageArray[0])
         imageArray[0].snp.makeConstraints { (make) in
             make.height.width.equalToSuperview()
         }
-
+        
         scrollView.addSubview(imageArray[1])
         imageArray[1].snp.makeConstraints { (make) in
             make.height.equalToSuperview()

@@ -15,6 +15,7 @@ protocol TutorialViewDelegate: class {
 
 class TutorialView: UIView {
     
+    private var numberOfPages: Int
     private var viewArray: [CreateTutorialView] 
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
@@ -22,10 +23,12 @@ class TutorialView: UIView {
     private let startButton = UIButton()
     private let coinsImageView = UIImageView()
     
-    init(frame: CGRect, imageArray: [CreateTutorialView]) {
+    init(frame: CGRect, imageArray: [CreateTutorialView], numberOfPages: Int) {
+        self.numberOfPages = numberOfPages
         self.viewArray = imageArray
         super.init(frame: frame)
         backgroundColor = .white
+        scrollView.delegate = self
         setupLayout()
     }
     
@@ -34,9 +37,8 @@ class TutorialView: UIView {
     }
     
     weak var delegate: TutorialViewDelegate?
-    
+  
     private func setupLayout() {
-        
         addSubview(scrollView)
         scrollView.contentSize = CGSize(width: boundsWight * CGFloat(viewArray.count), height: UIScreen.main.bounds.height)
         scrollView.backgroundColor = .white
@@ -57,13 +59,14 @@ class TutorialView: UIView {
                 }
             }
         }
-        
-        //TODO: add logic
-        addSubview(pageControl)
-        pageControl.numberOfPages = 3
-        pageControl.currentPage = 1
+    
+        insertSubview(pageControl, at: 0)
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
+        pageControl.hidesForSinglePage = true
         pageControl.pageIndicatorTintColor = R.color.lightGrey()
         pageControl.currentPageIndicatorTintColor = R.color.lightBlue()
+        pageControl.numberOfPages = numberOfPages
         pageControl.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-150)
@@ -92,10 +95,18 @@ class TutorialView: UIView {
             make.width.equalTo(150)
             make.centerYWithinMargins.equalTo(100)
         }
-        
     }
     
     @objc func tupButton() {
         delegate?.tupButton()
+    }
+}
+
+extension TutorialView: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let contentOfsetX = scrollView.contentOffset.x
+        let frame = UIScreen.main.bounds.width
+        let pageIndex = round(CGFloat(contentOfsetX) / frame)
+        pageControl.currentPage = Int(pageIndex)
     }
 }

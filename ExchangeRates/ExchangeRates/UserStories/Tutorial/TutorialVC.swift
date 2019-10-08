@@ -26,7 +26,7 @@ class TutorialVC: UIViewController, TutorialViewDelegate {
     
     override func loadView() {
         
-        let contentView = TutorialView(frame: .zero, imageArray: tutorialViewArray)
+        let contentView = TutorialView(frame: .zero, imageArray: tutorialViewArray, numberOfPages: tutorialViewArray.count)
         contentView.delegate = self
         view = contentView
     }

@@ -9,15 +9,21 @@
 import Foundation
 import UIKit
 
+protocol TutorialViewDelegate: class {
+    func tupButton()
+}
+
 class TutorialView: UIView {
     
-    private var imageArray: [CreateTutorialView] // This is NOT imageArray
+    private var viewArray: [CreateTutorialView] 
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
     private let boundsWight = UIScreen.main.bounds.width
+    private let startButton = UIButton()
+    private let coinsImageView = UIImageView()
     
     init(frame: CGRect, imageArray: [CreateTutorialView]) {
-        self.imageArray = imageArray
+        self.viewArray = imageArray
         super.init(frame: frame)
         backgroundColor = .white
         setupLayout()
@@ -26,37 +32,31 @@ class TutorialView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    weak var delegate: TutorialViewDelegate?
+    
     private func setupLayout() {
         
         addSubview(scrollView)
-        scrollView.contentSize = CGSize(width: boundsWight * CGFloat(imageArray.count), height: UIScreen.main.bounds.height)
+        scrollView.contentSize = CGSize(width: boundsWight * CGFloat(viewArray.count), height: UIScreen.main.bounds.height)
         scrollView.backgroundColor = .white
         scrollView.isPagingEnabled = true
         scrollView.snp.makeConstraints { (make) in
             make.width.height.equalToSuperview()
         }
-        //TODO: Add cycle
-        scrollView.addSubview(imageArray[0])
-        imageArray[0].snp.makeConstraints { (make) in
-            make.width.height.equalToSuperview()
-        }
         
-        scrollView.addSubview(imageArray[1])
-        imageArray[1].snp.makeConstraints { (make) in
-            make.height.width.equalToSuperview()
-            make.leading.equalToSuperview().offset(boundsWight)
-            make.top.equalToSuperview()
+        for index in 0..<viewArray.count {
+            scrollView.addSubview(viewArray[index])
+            viewArray[index].snp.makeConstraints { (make) in
+                make.width.height.equalToSuperview()
+                if index == 1 {
+                    make.height.width.top.equalToSuperview()
+                    make.leading.equalToSuperview().offset(boundsWight)
+                } else if index == 2 {
+                    make.leading.equalToSuperview().offset(boundsWight * 2)
+                }
+            }
         }
-        
-        scrollView.addSubview(imageArray[2])
-        imageArray[2].snp.makeConstraints { (make) in
-            //TODO: width.height.top
-            make.height.equalToSuperview()
-            make.leading.equalToSuperview().offset(boundsWight * 2)
-            make.top.equalToSuperview()
-            make.width.equalToSuperview()
-        }
-        
         
         //TODO: add logic
         addSubview(pageControl)
@@ -67,8 +67,35 @@ class TutorialView: UIView {
         pageControl.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-150)
-            
         }
-   
+        
+        addSubview(startButton)
+        startButton.backgroundColor = R.color.lightBlue()
+        startButton.titleLabel?.font = R.font.helveticaNeueBold(size: 14)
+        startButton.setTitle(Localizable.titleButton(), for: .normal)
+        startButton.layer.cornerRadius = 30
+        startButton.addTarget(self, action: #selector(tupButton), for: .touchUpInside)
+        startButton.snp.makeConstraints { (make) in
+            make.width.equalTo(250)
+            make.height.equalTo(60)
+            make.bottom.equalToSuperview().offset(-60)
+            make.centerX.equalToSuperview()
+        }
+        
+        addSubview(coinsImageView)
+        coinsImageView.image = R.image.coins()
+        coinsImageView.alpha = 0.2
+        coinsImageView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(50)
+            make.right.equalTo(0)
+            make.height.equalTo(360)
+            make.width.equalTo(150)
+            make.centerYWithinMargins.equalTo(100)
+        }
+        
+    }
+    
+    @objc func tupButton() {
+        delegate?.tupButton()
     }
 }

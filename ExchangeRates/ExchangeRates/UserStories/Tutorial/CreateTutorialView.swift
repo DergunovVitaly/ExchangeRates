@@ -42,7 +42,7 @@ class CreateTutorialView: UIView {
         self.titleLabel.text = titleLabelText
         self.titleLabel.textAlignment = .center
         self.titleLabel.textColor = R.color.lightBlue()
-        self.titleLabel.font = .boldSystemFont(ofSize: 22)
+        self.titleLabel.font = R.font.helveticaNeueBold(size: 21)
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalTo(imageView.snp.bottom).offset(25)
             make.centerX.equalTo(imageView)
@@ -55,8 +55,7 @@ class CreateTutorialView: UIView {
         self.descriptionLabel.textAlignment = .center
         self.descriptionLabel.textColor = R.color.lightGrey()
         self.descriptionLabel.numberOfLines = 0
-        // add correct fonts
-        self.descriptionLabel.font = .systemFont(ofSize: 16)
+        self.descriptionLabel.font = R.font.helveticaNeue(size: 16)
         descriptionLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(30)
             make.centerX.equalTo(titleLabel)

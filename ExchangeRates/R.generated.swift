@@ -13,6 +13,7 @@ struct R: Rswift.Validatable {
   fileprivate static let hostingBundle = Bundle(for: R.Class.self)
   
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
   
@@ -40,12 +41,37 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
+  /// This `R.font` struct is generated, and contains static references to 2 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `HelveticaNeue-Bold`.
+    static let helveticaNeueBold = Rswift.FontResource(fontName: "HelveticaNeue-Bold")
+    /// Font `HelveticaNeue`.
+    static let helveticaNeue = Rswift.FontResource(fontName: "HelveticaNeue")
+    
+    /// `UIFont(name: "HelveticaNeue", size: ...)`
+    static func helveticaNeue(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: helveticaNeue, size: size)
+    }
+    
+    /// `UIFont(name: "HelveticaNeue-Bold", size: ...)`
+    static func helveticaNeueBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: helveticaNeueBold, size: size)
+    }
+    
+    static func validate() throws {
+      if R.font.helveticaNeue(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'HelveticaNeue' could not be loaded, is 'helveticaneue.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.helveticaNeueBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'HelveticaNeue-Bold' could not be loaded, is 'HelveticaNeueBold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+    }
+    
+    fileprivate init() {}
+  }
+  
   /// This `R.image` struct is generated, and contains static references to 4 images.
   struct image {
     /// Image `analysis`.
     static let analysis = Rswift.ImageResource(bundle: R.hostingBundle, name: "analysis")
-    /// Image `cashCoins`.
-    static let cashCoins = Rswift.ImageResource(bundle: R.hostingBundle, name: "cashCoins")
+    /// Image `coins`.
+    static let coins = Rswift.ImageResource(bundle: R.hostingBundle, name: "coins")
     /// Image `money`.
     static let money = Rswift.ImageResource(bundle: R.hostingBundle, name: "money")
     /// Image `piggyBank`.
@@ -56,9 +82,9 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.analysis, compatibleWith: traitCollection)
     }
     
-    /// `UIImage(named: "cashCoins", bundle: ..., traitCollection: ...)`
-    static func cashCoins(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.cashCoins, compatibleWith: traitCollection)
+    /// `UIImage(named: "coins", bundle: ..., traitCollection: ...)`
+    static func coins(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.coins, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "money", bundle: ..., traitCollection: ...)`
@@ -122,7 +148,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let descriptionTutorialThirdSlide = Rswift.StringResource(key: "descriptionTutorialThirdSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Розпочати
+      /// en translation: РОЗПОЧАТИ
       /// 
       /// Locales: en
       static let titleButton = Rswift.StringResource(key: "titleButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -169,7 +195,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("descriptionTutorialThirdSlide", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Розпочати
+      /// en translation: РОЗПОЧАТИ
       /// 
       /// Locales: en
       static func titleButton(_: Void = ()) -> String {

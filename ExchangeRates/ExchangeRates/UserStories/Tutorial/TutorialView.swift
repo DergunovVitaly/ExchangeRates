@@ -43,6 +43,7 @@ class TutorialView: UIView {
         scrollView.contentSize = CGSize(width: boundsWight * CGFloat(viewArray.count), height: UIScreen.main.bounds.height)
         scrollView.backgroundColor = .white
         scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
         scrollView.snp.makeConstraints { (make) in
             make.width.height.equalToSuperview()
         }
@@ -59,18 +60,6 @@ class TutorialView: UIView {
                 }
             }
         }
-    
-        insertSubview(pageControl, at: 0)
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
-        pageControl.hidesForSinglePage = true
-        pageControl.pageIndicatorTintColor = R.color.lightGrey()
-        pageControl.currentPageIndicatorTintColor = R.color.lightBlue()
-        pageControl.numberOfPages = numberOfPages
-        pageControl.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-150)
-        }
         
         addSubview(startButton)
         startButton.backgroundColor = R.color.lightBlue()
@@ -85,16 +74,27 @@ class TutorialView: UIView {
             make.centerX.equalToSuperview()
         }
         
-        addSubview(coinsImageView)
-        coinsImageView.image = R.image.coins()
-        coinsImageView.alpha = 0.2
-        coinsImageView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(50)
-            make.right.equalTo(0)
-            make.height.equalTo(360)
-            make.width.equalTo(150)
-            make.centerYWithinMargins.equalTo(100)
+        addSubview(pageControl)
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.pageIndicatorTintColor = UIColor.lightGray.withAlphaComponent(0.8)
+        pageControl.hidesForSinglePage = true
+        pageControl.pageIndicatorTintColor = R.color.lightGrey()
+        pageControl.currentPageIndicatorTintColor = R.color.lightBlue()
+        pageControl.numberOfPages = numberOfPages
+        pageControl.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(startButton.snp.bottom).offset(-75)
         }
+//        addSubview(coinsImageView)
+//        coinsImageView.image = R.image.coins()
+//        coinsImageView.alpha = 0.2
+//        coinsImageView.snp.makeConstraints { (make) in
+//            make.bottom.equalTo(50)
+//            make.right.equalTo(0)
+//            make.height.equalTo(360)
+//            make.width.equalTo(150)
+//            make.centerYWithinMargins.equalTo(100)
+//        }
     }
     
     @objc func tupButton() {

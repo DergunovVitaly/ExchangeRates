@@ -27,7 +27,7 @@
 import Foundation
 import CoreGraphics
 
-#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+#if canImport(AppKit) && !targetEnvironment(macabi)
 import AppKit
 #endif
 

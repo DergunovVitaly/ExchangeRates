@@ -18,7 +18,6 @@
 		1F0E7539234E1F1B00A32B96 /* helveticaneue.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */; };
 		1F0E753A234E1F1B00A32B96 /* HelveticaNeueBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */; };
 		5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */; };
-		5BBD71C52348B75C00D0B9EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C32348B75C00D0B9EA /* Main.storyboard */; };
 		5BBD71C72348B76000D0B9EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C62348B76000D0B9EA /* Assets.xcassets */; };
 		5BBD71CA2348B76000D0B9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C82348B76000D0B9EA /* LaunchScreen.storyboard */; };
 		A6ACDD0C67E634253C9C9B24 /* Pods_ExchangeRates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D1C8643BB4DFE779D34A7B /* Pods_ExchangeRates.framework */; };
@@ -38,7 +37,6 @@
 		215B438D33C5DB212CC5FE8D /* Pods-ExchangeRates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExchangeRates.release.xcconfig"; path = "Target Support Files/Pods-ExchangeRates/Pods-ExchangeRates.release.xcconfig"; sourceTree = "<group>"; };
 		5BBD71BA2348B75C00D0B9EA /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BBD71C42348B75C00D0B9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BBD71C62348B76000D0B9EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BBD71C92348B76000D0B9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BBD71CB2348B76000D0B9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 		04D5F6BA2349DA7700B25A05 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				5BBD71C32348B75C00D0B9EA /* Main.storyboard */,
 				5BBD71C82348B76000D0B9EA /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -245,7 +242,6 @@
 				5BBD71CA2348B76000D0B9EA /* LaunchScreen.storyboard in Resources */,
 				04F932A02349E59100228657 /* Localizable.strings in Resources */,
 				5BBD71C72348B76000D0B9EA /* Assets.xcassets in Resources */,
-				5BBD71C52348B75C00D0B9EA /* Main.storyboard in Resources */,
 				1F0E7539234E1F1B00A32B96 /* helveticaneue.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,14 +333,6 @@
 				04F932A12349E59100228657 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		5BBD71C32348B75C00D0B9EA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BBD71C42348B75C00D0B9EA /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		5BBD71C82348B76000D0B9EA /* LaunchScreen.storyboard */ = {

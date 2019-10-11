@@ -25,8 +25,7 @@ class TutorialVC: UIViewController, TutorialViewDelegate {
                                                         descriptionLabelText: Localizable.descriptionTutorialThirdSlide())]
     
     override func loadView() {
-        
-        let contentView = TutorialView(frame: .zero, imageArray: tutorialViewArray, numberOfPages: tutorialViewArray.count)
+        let contentView = TutorialView(frame: .zero, imageArray: tutorialViewArray)
         contentView.delegate = self
         view = contentView
     }

@@ -54,6 +54,17 @@ class TutorialView: UIView {
                 make.width.height.equalToSuperview()
                 make.leading.equalToSuperview().offset(boundsWight * CGFloat(index))
             }
+            
+        }
+
+        addSubview(coinsImageView)
+        coinsImageView.image = R.image.coins()
+        coinsImageView.alpha = 0.2
+        coinsImageView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(50)
+            make.right.equalTo(0)
+            make.height.equalTo(360)
+            make.width.equalTo(150)
         }
         
         addSubview(pageControl)
@@ -66,20 +77,7 @@ class TutorialView: UIView {
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-130)
         }
-        
-        for index in 0..<pageControl.numberOfPages {
-            addSubview(coinsImageView)
-            coinsImageView.image = R.image.coins()
-            coinsImageView.alpha = 0.2
-            coinsImageView.snp.makeConstraints { (make) in
-                make.bottom.equalTo(50)
-                make.right.equalTo(0)
-                make.height.equalTo(360)
-                make.width.equalTo(150)
-                make.centerY.equalTo(10 + index)
-            }
-        }
-        
+      
         addSubview(startButton)
         startButton.backgroundColor = R.color.lightBlue()
         startButton.titleLabel?.font = R.font.helveticaNeueBold(size: 14)
@@ -103,8 +101,7 @@ extension TutorialView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOfsetX = scrollView.contentOffset.x
         let frame = boundsWight
-        print("page.control - \(contentOfsetX/frame)")
-        print("coins - ?")
+//        print("page.control - \(contentOfsetX/frame)")
         let pageIndex = round(CGFloat(contentOfsetX) / frame)
         pageControl.currentPage = Int(pageIndex)
     }

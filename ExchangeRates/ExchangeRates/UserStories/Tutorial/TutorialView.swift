@@ -71,7 +71,7 @@ class TutorialView: UIView {
         }
         
         addSubview(whiteImageView)
-        whiteImageView.image = R.image.white()
+        whiteImageView.image = R.image.black()
         whiteImageView.snp.makeConstraints { (make) in
             make.right.equalToSuperview()
             make.height.equalTo(170)
@@ -115,7 +115,7 @@ extension TutorialView: UIScrollViewDelegate {
         print("pageControl.currentPage - \(pageControl.currentPage)")
         print("frame - \(frame)")
         whiteImageView.snp.makeConstraints { (make) in
-                make.bottom.equalTo(-pageControl.currentPage * 100)
+                make.bottom.equalTo(-pageControl.currentPage * Int(contentOfsetX) / 10)
         }
     }
 }

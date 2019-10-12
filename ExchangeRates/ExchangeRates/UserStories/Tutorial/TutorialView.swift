@@ -21,6 +21,7 @@ class TutorialView: UIView {
     private let boundsWight = UIScreen.main.bounds.width
     private let startButton = UIButton()
     private let coinsImageView = UIImageView()
+    private let whiteImageView = UIImageView()
     
     init(frame: CGRect, imageArray: [CreateTutorialView]) {
         self.viewArray = imageArray
@@ -48,21 +49,12 @@ class TutorialView: UIView {
             make.width.height.equalToSuperview()
         }
         
-        for index in 0..<viewArray.count {
-            scrollView.addSubview(viewArray[index])
-            viewArray[index].snp.makeConstraints { (make) in
-                make.width.height.equalToSuperview()
-                make.leading.equalToSuperview().offset(boundsWight * CGFloat(index))
-            }
-            
-        }
-
         addSubview(coinsImageView)
         coinsImageView.image = R.image.coins()
         coinsImageView.alpha = 0.2
         coinsImageView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(50)
-            make.right.equalTo(0)
+            make.bottom.equalToSuperview().offset(50)
+            make.trailing.equalToSuperview().offset(70)
             make.height.equalTo(360)
             make.width.equalTo(150)
         }
@@ -77,7 +69,24 @@ class TutorialView: UIView {
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-130)
         }
-      
+        
+        addSubview(whiteImageView)
+        whiteImageView.image = R.image.white()
+        whiteImageView.snp.makeConstraints { (make) in
+            make.right.equalToSuperview()
+            make.height.equalTo(170)
+            make.width.equalTo(50)
+            make.bottom.equalTo(-70)
+        }
+        
+        for index in 0..<viewArray.count {
+            scrollView.addSubview(viewArray[index])
+            viewArray[index].snp.makeConstraints { (make) in
+                make.width.height.equalToSuperview()
+                make.leading.equalToSuperview().offset(boundsWight * CGFloat(index))
+            }
+        }
+        
         addSubview(startButton)
         startButton.backgroundColor = R.color.lightBlue()
         startButton.titleLabel?.font = R.font.helveticaNeueBold(size: 14)
@@ -101,10 +110,16 @@ extension TutorialView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOfsetX = scrollView.contentOffset.x
         let frame = boundsWight
-//        print("page.control - \(contentOfsetX/frame)")
         let pageIndex = round(CGFloat(contentOfsetX) / frame)
         pageControl.currentPage = Int(pageIndex)
+        print("pageControl.currentPage - \(pageControl.currentPage)")
+        print("frame - \(frame)")
+        whiteImageView.snp.makeConstraints { (make) in
+                make.bottom.equalTo(-pageControl.currentPage * 100)
+        }
     }
 }
+
+
 
 

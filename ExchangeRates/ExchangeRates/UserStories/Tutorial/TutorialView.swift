@@ -21,6 +21,8 @@ class TutorialView: UIView {
     private let boundsWight = UIScreen.main.bounds.width
     private let startButton = UIButton()
     private let coinsImageView = UIImageView()
+    private let hideView = UIView()
+    private(set) var hideViewPosition = 140
     
     init(frame: CGRect, imageArray: [CreateTutorialView]) {
         self.viewArray = imageArray
@@ -61,10 +63,17 @@ class TutorialView: UIView {
         coinsImageView.image = R.image.coins()
         coinsImageView.alpha = 0.2
         coinsImageView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(50)
-            make.right.equalTo(0)
+            make.bottom.equalToSuperview().offset(-5)
+            make.trailing.equalToSuperview()
             make.height.equalTo(360)
             make.width.equalTo(150)
+        }
+        
+        coinsImageView.addSubview(hideView)
+        hideView.backgroundColor = .red
+        hideView.snp.makeConstraints { (make) in
+            make.leading.trailing.height.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-150)
         }
         
         addSubview(pageControl)
@@ -75,7 +84,7 @@ class TutorialView: UIView {
         pageControl.numberOfPages = viewArray.count
         pageControl.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-130)
+            make.bottom.equalToSuperview().offset(-150)
         }
       
         addSubview(startButton)
@@ -101,7 +110,6 @@ extension TutorialView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOfsetX = scrollView.contentOffset.x
         let frame = boundsWight
-//        print("page.control - \(contentOfsetX/frame)")
         let pageIndex = round(CGFloat(contentOfsetX) / frame)
         pageControl.currentPage = Int(pageIndex)
     }

@@ -21,7 +21,7 @@ class TutorialView: UIView {
     private let boundsWight = UIScreen.main.bounds.width
     private let startButton = UIButton()
     private let coinsImageView = UIImageView()
-    private let hideView = UIView(frame: CGRect(x: 30, y: 0, width: 200, height: 285))
+    private let hideView = UIView(frame: CGRect(x: -50, y: 0, width: 200, height: 285))
     
     init(frame: CGRect, imageArray: [CreateTutorialView]) {
         self.viewArray = imageArray
@@ -39,12 +39,23 @@ class TutorialView: UIView {
     
     private func setupLayout() {
         
+        addSubview(coinsImageView)
+        coinsImageView.contentMode = .scaleAspectFill
+        coinsImageView.image = R.image.coins()
+        coinsImageView.alpha = 0.7
+        coinsImageView.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview()
+            make.height.equalTo(360)
+            make.width.equalTo(150)
+        }
+        
         addSubview(scrollView)
         scrollView.contentSize = CGSize(width: boundsWight * CGFloat(viewArray.count), height: UIScreen.main.bounds.height)
-        scrollView.backgroundColor = .white
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bounces = false
+        scrollView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         scrollView.snp.makeConstraints { (make) in
             make.width.height.equalToSuperview()
         }
@@ -55,25 +66,16 @@ class TutorialView: UIView {
                 make.width.height.equalToSuperview()
                 make.leading.equalToSuperview().offset(boundsWight * CGFloat(index))
             }
-            
         }
 
-        addSubview(coinsImageView)
-        coinsImageView.image = R.image.coins()
-        coinsImageView.alpha = 0.2
-        coinsImageView.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview().offset(-5)
-            make.trailing.equalToSuperview()
-            make.height.equalTo(360)
-            make.width.equalTo(150)
-        }
-        
+     
         coinsImageView.addSubview(hideView)
         hideView.backgroundColor = .white
         hideView.layer.shadowColor = UIColor.white.cgColor
         hideView.layer.shadowOpacity = 1
         hideView.layer.shadowOffset = .zero
         hideView.layer.shadowRadius = 10
+        
 
         addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false

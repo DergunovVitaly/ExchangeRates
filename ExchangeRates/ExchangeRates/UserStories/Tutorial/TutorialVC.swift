@@ -34,5 +34,3 @@ class TutorialVC: UIViewController, TutorialViewDelegate {
         print("button pressed")
     }
 }
-
-

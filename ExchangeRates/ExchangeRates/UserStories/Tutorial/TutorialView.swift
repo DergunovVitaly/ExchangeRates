@@ -21,8 +21,7 @@ class TutorialView: UIView {
     private let boundsWight = UIScreen.main.bounds.width
     private let startButton = UIButton()
     private let coinsImageView = UIImageView()
-    private let hideView = UIView()
-    private(set) var hideViewPosition = 140
+    private let hideView = UIView(frame: CGRect(x: 30, y: 0, width: 200, height: 285))
     
     init(frame: CGRect, imageArray: [CreateTutorialView]) {
         self.viewArray = imageArray
@@ -70,12 +69,12 @@ class TutorialView: UIView {
         }
         
         coinsImageView.addSubview(hideView)
-        hideView.backgroundColor = .red
-        hideView.snp.makeConstraints { (make) in
-            make.leading.trailing.height.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-150)
-        }
-        
+        hideView.backgroundColor = .white
+        hideView.layer.shadowColor = UIColor.white.cgColor
+        hideView.layer.shadowOpacity = 1
+        hideView.layer.shadowOffset = .zero
+        hideView.layer.shadowRadius = 10
+
         addSubview(pageControl)
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.hidesForSinglePage = true
@@ -112,6 +111,13 @@ extension TutorialView: UIScrollViewDelegate {
         let frame = boundsWight
         let pageIndex = round(CGFloat(contentOfsetX) / frame)
         pageControl.currentPage = Int(pageIndex)
+        
+        let yPosition = round(CGFloat(contentOfsetX) / 3)
+        let width = hideView.frame.size.width
+        let height = hideView.frame.size.height
+        UIView.animate(withDuration: 1.0, animations: {
+            self.hideView.frame = CGRect(x: 0, y: -yPosition, width: width, height: height)
+        })
     }
 }
 

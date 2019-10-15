@@ -47,14 +47,13 @@ class TutorialView: UIView {
         addSubview(coinsImageView)
         coinsImageView.contentMode = .scaleAspectFill
         coinsImageView.image = R.image.coins()
-        coinsImageView.alpha = 0.7
         
         addSubview(scrollView)
         scrollView.contentSize = CGSize(width: boundsWight * CGFloat(viewArray.count), height: UIScreen.main.bounds.height)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bounces = false
-        scrollView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+        scrollView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         scrollView.snp.makeConstraints { (make) in
             make.width.height.equalToSuperview()
         }
@@ -98,11 +97,13 @@ class TutorialView: UIView {
 }
 
 extension TutorialView: UIScrollViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOfsetX = scrollView.contentOffset.x
         let frame = boundsWight
         let pageIndex = round(CGFloat(contentOfsetX) / frame)
         pageControl.currentPage = Int(pageIndex)
+        
         self.yPositionCoinsImageView = 500
         self.yPositionCoinsImageView -= round(CGFloat(contentOfsetX) / 5 )
         UIView.animate(withDuration: 1.0, animations: {

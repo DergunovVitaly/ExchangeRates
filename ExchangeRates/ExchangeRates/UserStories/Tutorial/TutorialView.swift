@@ -47,6 +47,7 @@ class TutorialView: UIView {
         addSubview(coinsImageView)
         coinsImageView.contentMode = .scaleAspectFill
         coinsImageView.image = R.image.coins()
+        coinsImageView.alpha = 0.4
         
         addSubview(scrollView)
         scrollView.contentSize = CGSize(width: boundsWight * CGFloat(viewArray.count), height: UIScreen.main.bounds.height)

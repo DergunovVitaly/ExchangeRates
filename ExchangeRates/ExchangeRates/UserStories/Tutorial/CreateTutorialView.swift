@@ -58,15 +58,9 @@ class CreateTutorialView: UIView {
         self.descriptionLabel.font = R.font.helveticaNeue(size: 16)
         descriptionLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(30)
-            make.centerX.equalTo(titleLabel)
-            make.width.equalTo(titleLabel)
+            make.centerX.width.equalTo(titleLabel)
             make.height.greaterThanOrEqualTo(65)
-        }
-        
-        func coinsPosition(position: Int) {
-            descriptionLabel.snp.makeConstraints { (make) in
-                make.top.equalToSuperview().offset(position)
-            }
         }
     }
 }
+

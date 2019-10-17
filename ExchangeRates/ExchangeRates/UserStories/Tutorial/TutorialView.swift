@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol TutorialViewDelegate: class {
-    func tupButton()
+    func startButtonAction()
 }
 
 class TutorialView: UIView {
@@ -19,7 +19,7 @@ class TutorialView: UIView {
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
     private let boundsWight = UIScreen.main.bounds.width
-    private let startButton = UIButton()
+    private let startButtonAction = UIButton()
     private var coinsImageView: UIImageView
     private let widthCoinsImageView: CGFloat = 150
     private let heightCoinsImageView: CGFloat = 360
@@ -78,13 +78,13 @@ class TutorialView: UIView {
             make.bottom.equalToSuperview().offset(-150)
         }
         
-        addSubview(startButton)
-        startButton.backgroundColor = R.color.lightBlue()
-        startButton.titleLabel?.font = R.font.helveticaNeueBold(size: 14)
-        startButton.setTitle(Localizable.titleButton(), for: .normal)
-        startButton.layer.cornerRadius = 30
-        startButton.addTarget(self, action: #selector(tupButton), for: .touchUpInside)
-        startButton.snp.makeConstraints { (make) in
+        addSubview(startButtonAction)
+        startButtonAction.backgroundColor = R.color.lightBlue()
+        startButtonAction.titleLabel?.font = R.font.helveticaNeueBold(size: 14)
+        startButtonAction.setTitle(Localizable.titleButton(), for: .normal)
+        startButtonAction.layer.cornerRadius = 30
+        startButtonAction.addTarget(self, action: #selector(startButtonActionSelector), for: .touchUpInside)
+        startButtonAction.snp.makeConstraints { (make) in
             make.width.equalTo(250)
             make.height.equalTo(60)
             make.bottom.equalToSuperview().offset(-60)
@@ -92,8 +92,8 @@ class TutorialView: UIView {
         }
     }
     
-    @objc func tupButton() {
-        delegate?.tupButton()
+    @objc func startButtonActionSelector() {
+        delegate?.startButtonAction()
     }
 }
 

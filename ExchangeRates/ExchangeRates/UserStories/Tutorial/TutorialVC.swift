@@ -30,7 +30,7 @@ class TutorialVC: UIViewController, TutorialViewDelegate {
         view = contentView
     }
     
-    func tupButton() {
+    func startButtonAction() {
         print("button pressed")
     }
 }

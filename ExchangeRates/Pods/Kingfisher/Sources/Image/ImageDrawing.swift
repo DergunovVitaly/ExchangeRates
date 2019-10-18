@@ -26,7 +26,7 @@
 
 import Accelerate
 
-#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+#if canImport(AppKit) && !targetEnvironment(macabi)
 import AppKit
 #endif
 #if canImport(UIKit)

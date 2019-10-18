@@ -7,30 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04D5F6B42349D71300B25A05 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B32349D71300B25A05 /* TutorialVC.swift */; };
-		04D5F6B62349D76C00B25A05 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B52349D76C00B25A05 /* TutorialView.swift */; };
+		0450BA0323510408003B0E98 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0450BA0223510408003B0E98 /* CloudKit.framework */; };
+		048C5390234BA13600ED883F /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C538F234BA13600ED883F /* TutorialVC.swift */; };
+		04ACED9D2349F31300264199 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9C2349F31300264199 /* Typealias.swift */; };
+		04ACED9F234A04F700264199 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9E234A04F700264199 /* TutorialView.swift */; };
+		04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */; };
 		04D5F6B82349D94400B25A05 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B72349D94400B25A05 /* Bank.swift */; };
 		04D5F6C22349E26400B25A05 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6C12349E26400B25A05 /* R.generated.swift */; };
 		04F932A02349E59100228657 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04F932A22349E59100228657 /* Localizable.strings */; };
 		04F932A42349E62A00228657 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F932A32349E62A00228657 /* Colors.xcassets */; };
+		1F0E7539234E1F1B00A32B96 /* helveticaneue.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */; };
+		1F0E753A234E1F1B00A32B96 /* HelveticaNeueBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */; };
 		5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */; };
-		5BBD71C52348B75C00D0B9EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C32348B75C00D0B9EA /* Main.storyboard */; };
 		5BBD71C72348B76000D0B9EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C62348B76000D0B9EA /* Assets.xcassets */; };
 		5BBD71CA2348B76000D0B9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C82348B76000D0B9EA /* LaunchScreen.storyboard */; };
 		A6ACDD0C67E634253C9C9B24 /* Pods_ExchangeRates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D1C8643BB4DFE779D34A7B /* Pods_ExchangeRates.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		04D5F6B32349D71300B25A05 /* TutorialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TutorialVC.swift; path = "../../../../../udemy couse/Udemy Courses/Udemy Courses/ExchangeRates/TutorialVC.swift"; sourceTree = "<group>"; };
-		04D5F6B52349D76C00B25A05 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		0450BA01235103F9003B0E98 /* ExchangeRates.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExchangeRates.entitlements; sourceTree = "<group>"; };
+		0450BA0223510408003B0E98 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		048C538F234BA13600ED883F /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
+		04ACED9C2349F31300264199 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		04ACED9E234A04F700264199 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTutorialView.swift; sourceTree = "<group>"; };
 		04D5F6B72349D94400B25A05 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		04D5F6C12349E26400B25A05 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		04F932A12349E59100228657 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04F932A32349E62A00228657 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = helveticaneue.ttf; sourceTree = "<group>"; };
+		1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeueBold.ttf; sourceTree = "<group>"; };
 		215B438D33C5DB212CC5FE8D /* Pods-ExchangeRates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExchangeRates.release.xcconfig"; path = "Target Support Files/Pods-ExchangeRates/Pods-ExchangeRates.release.xcconfig"; sourceTree = "<group>"; };
 		5BBD71BA2348B75C00D0B9EA /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BBD71C42348B75C00D0B9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BBD71C62348B76000D0B9EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BBD71C92348B76000D0B9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BBD71CB2348B76000D0B9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6ACDD0C67E634253C9C9B24 /* Pods_ExchangeRates.framework in Frameworks */,
+				0450BA0323510408003B0E98 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,8 +79,9 @@
 		04D5F6B12349D6E600B25A05 /* Tutorial */ = {
 			isa = PBXGroup;
 			children = (
-				04D5F6B32349D71300B25A05 /* TutorialVC.swift */,
-				04D5F6B52349D76C00B25A05 /* TutorialView.swift */,
+				048C538F234BA13600ED883F /* TutorialVC.swift */,
+				04ACED9E234A04F700264199 /* TutorialView.swift */,
+				04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */,
 			);
 			path = Tutorial;
 			sourceTree = "<group>";
@@ -87,7 +98,6 @@
 		04D5F6BA2349DA7700B25A05 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				5BBD71C32348B75C00D0B9EA /* Main.storyboard */,
 				5BBD71C82348B76000D0B9EA /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -96,12 +106,30 @@
 		04D5F6BB2349DADF00B25A05 /* Resurses */ = {
 			isa = PBXGroup;
 			children = (
+				1FA439F7234BBE99007B5504 /* Fonts */,
 				04D5F6C12349E26400B25A05 /* R.generated.swift */,
 				5BBD71C62348B76000D0B9EA /* Assets.xcassets */,
 				04F932A32349E62A00228657 /* Colors.xcassets */,
 				04F932A22349E59100228657 /* Localizable.strings */,
+				04ACED9C2349F31300264199 /* Typealias.swift */,
 			);
 			path = Resurses;
+			sourceTree = "<group>";
+		};
+		1FA439F7234BBE99007B5504 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */,
+				1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1FA43A60234D0204007B5504 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5BBD71B12348B75C00D0B9EA = {
@@ -125,11 +153,13 @@
 		5BBD71BC2348B75C00D0B9EA /* ExchangeRates */ = {
 			isa = PBXGroup;
 			children = (
-				04D5F6BA2349DA7700B25A05 /* Storyboards */,
+				0450BA01235103F9003B0E98 /* ExchangeRates.entitlements */,
+				1FA43A60234D0204007B5504 /* Extensions */,
 				04D5F6B92349DA2800B25A05 /* Application */,
 				04D5F6AE2349D65E00B25A05 /* Models */,
 				04D5F6B02349D6B800B25A05 /* UserStories */,
 				04D5F6BB2349DADF00B25A05 /* Resurses */,
+				04D5F6BA2349DA7700B25A05 /* Storyboards */,
 			);
 			path = ExchangeRates;
 			sourceTree = "<group>";
@@ -137,6 +167,7 @@
 		9D40D6B23F8EFCF2263B0C4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0450BA0223510408003B0E98 /* CloudKit.framework */,
 				D1D1C8643BB4DFE779D34A7B /* Pods_ExchangeRates.framework */,
 			);
 			name = Frameworks;
@@ -213,10 +244,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				04F932A42349E62A00228657 /* Colors.xcassets in Resources */,
+				1F0E753A234E1F1B00A32B96 /* HelveticaNeueBold.ttf in Resources */,
 				5BBD71CA2348B76000D0B9EA /* LaunchScreen.storyboard in Resources */,
 				04F932A02349E59100228657 /* Localizable.strings in Resources */,
 				5BBD71C72348B76000D0B9EA /* Assets.xcassets in Resources */,
-				5BBD71C52348B75C00D0B9EA /* Main.storyboard in Resources */,
+				1F0E7539234E1F1B00A32B96 /* helveticaneue.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,10 +320,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04D5F6B62349D76C00B25A05 /* TutorialView.swift in Sources */,
-				04D5F6B42349D71300B25A05 /* TutorialVC.swift in Sources */,
+				048C5390234BA13600ED883F /* TutorialVC.swift in Sources */,
+				04ACED9F234A04F700264199 /* TutorialView.swift in Sources */,
+				04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */,
 				04D5F6C22349E26400B25A05 /* R.generated.swift in Sources */,
 				04D5F6B82349D94400B25A05 /* Bank.swift in Sources */,
+				04ACED9D2349F31300264199 /* Typealias.swift in Sources */,
 				5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,14 +339,6 @@
 				04F932A12349E59100228657 /* en */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		5BBD71C32348B75C00D0B9EA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5BBD71C42348B75C00D0B9EA /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		5BBD71C82348B76000D0B9EA /* LaunchScreen.storyboard */ = {
@@ -445,7 +471,10 @@
 			baseConfigurationReference = A8477F45C0E4B0C5CEEB2A6D /* Pods-ExchangeRates.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = ExchangeRates/ExchangeRates.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ExchangeRates/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -454,6 +483,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = DenisMelnikov.ExchangeRates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -464,7 +494,10 @@
 			baseConfigurationReference = 215B438D33C5DB212CC5FE8D /* Pods-ExchangeRates.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = ExchangeRates/ExchangeRates.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/ExchangeRates/Application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -473,6 +506,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = DenisMelnikov.ExchangeRates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

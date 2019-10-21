@@ -17,10 +17,12 @@ struct R: Rswift.Validatable {
     try intern.validate()
   }
   
-  /// This `R.color` struct is generated, and contains static references to 2 colors.
+  /// This `R.color` struct is generated, and contains static references to 3 colors.
   struct color {
     /// Color `lightBlue`.
     static let lightBlue = Rswift.ColorResource(bundle: R.hostingBundle, name: "lightBlue")
+    /// Color `lightDark`.
+    static let lightDark = Rswift.ColorResource(bundle: R.hostingBundle, name: "lightDark")
     /// Color `lightGrey`.
     static let lightGrey = Rswift.ColorResource(bundle: R.hostingBundle, name: "lightGrey")
     
@@ -29,6 +31,13 @@ struct R: Rswift.Validatable {
     @available(iOS 11.0, *)
     static func lightBlue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
       return UIKit.UIColor(resource: R.color.lightBlue, compatibleWith: traitCollection)
+    }
+    
+    /// `UIColor(named: "lightDark", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func lightDark(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.lightDark, compatibleWith: traitCollection)
     }
     
     /// `UIColor(named: "lightGrey", bundle: ..., traitCollection: ...)`
@@ -129,8 +138,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 7 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 8 localization keys.
     struct localizable {
+      /// en translation: Bank Informer
+      /// 
+      /// Locales: en
+      static let titleNameFirstView = Rswift.StringResource(key: "titleNameFirstView", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Аналізуйте
       /// 
       /// Locales: en
@@ -159,6 +172,13 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let titleButton = Rswift.StringResource(key: "titleButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      
+      /// en translation: Bank Informer
+      /// 
+      /// Locales: en
+      static func titleNameFirstView(_: Void = ()) -> String {
+        return NSLocalizedString("titleNameFirstView", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: Аналізуйте
       /// 

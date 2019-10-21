@@ -31,6 +31,6 @@ class TutorialVC: UIViewController, TutorialViewDelegate {
     }
     
     func startButtonAction() {
-        print("button pressed")
+        self.show(UINavigationController(rootViewController: BanksVC()), sender: true)
     }
 }

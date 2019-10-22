@@ -31,6 +31,8 @@ class TutorialVC: UIViewController, TutorialViewDelegate {
     }
     
     func startButtonAction() {
-        self.show(UINavigationController(rootViewController: BanksVC()), sender: true)
+        let navigation = UINavigationController(rootViewController: BanksVC())
+        navigation.navigationBar.backgroundColor = R.color.lightBlue()
+        self.show(navigation, sender: true)
     }
 }

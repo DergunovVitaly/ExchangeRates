@@ -14,4 +14,7 @@ struct BankModel: Codable {
     let phone: String
     let branch: Bool
     let oldId: Int
+    let logo: String
+    let city: String
+    let adress: String
 }

@@ -16,5 +16,5 @@ struct BankModel: Codable {
     let oldId: Int
     let logo: String
     let city: String
-    let adress: String
+    var adress: String
 }

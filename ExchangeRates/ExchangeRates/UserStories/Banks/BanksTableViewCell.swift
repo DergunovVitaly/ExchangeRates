@@ -75,24 +75,21 @@ class BanksTableViewCell: UITableViewCell {
         for index in 0..<arrayImages.count {
             barStackView.addArrangedSubview(UIImageView(image: arrayImages[index]))
         }
-        barStackView.contentMode = .scaleAspectFit
+        //barStackView.contentMode = .scaleAspectFit
         barStackView.axis = .horizontal
-        barStackView.spacing = 10
-        barStackView.distribution = .fillEqually
+        //barStackView.spacing = 10
+        barStackView.distribution = .equalSpacing
         barStackView.alignment = .center
         barStackView.backgroundColor = R.color.grayView()
         barStackView.snp.makeConstraints { (make) in
             make.bottom.left.right.equalToSuperview()
-            make.height.equalTo(20)
+            make.height.equalTo(40)
         }
-
     }
-    
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-//    }
+    //    override func layoutSubviews() {
+    //        super.layoutSubviews()
+    //        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+    //    }
     
     func setLayerTableView() {
         layer.cornerRadius = 5

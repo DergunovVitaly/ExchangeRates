@@ -12,7 +12,8 @@ class BanksView: UIView {
     
     let bankTableView = UITableView()
     let bankListArrey = [BankModel(id: "122", title: "Альфа-Банк", phone: "044 93 81615 ", branch: true, oldId: 22, logo: "alfa", city: "Закарпатська облаcть Ужгород", adress: "Минайська, 70"),
-                         BankModel(id: "33", title: "ВТБ Банк", phone: "044 93 81615 ", branch: false, oldId: 44, logo: "vtb", city: "Закарпатська облаcть Ужгород", adress: "Швабська, 45")]
+                         BankModel(id: "33", title: "ВТБ Банк", phone: "044 93 81615 ", branch: false, oldId: 44, logo: "vtb", city: "Закарпатська облаcть Ужгород", adress: "Швабська, 45"),
+                         BankModel(id: "21", title: "ПриватБанк", phone: "044 93 81615 ", branch: true, oldId: 33, logo: "privat", city: "Харьковская Область Харьков", adress: "Баварская 4а")]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,6 +29,8 @@ class BanksView: UIView {
     
     func setTableView() {
         addSubview(bankTableView)
+        bankTableView.allowsSelection = false
+        bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = backgroundColor
         bankTableView.rowHeight = 200
         bankTableView.register(BanksTableViewCell.self, forCellReuseIdentifier: "Cell")

@@ -15,3 +15,23 @@ class BanksVC: UIViewController {
         view = BanksView()
     }
 }
+
+extension BanksVC: BanksTableViewCellDelegate {
+    func linkButtonAction() {
+        self.present(UINavigationController(rootViewController: LinkView()), animated: true, completion: nil)
+    }
+    
+    func locationButtonAction() {
+        self.present(UINavigationController(rootViewController: LocationView()), animated: true, completion: nil)
+    }
+    
+    func phoneButtonAction() {
+        self.present(UINavigationController(rootViewController: PhoneView()), animated: true, completion: nil)
+    }
+    
+    func menuButtonAction() {
+        self.present(UINavigationController(rootViewController: MenuView()), animated: true, completion: nil)
+    }
+    
+    
+}

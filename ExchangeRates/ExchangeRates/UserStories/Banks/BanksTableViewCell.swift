@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol BanksTableViewCellDelegate: class {
+    func linkButtonAction()
+    func locationButtonAction()
+    func phoneButtonAction()
+    func menuButtonAction()
+}
+
 class BanksTableViewCell: UITableViewCell {
     
     let bank: BankModel
@@ -16,6 +23,10 @@ class BanksTableViewCell: UITableViewCell {
     private let nameCityLabel = UILabel()
     private let titleAdressPhoneLabel = UILabel()
     private let barStackView = UIStackView()
+    @objc private let linkButton = UIButton()
+    private let locationButton = UIButton()
+    private let phoneButton = UIButton()
+    private let menuButton = UIButton()
     
     init(bank: BankModel) {
         self.bank = bank
@@ -28,6 +39,7 @@ class BanksTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    weak var delegate: BanksTableViewCellDelegate?
     func setupLayout() {
         
         addSubview(titleBankLabel)
@@ -90,6 +102,33 @@ class BanksTableViewCell: UITableViewCell {
             make.bottom.left.right.equalToSuperview()
             make.height.equalTo(40)
         }
+        let buttonsArray = [linkButton, locationButton, phoneButton, menuButton]
+        for index in 0..<buttonsArray.count {
+            //            let color : [UIColor] = [.blue, .yellow, .green, .red]
+            //            buttonsArray[index].backgroundColor = color[index].withAlphaComponent(0.2) for check buttons
+            barStackView.addSubview(buttonsArray[index])
+            buttonsArray[index].snp.makeConstraints { (make) in
+                make.width.equalTo(contentView.bounds.width / CGFloat(buttonsArray.count) + 10)
+                make.left.equalToSuperview().offset(90 * index)
+            }
+        }
+        linkButton.addTarget(self, action: #selector(linkButtonSelection), for: .touchUpInside)
+        locationButton.addTarget(self, action: #selector(locationButtonSelection), for: .touchUpInside)
+        phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)
+        menuButton.addTarget(self, action: #selector(menuButtonSelection), for: .touchUpInside)
+    }
+    
+    @objc func linkButtonSelection(){
+        delegate?.linkButtonAction()
+    }
+    @objc func locationButtonSelection(){
+        delegate?.locationButtonAction()
+    }
+    @objc   func phoneButtonSelection(){
+        delegate?.phoneButtonAction()
+    }
+    @objc   func menuButtonSelection(){
+        delegate?.menuButtonAction()
     }
     
     override func layoutSubviews() {

@@ -84,12 +84,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 13 images.
+  /// This `R.image` struct is generated, and contains static references to 14 images.
   struct image {
     /// Image ` link`.
     static let link = Rswift.ImageResource(bundle: R.hostingBundle, name: " link")
-    /// Image ` location`.
-    static let location = Rswift.ImageResource(bundle: R.hostingBundle, name: " location")
     /// Image ` menu`.
     static let menu = Rswift.ImageResource(bundle: R.hostingBundle, name: " menu")
     /// Image ` phone`.
@@ -102,6 +100,10 @@ struct R: Rswift.Validatable {
     static let black = Rswift.ImageResource(bundle: R.hostingBundle, name: "black")
     /// Image `coins`.
     static let coins = Rswift.ImageResource(bundle: R.hostingBundle, name: "coins")
+    /// Image `location-1`.
+    static let location1 = Rswift.ImageResource(bundle: R.hostingBundle, name: "location-1")
+    /// Image `location`.
+    static let location = Rswift.ImageResource(bundle: R.hostingBundle, name: "location")
     /// Image `money`.
     static let money = Rswift.ImageResource(bundle: R.hostingBundle, name: "money")
     /// Image `piggyBank`.
@@ -116,11 +118,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: " link", bundle: ..., traitCollection: ...)`
     static func link(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.link, compatibleWith: traitCollection)
-    }
-    
-    /// `UIImage(named: " location", bundle: ..., traitCollection: ...)`
-    static func location(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.location, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: " menu", bundle: ..., traitCollection: ...)`
@@ -151,6 +148,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "coins", bundle: ..., traitCollection: ...)`
     static func coins(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.coins, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "location", bundle: ..., traitCollection: ...)`
+    static func location(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.location, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "location-1", bundle: ..., traitCollection: ...)`
+    static func location1(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.location1, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "money", bundle: ..., traitCollection: ...)`

@@ -35,6 +35,7 @@ extension TutorialVC: TutorialViewDelegate {
     func startButtonAction() {
         let navigation = UINavigationController(rootViewController: BanksVC())
         navigation.navigationBar.backgroundColor = R.color.lightBlue()
-        self.show(navigation, sender: true)
+        navigation.modalPresentationStyle = .fullScreen
+        self.present(navigation, animated: true, completion: nil)
     }
 }

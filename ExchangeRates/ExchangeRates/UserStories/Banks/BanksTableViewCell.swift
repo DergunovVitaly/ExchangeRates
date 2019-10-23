@@ -35,8 +35,11 @@ class BanksTableViewCell: UITableViewCell {
         titleBankLabel.font = R.font.helveticaNeue(size: 26)
         titleBankLabel.textColor = R.color.lightDark()
         titleBankLabel.numberOfLines = 0
+        titleBankLabel.backgroundColor = .red
         titleBankLabel.snp.makeConstraints { (make) in
-            make.top.left.equalToSuperview().offset(15)
+            make.top.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+            make.height.equalTo(44)
         }
         
         addSubview(bankLogo)

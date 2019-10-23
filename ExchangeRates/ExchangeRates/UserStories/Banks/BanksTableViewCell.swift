@@ -11,30 +11,30 @@ import UIKit
 class BanksTableViewCell: UITableViewCell {
     
     let bank: BankModel
-    let titleBankLabel = UILabel()
-    let bankLogo = UIImageView()
-    let nameCityLabel = UILabel()
-    let titleAdressPhoneLabel = UILabel()
-    let barStackView = UIStackView()
+    private let titleBankLabel = UILabel()
+    private let bankLogo = UIImageView()
+    private let nameCityLabel = UILabel()
+    private let titleAdressPhoneLabel = UILabel()
+    private let barStackView = UIStackView()
     
     init(bank: BankModel) {
         self.bank = bank
         super.init(style: .default, reuseIdentifier: "Cell")
-        setContentView()
-        setLayerTableView()
+        setupLayout()
+        setLayerTableViewCell()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setContentView() {
+    func setupLayout() {
         
         addSubview(titleBankLabel)
         titleBankLabel.text = bank.title
         titleBankLabel.font = R.font.helveticaNeue(size: 26)
         titleBankLabel.textColor = R.color.lightDark()
-        nameCityLabel.numberOfLines = 0
+        titleBankLabel.numberOfLines = 0
         titleBankLabel.snp.makeConstraints { (make) in
             make.top.left.equalToSuperview().offset(15)
         }
@@ -49,7 +49,7 @@ class BanksTableViewCell: UITableViewCell {
         }
         
         addSubview(nameCityLabel)
-        nameCityLabel.text = bank.city
+        nameCityLabel.text = bank.regions + bank.cities
         nameCityLabel.textColor = R.color.lightGrey()
         nameCityLabel.font = R.font.helveticaNeue(size: 20)
         nameCityLabel.numberOfLines = 0
@@ -60,7 +60,7 @@ class BanksTableViewCell: UITableViewCell {
         }
         
         addSubview(titleAdressPhoneLabel)
-        titleAdressPhoneLabel.text = bank.phone + bank.adress
+        titleAdressPhoneLabel.text = bank.phone + bank.address
         titleAdressPhoneLabel.numberOfLines = 0
         titleAdressPhoneLabel.textColor = R.color.lightGrey()
         titleAdressPhoneLabel.font = R.font.helveticaNeue(size: 15)
@@ -86,14 +86,14 @@ class BanksTableViewCell: UITableViewCell {
             make.height.equalTo(40)
         }
     }
-    //    override func layoutSubviews() {
-    //        super.layoutSubviews()
-    //        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-    //    }
+        override func layoutSubviews() {
+            super.layoutSubviews()
+            frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        }
     
-    func setLayerTableView() {
+    func setLayerTableViewCell() {
         layer.cornerRadius = 5
-        layer.shadowOffset = CGSize(width: 4, height: 5)
+        layer.shadowOffset = CGSize(width: 5, height: 5)
         layer.shadowOpacity = 0.1
         layer.borderColor = UIColor.gray.cgColor
     }

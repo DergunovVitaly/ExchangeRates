@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TutorialVC: UIViewController, TutorialViewDelegate {
+class TutorialVC: UIViewController {
     
     private let tutorialViewArray = [CreateTutorialView(frame: .zero,
                                                         image: R.image.piggyBank(),
@@ -29,7 +29,9 @@ class TutorialVC: UIViewController, TutorialViewDelegate {
         contentView.delegate = self
         view = contentView
     }
-    
+}
+
+extension TutorialVC: TutorialViewDelegate {
     func startButtonAction() {
         let navigation = UINavigationController(rootViewController: BanksVC())
         navigation.navigationBar.backgroundColor = R.color.lightBlue()

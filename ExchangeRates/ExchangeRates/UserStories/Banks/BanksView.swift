@@ -8,6 +8,13 @@
 
 import UIKit
 
+protocol BanksViewDelegate: class {
+    func linkButtonAction()
+    func locationButtonAction()
+    func phoneButtonAction()
+    func menuButtonAction()
+}
+
 class BanksView: UIView {
     
     let bankTableView = UITableView()

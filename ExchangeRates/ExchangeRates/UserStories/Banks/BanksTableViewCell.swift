@@ -66,7 +66,7 @@ class BanksTableViewCell: UITableViewCell {
         titleAdressPhoneLabel.font = R.font.helveticaNeue(size: 15)
         titleAdressPhoneLabel.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-15)
-            make.top.equalTo(bankLogo).offset(100)
+            make.top.equalTo(bankLogo).offset(80)
             make.width.equalTo(contentView.bounds.width / 3)
         }
         
@@ -78,23 +78,35 @@ class BanksTableViewCell: UITableViewCell {
         //barStackView.contentMode = .scaleAspectFit
         barStackView.axis = .horizontal
         //barStackView.spacing = 10
+        barStackView.isLayoutMarginsRelativeArrangement = true
+        barStackView.layoutMargins = UIEdgeInsets(top: 10, left: 50, bottom: 10, right: 50)
         barStackView.distribution = .equalSpacing
         barStackView.alignment = .center
-        barStackView.backgroundColor = R.color.grayView()
+        barStackView.addBackground(color: R.color.grayView()!)
         barStackView.snp.makeConstraints { (make) in
             make.bottom.left.right.equalToSuperview()
             make.height.equalTo(40)
         }
     }
-        override func layoutSubviews() {
-            super.layoutSubviews()
-            frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-        }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+    }
     
     func setLayerTableViewCell() {
         layer.cornerRadius = 5
         layer.shadowOffset = CGSize(width: 5, height: 5)
         layer.shadowOpacity = 0.1
         layer.borderColor = UIColor.gray.cgColor
+    }
+}
+
+extension UIStackView {
+    func addBackground(color: UIColor) {
+        let subView = UIView(frame: bounds)
+        subView.backgroundColor = color
+        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        insertSubview(subView, at: 0)
     }
 }

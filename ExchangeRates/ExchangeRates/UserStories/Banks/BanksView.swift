@@ -12,11 +12,10 @@ import UIKit
 class BanksView: UIView {
     
     let bankTableView = UITableView()
-    let bankListArrey = [BankModel(id: "122", title: "Альфа-Банк", phone: "044 93 81615 ", branch: true, oldId: 22, logo: "alfa", cities: "Ужгород", address: "Минайська, 70", regions: "Закарпатська облаcть "),
-                         BankModel(id: "33", title: "ВТБ Банк", phone: "044 93 81615 ", branch: false, oldId: 44, logo: "vtb", cities: "Ужгород", address: "Швабська, 45", regions: "Закарпатська облаcть "),
-                         BankModel(id: "21", title: "ПриватБанк", phone: "044 93 81615 ", branch: true, oldId: 33, logo: "privat", cities: "Харьков", address: "Баварская 4а", regions: "Харьковская Область ")]
+    private var arrayList : [BankModel]
     
-    override init(frame: CGRect) {
+     init(frame: CGRect, arrayList: [BankModel]) {
+        self.arrayList = arrayList
         super.init(frame: frame)
         bankTableView.delegate = self
         bankTableView.dataSource = self
@@ -61,11 +60,11 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource, BanksTableViewC
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        bankListArrey.count
+        arrayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BanksTableViewCell(bank: bankListArrey[indexPath.row])
+        let cell = BanksTableViewCell()
         return cell
     }
 }

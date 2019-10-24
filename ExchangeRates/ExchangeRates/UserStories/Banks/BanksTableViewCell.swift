@@ -17,7 +17,6 @@ protocol BanksTableViewCellDelegate: class {
 
 class BanksTableViewCell: UITableViewCell {
     
-    let bank: BankModel
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
     private let nameCityLabel = UILabel()
@@ -29,9 +28,9 @@ class BanksTableViewCell: UITableViewCell {
     private let locationButton = UIButton()
     private let phoneButton = UIButton()
     private let menuButton = UIButton()
+    weak var delegate: BanksTableViewCellDelegate?
     
-    init(bank: BankModel) {
-        self.bank = bank
+    init() {
         super.init(style: .default, reuseIdentifier: "Cell")
         setupLayout()
         setLayerTableViewCell()
@@ -41,11 +40,18 @@ class BanksTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    weak var delegate: BanksTableViewCellDelegate?
+    func updateBankModel(bankModel: BankModel) {
+        titleBankLabel.text = bankModel.title
+        bankLogo.image = UIImage(named: bankModel.logo)
+        nameRegionsLabel.text = bankModel.regions
+        nameCityLabel.text = bankModel.cities
+        titlePhoneLabel.text = "Тел.: " + bankModel.phone
+        titleAdressLabel.text = "Адреса: " + bankModel.address
+    }
+    
     func setupLayout() {
         
         addSubview(titleBankLabel)
-        titleBankLabel.text = bank.title
         titleBankLabel.font = R.font.helveticaNeue(size: 26)
         titleBankLabel.textColor = R.color.lightDark()
         titleBankLabel.numberOfLines = 0
@@ -56,7 +62,6 @@ class BanksTableViewCell: UITableViewCell {
         }
         
         addSubview(bankLogo)
-        bankLogo.image = UIImage(named: bank.logo)
         bankLogo.contentMode = .scaleAspectFit
         bankLogo.snp.makeConstraints { (make) in
             make.top.trailing.equalTo(titleBankLabel)
@@ -65,7 +70,6 @@ class BanksTableViewCell: UITableViewCell {
         }
         
         addSubview(nameRegionsLabel)
-        nameRegionsLabel.text = bank.regions
         nameRegionsLabel.textColor = R.color.lightGrey()
         nameRegionsLabel.font = R.font.helveticaNeue(size: 20)
         nameRegionsLabel.numberOfLines = 0
@@ -77,7 +81,6 @@ class BanksTableViewCell: UITableViewCell {
         }
         
         addSubview(nameCityLabel)
-        nameCityLabel.text = bank.cities
         nameCityLabel.textColor = R.color.lightGrey()
         nameCityLabel.font = R.font.helveticaNeue(size: 20)
         nameCityLabel.numberOfLines = 0
@@ -89,7 +92,6 @@ class BanksTableViewCell: UITableViewCell {
         }
         
         addSubview(titlePhoneLabel)
-        titlePhoneLabel.text = "Тел.: " + bank.phone
         titlePhoneLabel.numberOfLines = 0
         titlePhoneLabel.textColor = R.color.lightGrey()
         titlePhoneLabel.font = R.font.helveticaNeue(size: 15)
@@ -101,7 +103,6 @@ class BanksTableViewCell: UITableViewCell {
         }
         
         addSubview(titleAdressLabel)
-        titleAdressLabel.text = "Адреса: " + bank.address
         titleAdressLabel.numberOfLines = 0
         titleAdressLabel.textColor = R.color.lightGrey()
         titleAdressLabel.font = R.font.helveticaNeue(size: 15)

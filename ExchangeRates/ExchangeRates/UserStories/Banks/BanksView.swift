@@ -38,12 +38,27 @@ class BanksView: UIView {
         bankTableView.register(BanksTableViewCell.self, forCellReuseIdentifier: "Cell")
         bankTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(68)
-            make.bottom.left.right.equalToSuperview()
+            make.bottom.leading.trailing.equalToSuperview()
         }
     }
 }
 
-extension BanksView: UITableViewDelegate, UITableViewDataSource {
+extension BanksView: UITableViewDelegate, UITableViewDataSource, BanksTableViewCellDelegate {
+    func linkButtonAction() {
+        
+    }
+    
+    func locationButtonAction() {
+        
+    }
+    
+    func phoneButtonAction() {
+        
+    }
+    
+    func menuButtonAction() {
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         bankListArrey.count

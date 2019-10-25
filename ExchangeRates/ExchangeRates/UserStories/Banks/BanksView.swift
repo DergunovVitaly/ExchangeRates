@@ -3,20 +3,28 @@
 //  ExchangeRates
 //
 //  Created by Mac on 21.10.2019.
-//  Copyright © 2019 Denis Melnikov. All rights reserved.
+//  Copyright © 2019 Vitalii Derhunov. All rights reserved.
 //
 
 import UIKit
 
+protocol BanksViewDelegate: class {
+    func linkButtonAction()
+    func locationButtonAction()
+    func phoneButtonAction()
+    func menuButtonAction()
+}
 
 class BanksView: UIView {
     
-    let bankTableView = UITableView()
-    private var arrayList : [BankModel]
+    weak var delegate: BanksViewDelegate?
     
-     init(frame: CGRect, arrayList: [BankModel]) {
-        self.arrayList = arrayList
-        super.init(frame: frame)
+    let bankTableView = UITableView()
+    private var bankModelArray : [BankModel]
+    
+     init(arrayList: [BankModel]) {
+        self.bankModelArray = arrayList
+        super.init(frame: .zero)
         bankTableView.delegate = self
         bankTableView.dataSource = self
         setTableView()
@@ -34,7 +42,7 @@ class BanksView: UIView {
         bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = backgroundColor
         bankTableView.rowHeight = 200
-        bankTableView.register(BanksTableViewCell.self, forCellReuseIdentifier: "Cell")
+        bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: "Cell")
         bankTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(68)
             make.bottom.leading.trailing.equalToSuperview()
@@ -42,29 +50,34 @@ class BanksView: UIView {
     }
 }
 
-extension BanksView: UITableViewDelegate, UITableViewDataSource, BanksTableViewCellDelegate {
-    func linkButtonAction() {
-        
-    }
-    
-    func locationButtonAction() {
-        
-    }
-    
-    func phoneButtonAction() {
-        
-    }
-    
-    func menuButtonAction() {
-        
-    }
+extension BanksView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        arrayList.count
+        bankModelArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BanksTableViewCell()
+        let cell = BankTableViewCell()
+        cell.updateBankModel(bankModel: bankModelArray[indexPath.row])
+        cell.delegate = self
         return cell
+    }
+}
+
+extension BanksView: BanksTableViewCellDelegate {
+    func linkButtonAction() {
+        delegate?.linkButtonAction()
+    }
+    
+    func locationButtonAction() {
+        delegate?.locationButtonAction()
+    }
+    
+    func phoneButtonAction() {
+        delegate?.phoneButtonAction()
+    }
+    
+    func menuButtonAction() {
+        delegate?.menuButtonAction()
     }
 }

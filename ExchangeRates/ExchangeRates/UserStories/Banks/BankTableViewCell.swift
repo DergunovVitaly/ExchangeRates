@@ -3,7 +3,7 @@
 //  ExchangeRates
 //
 //  Created by Mac on 21.10.2019.
-//  Copyright © 2019 Denis Melnikov. All rights reserved.
+//  Copyright © 2019 Vitalii Derhunov. All rights reserved.
 //
 
 import UIKit
@@ -15,7 +15,9 @@ protocol BanksTableViewCellDelegate: class {
     func menuButtonAction()
 }
 
-class BanksTableViewCell: UITableViewCell {
+class BankTableViewCell: UITableViewCell {
+    
+    weak var delegate: BanksTableViewCellDelegate?
     
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
@@ -28,7 +30,6 @@ class BanksTableViewCell: UITableViewCell {
     private let locationButton = UIButton()
     private let phoneButton = UIButton()
     private let menuButton = UIButton()
-    weak var delegate: BanksTableViewCellDelegate?
     
     init() {
         super.init(style: .default, reuseIdentifier: "Cell")
@@ -150,16 +151,16 @@ class BanksTableViewCell: UITableViewCell {
     }
     
     @objc func linkButtonSelection(){
-        
+        delegate?.linkButtonAction()
     }
     @objc func locationButtonSelection(){
-        
+        delegate?.locationButtonAction()
     }
-    @objc   func phoneButtonSelection(){
-        
+    @objc func phoneButtonSelection(){
+        delegate?.phoneButtonAction()
     }
-    @objc   func menuButtonSelection(){
-        
+    @objc func menuButtonSelection(){
+        delegate?.menuButtonAction()
     }
     
     override func layoutSubviews() {

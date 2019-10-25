@@ -20,20 +20,38 @@ class BanksView: UIView {
     weak var delegate: BanksViewDelegate?
     
     let bankTableView = UITableView()
+    let navigationControlExemp = UINavigationController()
     private var bankModelArray : [BankModel]
+
     
-     init(arrayList: [BankModel]) {
+    init(arrayList: [BankModel]) {
         self.bankModelArray = arrayList
         super.init(frame: .zero)
         bankTableView.delegate = self
         bankTableView.dataSource = self
         setTableView()
         backgroundColor = R.color.grayView()
+        setNavControl()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+        func setNavControl() {
+            navigationControlExemp.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+            navigationControlExemp.navigationBar.barTintColor = R.color.lightBlue()
+            navigationControlExemp.modalPresentationStyle = .fullScreen
+            let searchButton = UIButton()
+            navigationControlExemp.navigationBar.addSubview(searchButton)
+            searchButton.setImage(R.image.search(), for: .normal)
+            searchButton.imageView?.contentMode = .scaleAspectFit
+            searchButton.snp.makeConstraints { (make) in
+                make.top.equalToSuperview().offset(15)
+                make.trailing.equalToSuperview().offset(-15)
+                make.height.width.equalTo(20)
+            }
+        }
     
     func setTableView() {
         addSubview(bankTableView)

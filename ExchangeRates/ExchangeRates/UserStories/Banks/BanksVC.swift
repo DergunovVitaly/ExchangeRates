@@ -10,8 +10,8 @@ import UIKit
 class BanksVC: UIViewController {
     
     let bankListArray = [BankModel(id: "122", title: "Альфа-Банк", phone: "044 93 81615 ", branch: true, oldId: 22, logo: "alfa", cities: "Ужгород", address: "Минайська, 70", regions: "Закарпатська облаcть "),
-                            BankModel(id: "33", title: "ВТБ Банк", phone: "044 93 81615 ", branch: false, oldId: 44, logo: "vtb", cities: "Ужгород", address: "Швабська, 45", regions: "Закарпатська облаcть "),
-                            BankModel(id: "21", title: "ПриватБанк", phone: "044 93 81615 ", branch: true, oldId: 33, logo: "privat", cities: "Харьков", address: "Баварская 4а", regions: "Харьковская Область ")]
+                         BankModel(id: "33", title: "ВТБ Банк", phone: "044 93 81615 ", branch: false, oldId: 44, logo: "vtb", cities: "Ужгород", address: "Швабська, 45", regions: "Закарпатська облаcть "),
+                         BankModel(id: "21", title: "ПриватБанк", phone: "044 93 81615 ", branch: true, oldId: 33, logo: "privat", cities: "Харьков", address: "Баварская 4а", regions: "Харьковская Область ")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,9 +19,26 @@ class BanksVC: UIViewController {
         let contentView = BanksView(arrayList: bankListArray)
         contentView.delegate = self
         view = contentView
+       
+        navigationController?.navigationBar.titleTextAttributes = contentView.navigationControlExemp.navigationBar.titleTextAttributes
+        navigationController?.navigationBar.barTintColor = contentView.navigationControlExemp.navigationBar.barTintColor
+        navigationController?.modalPresentationStyle = contentView.navigationControlExemp.modalPresentationStyle
+        tempFunc() //this func should be in BanksView or separate class but i don't know how do it
+    }
+    
+    func tempFunc() {
+        let searchButton = UIButton()
+        navigationController?.navigationBar.addSubview(searchButton)
+        searchButton.setImage(R.image.search(), for: .normal)
+        searchButton.imageView?.contentMode = .scaleAspectFit
+        searchButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+            make.height.width.equalTo(20)
+        }
     }
 }
-
+    
 extension BanksVC: BanksViewDelegate {
     func linkButtonAction() {
         

@@ -29,7 +29,7 @@ class BankTableViewCell: UITableViewCell {
     private let linkButton = UIButton()
     private let locationButton = UIButton()
     private let phoneButton = UIButton()
-    private let menuButton = UIButton()
+    private let detailButton = UIButton()
     
     init() {
         super.init(style: .default, reuseIdentifier: "Cell")
@@ -140,15 +140,17 @@ class BankTableViewCell: UITableViewCell {
         phoneButton.imageView?.contentMode = .scaleAspectFit
         phoneButton.setImage(R.image.phone(), for: .normal)
         
-        barStackView.addArrangedSubview(menuButton)
-        menuButton.imageView?.contentMode = .scaleAspectFit
-        menuButton.setImage(R.image.menu(), for: .normal)
+        barStackView.addArrangedSubview(detailButton)
+        detailButton.imageView?.contentMode = .scaleAspectFit
+        detailButton.setImage(R.image.menu(), for: .normal)
         
         linkButton.addTarget(self, action: #selector(linkButtonSelection), for: .touchUpInside)
         locationButton.addTarget(self, action: #selector(locationButtonSelection), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)
-        menuButton.addTarget(self, action: #selector(menuButtonSelection), for: .touchUpInside)
+        detailButton.addTarget(self, action: #selector(menuButtonSelection), for: .touchUpInside)
     }
+    
+    
     
     @objc func linkButtonSelection(){
         delegate?.linkButtonAction()

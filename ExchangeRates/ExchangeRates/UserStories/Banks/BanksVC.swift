@@ -19,26 +19,24 @@ class BanksVC: UIViewController {
         let contentView = BanksView(arrayList: bankListArray)
         contentView.delegate = self
         view = contentView
-       
+        setNavigationController()
+    }
+    
+    func setNavigationController() {
+        let contentView = BanksView(arrayList: bankListArray)
         navigationController?.navigationBar.titleTextAttributes = contentView.navigationControlExemp.navigationBar.titleTextAttributes
         navigationController?.navigationBar.barTintColor = contentView.navigationControlExemp.navigationBar.barTintColor
         navigationController?.modalPresentationStyle = contentView.navigationControlExemp.modalPresentationStyle
-        tempFunc() //this func should be in BanksView or separate class but i don't know how do it
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButton))
+        navigationController?.navigationBar.tintColor = .white
     }
     
-    func tempFunc() {
-        let searchButton = UIButton()
-        navigationController?.navigationBar.addSubview(searchButton)
-        searchButton.setImage(R.image.search(), for: .normal)
-        searchButton.imageView?.contentMode = .scaleAspectFit
-        searchButton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(15)
-            make.trailing.equalToSuperview().offset(-15)
-            make.height.width.equalTo(20)
-        }
+    @objc func searchButton() {
+        print("work")
     }
 }
-    
+
+
 extension BanksVC: BanksViewDelegate {
     func linkButtonAction() {
         
@@ -52,7 +50,9 @@ extension BanksVC: BanksViewDelegate {
         
     }
     
-    func menuButtonAction() {
-        
+    func detailButtonAction() {
+        navigationController?.pushViewController(DetailVC(), animated: true)
     }
 }
+
+

@@ -12,7 +12,7 @@ protocol BanksTableViewCellDelegate: class {
     func linkButtonAction()
     func locationButtonAction()
     func phoneButtonAction()
-    func menuButtonAction()
+    func detailButtonAction()
 }
 
 class BankTableViewCell: UITableViewCell {
@@ -147,7 +147,7 @@ class BankTableViewCell: UITableViewCell {
         linkButton.addTarget(self, action: #selector(linkButtonSelection), for: .touchUpInside)
         locationButton.addTarget(self, action: #selector(locationButtonSelection), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)
-        detailButton.addTarget(self, action: #selector(menuButtonSelection), for: .touchUpInside)
+        detailButton.addTarget(self, action: #selector(detailButtonSelection), for: .touchUpInside)
     }
     
     
@@ -161,8 +161,8 @@ class BankTableViewCell: UITableViewCell {
     @objc func phoneButtonSelection(){
         delegate?.phoneButtonAction()
     }
-    @objc func menuButtonSelection(){
-        delegate?.menuButtonAction()
+    @objc func detailButtonSelection(){
+        delegate?.detailButtonAction()
     }
     
     override func layoutSubviews() {

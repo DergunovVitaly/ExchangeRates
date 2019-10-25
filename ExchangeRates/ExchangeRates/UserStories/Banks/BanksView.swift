@@ -12,7 +12,7 @@ protocol BanksViewDelegate: class {
     func linkButtonAction()
     func locationButtonAction()
     func phoneButtonAction()
-    func menuButtonAction()
+    func detailButtonAction()
 }
 
 class BanksView: UIView {
@@ -95,7 +95,7 @@ extension BanksView: BanksTableViewCellDelegate {
         delegate?.phoneButtonAction()
     }
     
-    func menuButtonAction() {
-        delegate?.menuButtonAction()
+    func detailButtonAction() {
+        delegate?.detailButtonAction()
     }
 }

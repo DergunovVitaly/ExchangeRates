@@ -10,13 +10,17 @@ import UIKit
 
 class DetailVC: UIViewController {
     
+    let currencieArray = [CurrencyModel(name: "USD", description: "Долар США"), CurrencyModel(name: "EUR", description: "Євро"), CurrencyModel(name: "GBF", description: "Англійський Фунт Стерлінгів"), CurrencyModel(name: "PLN", description: "Польський Злотий"), CurrencyModel(name: "RUB", description: "Pocійський Рубль")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let contenView = DetailView(array: currencieArray)
+        view = contenView
         setNavigationController()
     }
     
     func setNavigationController(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(perfomAdd))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(perfomAdd))
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
         modalPresentationStyle = .fullScreen

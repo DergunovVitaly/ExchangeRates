@@ -89,7 +89,6 @@ class DetailView: UIView {
         }
         
         addSubview(bankLogo)
-        bankLogo.image = UIImage(named: BankModel.logo)
     }
 }
 

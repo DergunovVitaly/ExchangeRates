@@ -30,8 +30,12 @@ class DetailBankVC: UIViewController {
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
         modalPresentationStyle = .fullScreen
         navigationController?.navigationBar.tintColor = .white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.share(), style: .done, target: self, action: #selector(share))
     }
-    
+    @objc func share() {
+       let vc = UIActivityViewController(activityItems: [view], applicationActivities: [])
+        present(vc, animated: true)
+    }
     @objc func perfomAdd() {
         self.navigationController!.pushViewController(BanksVC(), animated: true)
     }

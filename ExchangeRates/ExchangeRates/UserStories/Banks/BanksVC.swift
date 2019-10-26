@@ -23,10 +23,8 @@ class BanksVC: UIViewController {
     }
     
     func setNavigationController() {
-        let contentView = BanksView(arrayList: bankListArray)
-        navigationController?.navigationBar.titleTextAttributes = contentView.navigationControlExemp.navigationBar.titleTextAttributes
-        navigationController?.navigationBar.barTintColor = contentView.navigationControlExemp.navigationBar.barTintColor
-        navigationController?.modalPresentationStyle = contentView.navigationControlExemp.modalPresentationStyle
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.barTintColor = R.color.lightBlue()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButton))
         navigationController?.navigationBar.tintColor = .white
     }
@@ -51,7 +49,7 @@ extension BanksVC: BanksViewDelegate {
     }
     
     func detailButtonAction() {
-        navigationController?.pushViewController(DetailVC(), animated: true)
+        navigationController?.pushViewController(DetailBankVC(), animated: true)
     }
 }
 

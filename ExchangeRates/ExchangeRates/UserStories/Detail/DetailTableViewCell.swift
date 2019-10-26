@@ -61,7 +61,7 @@ class DetailTableViewCell: UITableViewCell {
             make.height.equalTo(bounds.height / 2)
             make.width.equalTo(100)
         }
-
+        
         addSubview(saleLabel)
         saleLabel.text = currencyModel.ask
         saleLabel.font = R.font.helveticaNeue(size: 14)

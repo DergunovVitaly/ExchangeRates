@@ -8,8 +8,12 @@
 
 import UIKit
 
-class DetailView: UIView {
+protocol BankViewAlertDelegate: class {
+    func detailButtonAction()
+}
 
+class DetailBankView: UIView {
+    
     private let detailTableView = UITableView()
     private let topTableViewCellLabel = UILabel()
     private let nameCurrentLabel = UILabel()
@@ -17,8 +21,10 @@ class DetailView: UIView {
     private let descriptionLabel = UILabel()
     private let titleLabel = UILabel()
     private let bankLogo = UIImageView()
-
-
+    private let detailButton = UIButton()
+    let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
+    
+    weak var delegate: BankViewAlertDelegate?
     private var currencyArray : [CurrencyModel]
     
     init(array: [CurrencyModel]) {
@@ -27,7 +33,8 @@ class DetailView: UIView {
         detailTableView.delegate = self
         detailTableView.dataSource = self
         setupLayout()
-        backgroundColor = .white
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -89,10 +96,22 @@ class DetailView: UIView {
         }
         
         addSubview(bankLogo)
+        
+        addSubview(detailButton)
+        detailButton.setImage(R.image.float(), for: .normal)
+        detailButton.addTarget(self, action: #selector(setAlert), for: .touchUpInside)
+        detailButton.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview()
+            make.trailing.equalToSuperview().offset(-45)
+            make.width.height.equalTo(60)
+        }
+    }
+    @objc func setAlert() {
+        delegate?.detailButtonAction()
     }
 }
 
-extension DetailView: UITableViewDelegate, UITableViewDataSource {
+extension DetailBankView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         currencyArray.count
     }

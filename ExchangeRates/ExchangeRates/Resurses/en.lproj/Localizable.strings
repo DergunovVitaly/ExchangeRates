@@ -15,4 +15,6 @@
 "titleTutorialThirdSlide" = "Аналізуйте";
 "titleButton" = "РОЗПОЧАТИ";
 "titleNameFirstView" = "Bank Informer";
+"nameCurrent" = "Назва Валюти";
+"actionCurrent" = "Покупка / Продаж";
 

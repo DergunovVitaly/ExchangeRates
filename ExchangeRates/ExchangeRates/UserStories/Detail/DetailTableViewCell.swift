@@ -13,8 +13,12 @@ class DetailTableViewCell: UITableViewCell {
     private let currencyModel : CurrencyModel
     private let nameLabel = UILabel()
     private let descriptionLabel = UILabel()
+    private let purchaseLabel = UILabel()
+    private let saleLabel = UILabel()
+    private let imageUp = UIImageView()
+    private let imageDown = UIImageView()
     
-    init(currencyModel: CurrencyModel ) {
+    init(currencyModel: CurrencyModel) {
         self.currencyModel = currencyModel
         super.init(style: .default, reuseIdentifier: "cellDetail")
         setupLayout()
@@ -46,6 +50,41 @@ class DetailTableViewCell: UITableViewCell {
             make.top.height.equalTo(nameLabel)
             make.width.equalTo(150)
             make.leading.equalTo(nameLabel).offset(50)
+        }
+        
+        addSubview(purchaseLabel)
+        purchaseLabel.text = currencyModel.bid
+        purchaseLabel.font = R.font.helveticaNeue(size: 14)
+        purchaseLabel.textColor = R.color.lightGrey()
+        purchaseLabel.snp.makeConstraints { (make) in
+            make.top.trailing.equalToSuperview().offset(15)
+            make.height.equalTo(bounds.height / 2)
+            make.width.equalTo(100)
+        }
+
+        addSubview(saleLabel)
+        saleLabel.text = currencyModel.ask
+        saleLabel.font = R.font.helveticaNeue(size: 14)
+        saleLabel.textColor = R.color.lightGrey()
+        saleLabel.snp.makeConstraints { (make) in
+            make.trailing.equalTo(purchaseLabel)
+            make.top.equalTo(purchaseLabel).offset(22)
+            make.height.width.equalTo(purchaseLabel)
+        }
+        
+        addSubview(imageUp)
+        imageUp.image = R.image.arrowUp()
+        imageUp.snp.makeConstraints { (make) in
+            make.top.equalTo(purchaseLabel).offset(5)
+            make.height.equalTo(purchaseLabel).offset(-10)
+            make.leading.equalTo(purchaseLabel).offset(-30)
+        }
+        
+        addSubview(imageDown)
+        imageDown.image = R.image.arrowDown()
+        imageDown.snp.makeConstraints { (make) in
+            make.height.leading.equalTo(imageUp)
+            make.top.equalTo(saleLabel).offset(5)
         }
     }
 }

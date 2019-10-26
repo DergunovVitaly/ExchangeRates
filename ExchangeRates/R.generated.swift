@@ -84,8 +84,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 15 images.
+  /// This `R.image` struct is generated, and contains static references to 17 images.
   struct image {
+    /// Image ` arrow-down`.
+    static let arrowDown = Rswift.ImageResource(bundle: R.hostingBundle, name: " arrow-down")
+    /// Image ` arrow-up`.
+    static let arrowUp = Rswift.ImageResource(bundle: R.hostingBundle, name: " arrow-up")
     /// Image ` back`.
     static let back = Rswift.ImageResource(bundle: R.hostingBundle, name: " back")
     /// Image ` link`.
@@ -116,6 +120,16 @@ struct R: Rswift.Validatable {
     static let vtb = Rswift.ImageResource(bundle: R.hostingBundle, name: "vtb")
     /// Image `white`.
     static let white = Rswift.ImageResource(bundle: R.hostingBundle, name: "white")
+    
+    /// `UIImage(named: " arrow-down", bundle: ..., traitCollection: ...)`
+    static func arrowDown(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.arrowDown, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: " arrow-up", bundle: ..., traitCollection: ...)`
+    static func arrowUp(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.arrowUp, compatibleWith: traitCollection)
+    }
     
     /// `UIImage(named: " back", bundle: ..., traitCollection: ...)`
     static func back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
@@ -210,7 +224,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 8 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
     struct localizable {
       /// en translation: Bank Informer
       /// 
@@ -228,6 +242,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let titleTutorialSecondSlide = Rswift.StringResource(key: "titleTutorialSecondSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Назва Валюти
+      /// 
+      /// Locales: en
+      static let nameCurrent = Rswift.StringResource(key: "nameCurrent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Отримайте вигідний відсоток з вигідним вкладом
       /// 
       /// Locales: en
@@ -240,6 +258,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let descriptionTutorialThirdSlide = Rswift.StringResource(key: "descriptionTutorialThirdSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Покупка / Продаж
+      /// 
+      /// Locales: en
+      static let actionCurrent = Rswift.StringResource(key: "actionCurrent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: РОЗПОЧАТИ
       /// 
       /// Locales: en
@@ -273,6 +295,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("titleTutorialSecondSlide", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Назва Валюти
+      /// 
+      /// Locales: en
+      static func nameCurrent(_: Void = ()) -> String {
+        return NSLocalizedString("nameCurrent", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Отримайте вигідний відсоток з вигідним вкладом
       /// 
       /// Locales: en
@@ -292,6 +321,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func descriptionTutorialThirdSlide(_: Void = ()) -> String {
         return NSLocalizedString("descriptionTutorialThirdSlide", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Покупка / Продаж
+      /// 
+      /// Locales: en
+      static func actionCurrent(_: Void = ()) -> String {
+        return NSLocalizedString("actionCurrent", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: РОЗПОЧАТИ

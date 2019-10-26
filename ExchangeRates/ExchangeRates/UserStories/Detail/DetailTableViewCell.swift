@@ -11,13 +11,14 @@ import UIKit
 class DetailTableViewCell: UITableViewCell {
     
     private let currencyModel : CurrencyModel
-   private let nameLabel = UILabel()
-   private let descriptionLabel = UILabel()
+    private let nameLabel = UILabel()
+    private let descriptionLabel = UILabel()
     
-    init() {
+    init(currencyModel: CurrencyModel ) {
+        self.currencyModel = currencyModel
         super.init(style: .default, reuseIdentifier: "cellDetail")
         setupLayout()
-
+        
     }
     
     required init?(coder: NSCoder) {
@@ -28,9 +29,15 @@ class DetailTableViewCell: UITableViewCell {
         
         addSubview(nameLabel)
         nameLabel.text = currencyModel.name
+        nameLabel.textColor = .black
+        nameLabel.backgroundColor = .red
+        nameLabel.font = R.font.helveticaNeue(size: 20)
+        nameLabel.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         
         addSubview(descriptionLabel)
         descriptionLabel.text = currencyModel.description
     }
-
+    
 }

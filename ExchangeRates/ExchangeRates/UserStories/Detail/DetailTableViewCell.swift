@@ -22,7 +22,6 @@ class DetailTableViewCell: UITableViewCell {
         self.currencyModel = currencyModel
         super.init(style: .default, reuseIdentifier: "cellDetail")
         setupLayout()
-        
     }
     
     required init?(coder: NSCoder) {

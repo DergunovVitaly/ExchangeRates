@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BankViewAlertDelegate: class {
+protocol BankViewDelegatDelegate: class {
     func detailButtonAction()
 }
 
@@ -22,9 +22,8 @@ class DetailBankView: UIView {
     private let titleLabel = UILabel()
     private let bankLogo = UIImageView()
     private let detailButton = UIButton()
-    let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
     
-    weak var delegate: BankViewAlertDelegate?
+    weak var delegate: BankViewDelegatDelegate?
     private var currencyArray : [CurrencyModel]
     
     init(array: [CurrencyModel]) {
@@ -33,8 +32,7 @@ class DetailBankView: UIView {
         detailTableView.delegate = self
         detailTableView.dataSource = self
         setupLayout()
-        
-        
+        backgroundColor = .white
     }
     
     required init?(coder: NSCoder) {
@@ -99,14 +97,14 @@ class DetailBankView: UIView {
         
         addSubview(detailButton)
         detailButton.setImage(R.image.float(), for: .normal)
-        detailButton.addTarget(self, action: #selector(setAlert), for: .touchUpInside)
+        detailButton.addTarget(self, action: #selector(setdetailButtonAction), for: .touchUpInside)
         detailButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview()
             make.trailing.equalToSuperview().offset(-45)
-            make.width.height.equalTo(60)
+            make.width.height.equalTo(70)
         }
     }
-    @objc func setAlert() {
+    @objc func setdetailButtonAction() {
         delegate?.detailButtonAction()
     }
 }

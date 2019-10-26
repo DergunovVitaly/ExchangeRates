@@ -84,7 +84,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 18 images.
+  /// This `R.image` struct is generated, and contains static references to 22 images.
   struct image {
     /// Image ` arrow-down`.
     static let arrowDown = Rswift.ImageResource(bundle: R.hostingBundle, name: " arrow-down")
@@ -108,16 +108,24 @@ struct R: Rswift.Validatable {
     static let analysis = Rswift.ImageResource(bundle: R.hostingBundle, name: "analysis")
     /// Image `black`.
     static let black = Rswift.ImageResource(bundle: R.hostingBundle, name: "black")
+    /// Image `callButton`.
+    static let callButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "callButton")
     /// Image `coins`.
     static let coins = Rswift.ImageResource(bundle: R.hostingBundle, name: "coins")
+    /// Image `linkButton`.
+    static let linkButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "linkButton")
     /// Image `location`.
     static let location = Rswift.ImageResource(bundle: R.hostingBundle, name: "location")
+    /// Image `mapButton`.
+    static let mapButton = Rswift.ImageResource(bundle: R.hostingBundle, name: "mapButton")
     /// Image `money`.
     static let money = Rswift.ImageResource(bundle: R.hostingBundle, name: "money")
     /// Image `piggyBank`.
     static let piggyBank = Rswift.ImageResource(bundle: R.hostingBundle, name: "piggyBank")
     /// Image `privat`.
     static let privat = Rswift.ImageResource(bundle: R.hostingBundle, name: "privat")
+    /// Image `quit`.
+    static let quit = Rswift.ImageResource(bundle: R.hostingBundle, name: "quit")
     /// Image `vtb`.
     static let vtb = Rswift.ImageResource(bundle: R.hostingBundle, name: "vtb")
     /// Image `white`.
@@ -178,14 +186,29 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.black, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "callButton", bundle: ..., traitCollection: ...)`
+    static func callButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.callButton, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "coins", bundle: ..., traitCollection: ...)`
     static func coins(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.coins, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "linkButton", bundle: ..., traitCollection: ...)`
+    static func linkButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.linkButton, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "location", bundle: ..., traitCollection: ...)`
     static func location(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.location, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "mapButton", bundle: ..., traitCollection: ...)`
+    static func mapButton(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.mapButton, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "money", bundle: ..., traitCollection: ...)`
@@ -201,6 +224,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "privat", bundle: ..., traitCollection: ...)`
     static func privat(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.privat, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "quit", bundle: ..., traitCollection: ...)`
+    static func quit(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.quit, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "vtb", bundle: ..., traitCollection: ...)`

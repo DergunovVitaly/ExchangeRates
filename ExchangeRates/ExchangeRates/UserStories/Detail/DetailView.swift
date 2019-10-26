@@ -17,6 +17,8 @@ class DetailView: UIView {
     init(array: [CurrencyModel]) {
         self.currencyArray = array
         super.init(frame: .zero)
+        detailTableView.delegate = self
+        detailTableView.dataSource = self
         setupLayout()
         backgroundColor = .white
     }

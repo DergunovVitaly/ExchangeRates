@@ -11,4 +11,6 @@ import Foundation
 struct CurrencyModel: Codable{
     let name: String
     let description: String
+    let bid: String
+    let ask: String
 }

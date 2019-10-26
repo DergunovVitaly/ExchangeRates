@@ -29,15 +29,23 @@ class DetailTableViewCell: UITableViewCell {
         
         addSubview(nameLabel)
         nameLabel.text = currencyModel.name
-        nameLabel.textColor = .black
-        nameLabel.backgroundColor = .red
-        nameLabel.font = R.font.helveticaNeue(size: 20)
+        nameLabel.textColor = R.color.lightDark()
+        nameLabel.font = R.font.helveticaNeue(size: 18)
         nameLabel.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.leading.equalToSuperview().offset(30)
+            make.top.height.equalToSuperview()
+            make.width.equalTo(50)
         }
         
         addSubview(descriptionLabel)
         descriptionLabel.text = currencyModel.description
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.textColor = R.color.lightGrey()
+        descriptionLabel.font = R.font.helveticaNeue(size: 16)
+        descriptionLabel.snp.makeConstraints { (make) in
+            make.top.height.equalTo(nameLabel)
+            make.width.equalTo(150)
+            make.leading.equalTo(nameLabel).offset(50)
+        }
     }
-    
 }

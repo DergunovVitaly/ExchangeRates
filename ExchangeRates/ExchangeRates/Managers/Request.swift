@@ -12,7 +12,7 @@ enum NetworkSirvice {
     case getBanks
 }
 
-extension MoyaProvider: TargetType {
+extension NetworkSirvice: TargetType {
     public var baseURL: URL {
         let url = URL(string: Localizable.url())
         return url!

@@ -28,7 +28,6 @@
 		1F0E7539234E1F1B00A32B96 /* helveticaneue.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */; };
 		1F0E753A234E1F1B00A32B96 /* HelveticaNeueBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */; };
 		1F42BE23236581BA00A5AF81 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42BE22236581BA00A5AF81 /* Request.swift */; };
-		1FD0170B2365AB2E00BC5CC8 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0170A2365AB2E00BC5CC8 /* BankModel.swift */; };
 		5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */; };
 		5BBD71C72348B76000D0B9EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C62348B76000D0B9EA /* Assets.xcassets */; };
 		5BBD71CA2348B76000D0B9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C82348B76000D0B9EA /* LaunchScreen.storyboard */; };
@@ -58,7 +57,6 @@
 		1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = helveticaneue.ttf; sourceTree = "<group>"; };
 		1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeueBold.ttf; sourceTree = "<group>"; };
 		1F42BE22236581BA00A5AF81 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		1FD0170A2365AB2E00BC5CC8 /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
 		215B438D33C5DB212CC5FE8D /* Pods-ExchangeRates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExchangeRates.release.xcconfig"; path = "Target Support Files/Pods-ExchangeRates/Pods-ExchangeRates.release.xcconfig"; sourceTree = "<group>"; };
 		5BBD71BA2348B75C00D0B9EA /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				04D5F6B72349D94400B25A05 /* Bank.swift */,
-				1FD0170A2365AB2E00BC5CC8 /* BankModel.swift */,
 				048BB21B23639AFC00150421 /* Currency.swift */,
 			);
 			path = Models;
@@ -153,6 +150,14 @@
 			path = Resurses;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+		1F42BE212365819800A5AF81 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1F42BE22236581BA00A5AF81 /* Request.swift */,
+			);
+			path = Managers;
+=======
 		04D6DBA7235E287E00618A66 /* Banks */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,14 +175,7 @@
 				04F74AE12364EB030089B919 /* ButtonView.swift */,
 			);
 			path = Buttons;
-			sourceTree = "<group>";
-		};
-		1F42BE212365819800A5AF81 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				1F42BE22236581BA00A5AF81 /* Request.swift */,
-			);
-			path = Managers;
+>>>>>>> develop
 			sourceTree = "<group>";
 		};
 		1FA439F7234BBE99007B5504 /* Fonts */ = {
@@ -392,7 +390,6 @@
 				04D6DBAB235E28D700618A66 /* BanksVC.swift in Sources */,
 				048C5390234BA13600ED883F /* TutorialVC.swift in Sources */,
 				1F42BE23236581BA00A5AF81 /* Request.swift in Sources */,
-				1FD0170B2365AB2E00BC5CC8 /* BankModel.swift in Sources */,
 				04ACED9F234A04F700264199 /* TutorialView.swift in Sources */,
 				04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */,
 				04D5F6C22349E26400B25A05 /* R.generated.swift in Sources */,

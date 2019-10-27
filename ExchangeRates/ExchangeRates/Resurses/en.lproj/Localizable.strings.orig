@@ -14,8 +14,11 @@
 "descriptionTutorialThirdSlide" = "Повна інформація про грошові курси та банки";
 "titleTutorialThirdSlide" = "Аналізуйте";
 "titleButton" = "РОЗПОЧАТИ";
+<<<<<<< HEAD
+"url" = "https://resources.finance.ua/ua/public/currency-cash.json";
+=======
 "titleNameFirstView" = "Bank Informer";
 "nameCurrent" = "Назва Валюти";
 "actionCurrent" = "Покупка / Продаж";
-"url" = "https://resources.finance.ua/ua/public/currency-cash.json";
+>>>>>>> develop
 

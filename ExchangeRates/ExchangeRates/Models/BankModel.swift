@@ -8,21 +8,21 @@
 
 import Foundation
 
-struct Organization: Codable {
-    let id: String
-    let oldID: Int
-    let orgType: Int
-    let branch: Bool
-    let title: String
-    let regionID: String
-    let cityID: String
-    let phone: String
-    let address: String
-    let link: String
-    let currencies: [String: Currency]
-}
-
+struct Bank: Codable {
+      var id: String?
+      var oldId: Int?
+      var branch: Bool?
+      var title: String?
+      var regionId: String?
+      var cityId: String?
+      var phone: String?
+      var address: String?
+      var link: String?
+      var regionName: String?
+      var cityName: String?
+      var currencies: [String : Currency]?
+  }
 struct Currency: Codable {
-    var bid: String?
-    var ask: String?
+      var bid: String?
+      var ask: String?
 }

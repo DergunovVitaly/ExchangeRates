@@ -6,35 +6,22 @@
 //  Copyright © 2019 Denis Melnikov. All rights reserved.
 //
 
+import Foundation
 import Moya
+import SwiftyJSON
 
-enum NetworkSirvice {
-    case getBanks
-}
-
-extension NetworkSirvice: TargetType {
-    public var baseURL: URL {
-        let url = URL(string: Localizable.url())
-        return url!
-    }
+class Request {
     
-    public var path: String {
-        return ""
-    }
-    
-    public var method: Method {
-        .get
-    }
-    
-    public var sampleData: Data {
-        return Data()
-    }
-    
-    public var task: Task {
-        return .requestPlain
-    }
-    
-    public var headers: [String : String]? {
-        return ["Content-type": "application/json"]
+    class func fetch(complition: @escaping ([Bank]) -> ()) {
+        let provider = MoyaProvider<NetworkSirvice>()
+        provider.request(.getBanks) { result in
+            switch result {
+            case .success(let response):
+                print(response.data)
+                
+            case .failure(let error):
+                print(error.errorDescription ?? "Unknown error")
+            }
+        }
     }
 }

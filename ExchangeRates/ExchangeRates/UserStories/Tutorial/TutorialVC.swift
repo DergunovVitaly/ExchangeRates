@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TutorialVC: UIViewController, TutorialViewDelegate {
+class TutorialVC: UIViewController {
     
     private let tutorialViewArray = [CreateTutorialView(frame: .zero,
                                                         image: R.image.piggyBank(),
@@ -29,8 +29,12 @@ class TutorialVC: UIViewController, TutorialViewDelegate {
         contentView.delegate = self
         view = contentView
     }
-    
+}
+
+extension TutorialVC: TutorialViewDelegate {
     func startButtonAction() {
-        print("button pressed")
+        let navigation = UINavigationController(rootViewController: BanksVC())
+        navigation.modalPresentationStyle = .fullScreen
+        self.present(navigation, animated: true, completion: nil)
     }
 }

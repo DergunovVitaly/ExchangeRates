@@ -14,4 +14,7 @@
 "descriptionTutorialThirdSlide" = "Повна інформація про грошові курси та банки";
 "titleTutorialThirdSlide" = "Аналізуйте";
 "titleButton" = "РОЗПОЧАТИ";
+"titleNameFirstView" = "Bank Informer";
+"nameCurrent" = "Назва Валюти";
+"actionCurrent" = "Покупка / Продаж";
 

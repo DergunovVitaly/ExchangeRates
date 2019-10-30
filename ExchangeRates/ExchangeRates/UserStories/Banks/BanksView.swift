@@ -30,7 +30,7 @@ class BanksView: UIView {
         bankTableView.delegate = self
         bankTableView.dataSource = self
         setTableView()
-
+        
         backgroundColor = R.color.grayView()
     }
     
@@ -56,12 +56,12 @@ class BanksView: UIView {
 extension BanksView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        bankModelArray.count
+        return bankModelArray[0].organizations!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BankTableViewCell()
-        cell.updateBankModel(bankModel: bankModelArray[indexPath.row])
+//        cell.updateBankModel(bankModel: bankModelArray[0].organizations?[indexPath.row])
         cell.delegate = self
         return cell
     }

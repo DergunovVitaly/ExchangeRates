@@ -14,17 +14,15 @@ class BanksVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = Localizable.titleNameFirstView()
-        let contentView = BanksView(bankArray: bankListArray)
-        contentView.delegate = self
-        view = contentView
         setNavigationController()
-        DispatchQueue.main.async {
+       
             Request.fetch { (bank) in
-                print(bank[0])
-                //            self.bankListArray = bank
+                let contentView = BanksView(bankArray: bank)
+                    contentView.delegate = self
+                self.view = contentView
             }
-        }
     }
     
     func setNavigationController() {

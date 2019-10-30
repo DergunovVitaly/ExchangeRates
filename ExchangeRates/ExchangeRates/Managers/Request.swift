@@ -13,7 +13,9 @@ import SwiftyJSON
 class Request {
     
     class func fetch(complition: @escaping ([BankModel]) -> ()) {
+        
         var bankArray = [BankModel]()
+        
         let provider = MoyaProvider<NetworkSirvice>()
         provider.request(.getBanks) { result in
             switch result {

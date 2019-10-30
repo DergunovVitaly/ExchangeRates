@@ -12,13 +12,17 @@ import SwiftyJSON
 
 class Request {
     
-    class func fetch(complition: @escaping ([Bank]) -> ()) {
+    class func fetch(complition: @escaping ([BankModel]) -> ()) {
+        var bankArray = [BankModel]()
         let provider = MoyaProvider<NetworkSirvice>()
         provider.request(.getBanks) { result in
             switch result {
             case .success(let response):
-                print(response.data)
-                
+                let decoder = JSONDecoder()
+                let data = response.data
+                guard let bank = try? decoder.decode(BankModel.self, from: data) else { return }
+                bankArray.append(bank)
+                complition(bankArray)
             case .failure(let error):
                 print(error.errorDescription ?? "Unknown error")
             }

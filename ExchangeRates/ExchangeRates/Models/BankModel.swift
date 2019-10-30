@@ -2,27 +2,27 @@
 //  BankModel.swift
 //  ExchangeRates
 //
-//  Created by  Vitaly Dergunov on 27.10.2019.
+//  Created by Mac on 06/10/2019.
 //  Copyright © 2019 Denis Melnikov. All rights reserved.
 //
 
 import Foundation
 
-struct Bank: Codable {
-      var id: String?
-      var oldId: Int?
-      var branch: Bool?
-      var title: String?
-      var regionId: String?
-      var cityId: String?
-      var phone: String?
-      var address: String?
-      var link: String?
-      var regionName: String?
-      var cityName: String?
-      var currencies: [String : Currency]?
-  }
-struct Currency: Codable {
-      var bid: String?
-      var ask: String?
+struct BankModel: Codable {
+    let organizations: [Organization]?
 }
+
+struct Organization: Codable {
+    let id: String?
+    let oldId, orgType: Int?
+    let branch: Bool?
+    let title, regionId, cityId, phone: String?
+    let address: String?
+    let link: String?
+    let currencies: [String: Currency]?
+}
+
+struct Currency: Codable {
+    let ask, bid: String?
+}
+

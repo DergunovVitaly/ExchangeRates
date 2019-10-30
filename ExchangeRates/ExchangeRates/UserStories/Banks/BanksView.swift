@@ -24,8 +24,8 @@ class BanksView: UIView {
     private var bankModelArray : [BankModel]
 
     
-    init(arrayList: [BankModel]) {
-        self.bankModelArray = arrayList
+    init(bankArray: [BankModel]) {
+        self.bankModelArray = bankArray
         super.init(frame: .zero)
         bankTableView.delegate = self
         bankTableView.dataSource = self

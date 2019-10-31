@@ -41,13 +41,13 @@ class BankTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateBankModel(bankModel: BankModel) {
-//        titleBankLabel.text = bankModel.title
+    func updateBankModel(bankModel: Organization) {
+        titleBankLabel.text = bankModel.title
 //        bankLogo.image = UIImage(named: bankModel.logo)
 //        nameRegionsLabel.text = bankModel.regions
 //        nameCityLabel.text = bankModel.cities
-//        titlePhoneLabel.text = "Тел.: " + bankModel.phone
-//        titleAdressLabel.text = "Адреса: " + bankModel.address
+        titlePhoneLabel.text = "Тел.: " + bankModel.phone
+        titleAdressLabel.text = "Адреса: " + bankModel.address
     }
     
     func setupLayout() {

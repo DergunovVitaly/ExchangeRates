@@ -21,11 +21,9 @@ class BanksView: UIView {
     
     let bankTableView = UITableView()
     let navigationControlExemp = UINavigationController()
-    private var bankModelArray : [BankModel]
+    var bankModelArray : [Organization]?
 
-    
-    init(bankArray: [BankModel]) {
-        self.bankModelArray = bankArray
+    override init(frame: CGRect) {
         super.init(frame: .zero)
         bankTableView.delegate = self
         bankTableView.dataSource = self
@@ -56,12 +54,13 @@ class BanksView: UIView {
 extension BanksView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bankModelArray[0].organizations!.count
+        return bankModelArray!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BankTableViewCell()
-//        cell.updateBankModel(bankModel: bankModelArray[0].organizations?[indexPath.row])
+        let bankIndexPath = bankModelArray![indexPath.row]
+        cell.updateBankModel(bankModel: bankIndexPath)
         cell.delegate = self
         return cell
     }

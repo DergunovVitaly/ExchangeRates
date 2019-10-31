@@ -10,18 +10,24 @@ import Moya
 
 class BanksVC: UIViewController {
     
-    var bankListArray = [BankModel]()
+    private let contentView = BanksView()
+    var bankListArray = [Organization]()
+    
+    override func loadView() {
+        super.loadView()
+        contentView.delegate = self
+        view = contentView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         title = Localizable.titleNameFirstView()
         setNavigationController()
-       
+    
             Request.fetch { (bank) in
-                let contentView = BanksView(bankArray: bank)
-                    contentView.delegate = self
-                self.view = contentView
+                let organization = bank[0].organizations
+                self.contentView.bankModelArray = organization
             }
     }
     

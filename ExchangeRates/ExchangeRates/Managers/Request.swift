@@ -20,6 +20,7 @@ class Request {
         provider.request(.getBanks) { result in
             switch result {
             case .success(let response):
+                response.statusCode == 200 ? print("✈️✈️✈️") : print(response.statusCode)
                 let decoder = JSONDecoder()
                 let data = response.data
                 guard let bank = try? decoder.decode(BankModel.self, from: data) else { return }

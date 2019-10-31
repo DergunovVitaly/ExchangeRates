@@ -21,24 +21,23 @@ class BanksView: UIView {
     
     let bankTableView = UITableView()
     let navigationControlExemp = UINavigationController()
-    private var bankModelArray : [BankModel]
-
+    var organizationsArray: [Organization] = []
+    var orgClosure: (([Organization]) -> ())?
     
-    init(bankArray: [BankModel]) {
-        self.bankModelArray = bankArray
+    override init(frame: CGRect) {
         super.init(frame: .zero)
         bankTableView.delegate = self
         bankTableView.dataSource = self
-        setTableView()
-        
+        setupTableView()
         backgroundColor = R.color.grayView()
+        orgClosure?(organizationsArray)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setTableView() {
+    func setupTableView() {
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none
         bankTableView.allowsSelection = false
@@ -56,12 +55,11 @@ class BanksView: UIView {
 extension BanksView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bankModelArray[0].organizations!.count
+        return organizationsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BankTableViewCell()
-//        cell.updateBankModel(bankModel: bankModelArray[0].organizations?[indexPath.row])
+        let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row])
         cell.delegate = self
         return cell
     }

@@ -19,6 +19,7 @@ class BankTableViewCell: UITableViewCell {
     
     weak var delegate: BanksTableViewCellDelegate?
     
+    let organizations: Organization
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
     private let nameCityLabel = UILabel()
@@ -31,7 +32,9 @@ class BankTableViewCell: UITableViewCell {
     private let phoneButton = UIButton()
     private let detailButton = UIButton()
     
-    init() {
+    init(organizations: Organization) {
+        self.organizations = organizations
+        self.titleBankLabel.text = organizations.title
         super.init(style: .default, reuseIdentifier: "Cell")
         setupLayout()
         setLayerTableViewCell()
@@ -41,14 +44,14 @@ class BankTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateBankModel(bankModel: BankModel) {
+//    func updateBankModel(bankModel: BankModel) {
 //        titleBankLabel.text = bankModel.title
 //        bankLogo.image = UIImage(named: bankModel.logo)
 //        nameRegionsLabel.text = bankModel.regions
 //        nameCityLabel.text = bankModel.cities
 //        titlePhoneLabel.text = "Тел.: " + bankModel.phone
 //        titleAdressLabel.text = "Адреса: " + bankModel.address
-    }
+//    }
     
     func setupLayout() {
         

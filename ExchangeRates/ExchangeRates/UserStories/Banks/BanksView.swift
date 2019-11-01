@@ -37,6 +37,10 @@ class BanksView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func getOrganizations(organizations: [Organization]) {
+        self.organizationsArray = organizations
+    }
+    
     func setupTableView() {
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none

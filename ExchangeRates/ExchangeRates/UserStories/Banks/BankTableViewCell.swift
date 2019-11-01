@@ -23,8 +23,8 @@ class BankTableViewCell: UITableViewCell {
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
     private let nameCityLabel = UILabel()
-    private let titlePhoneLabel = UILabel()
-    private let titleAdressLabel = UILabel()
+    private let phoneLabel = UILabel()
+    private let adressLabel = UILabel()
     private let nameRegionsLabel = UILabel()
     private let barStackView = UIStackView()
     private let linkButton = UIButton()
@@ -35,6 +35,8 @@ class BankTableViewCell: UITableViewCell {
     init(organizations: Organization) {
         self.organizations = organizations
         self.titleBankLabel.text = organizations.title
+        self.phoneLabel.text = organizations.phone
+        self.adressLabel.text = organizations.address
         super.init(style: .default, reuseIdentifier: "Cell")
         setupLayout()
         setLayerTableViewCell()
@@ -44,16 +46,7 @@ class BankTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func updateBankModel(bankModel: BankModel) {
-//        titleBankLabel.text = bankModel.title
-//        bankLogo.image = UIImage(named: bankModel.logo)
-//        nameRegionsLabel.text = bankModel.regions
-//        nameCityLabel.text = bankModel.cities
-//        titlePhoneLabel.text = "Тел.: " + bankModel.phone
-//        titleAdressLabel.text = "Адреса: " + bankModel.address
-//    }
-    
-    func setupLayout() {
+    private func setupLayout() {
         
         addSubview(titleBankLabel)
         titleBankLabel.font = R.font.helveticaNeue(size: 26)
@@ -95,26 +88,26 @@ class BankTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-40)
         }
         
-        addSubview(titlePhoneLabel)
-        titlePhoneLabel.numberOfLines = 0
-        titlePhoneLabel.textColor = R.color.lightGrey()
-        titlePhoneLabel.font = R.font.helveticaNeue(size: 15)
-        titlePhoneLabel.snp.makeConstraints { (make) in
+        addSubview(phoneLabel)
+        phoneLabel.numberOfLines = 0
+        phoneLabel.textColor = R.color.lightGrey()
+        phoneLabel.font = R.font.helveticaNeue(size: 15)
+        phoneLabel.snp.makeConstraints { (make) in
             make.trailing.equalTo(bankLogo)
             make.top.equalTo(nameRegionsLabel).offset(45)
             make.height.equalTo(40)
             make.width.equalTo((contentView.bounds.width / 2) - 20)
         }
         
-        addSubview(titleAdressLabel)
-        titleAdressLabel.numberOfLines = 0
-        titleAdressLabel.textColor = R.color.lightGrey()
-        titleAdressLabel.font = R.font.helveticaNeue(size: 15)
-        titleAdressLabel.snp.makeConstraints { (make) in
+        addSubview(adressLabel)
+        adressLabel.numberOfLines = 0
+        adressLabel.textColor = R.color.lightGrey()
+        adressLabel.font = R.font.helveticaNeue(size: 15)
+        adressLabel.snp.makeConstraints { (make) in
             make.trailing.equalTo(bankLogo)
-            make.top.equalTo(titlePhoneLabel).offset(25)
+            make.top.equalTo(phoneLabel).offset(25)
             make.height.equalTo(40)
-            make.width.equalTo(titlePhoneLabel)
+            make.width.equalTo(phoneLabel)
         }
         
         addSubview(barStackView)
@@ -177,14 +170,5 @@ class BankTableViewCell: UITableViewCell {
         layer.cornerRadius = 5
         layer.shadowOffset = CGSize(width: 5, height: 5)
         layer.shadowOpacity = 0.1
-    }
-}
-
-extension UIStackView {
-    func addBackground(color: UIColor) {
-        let subView = UIView(frame: bounds)
-        subView.backgroundColor = color
-        subView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        insertSubview(subView, at: 0)
     }
 }

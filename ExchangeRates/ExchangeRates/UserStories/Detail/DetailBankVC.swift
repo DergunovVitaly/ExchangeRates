@@ -32,6 +32,7 @@ class DetailBankVC: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.share(), style: .done, target: self, action: #selector(share))
     }
+    
     @objc func share() {
         let vc = UIActivityViewController(activityItems: [view ?? UIView()], applicationActivities: [])
         present(vc, animated: true)

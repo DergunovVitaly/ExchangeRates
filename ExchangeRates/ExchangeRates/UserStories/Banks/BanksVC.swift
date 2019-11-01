@@ -23,9 +23,11 @@ class BanksVC: UIViewController {
         super.viewDidLoad()
         
         setNavigationController()
-        
-        Request.fetch { (bank) in
-         
+        DispatchQueue.main.async {
+            Request.fetch { (bank) in
+                self.contentView.getOrganizations(organizations: bank[0].organizations)
+                self.contentView.bankTableView.reloadData()
+            }
         }
     }
     

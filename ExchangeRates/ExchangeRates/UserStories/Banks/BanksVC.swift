@@ -6,20 +6,29 @@
 //  Copyright © 2019 Denis Melnikov. All rights reserved.
 //
 import UIKit
+import Moya
 
 class BanksVC: UIViewController {
     
-    let bankListArray = [BankModel(id: "122", title: "Альфа-Банк", phone: "044 93 81615 ", branch: true, oldId: 22, logo: "alfa", cities: "Ужгород", address: "Минайська, 70", regions: "Закарпатська облаcть "),
-                         BankModel(id: "33", title: "ВТБ Банк", phone: "044 93 81615 ", branch: false, oldId: 44, logo: "vtb", cities: "Ужгород", address: "Швабська, 45", regions: "Закарпатська облаcть "),
-                         BankModel(id: "21", title: "ПриватБанк", phone: "044 93 81615 ", branch: true, oldId: 33, logo: "privat", cities: "Харьков", address: "Баварская 4а", regions: "Харьковская Область ")]
+    private let contentView = BanksView()
+    
+    override func loadView() {
+        super.loadView()
+        contentView.delegate = self
+        view = contentView
+        title = Localizable.titleNameFirstView()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizable.titleNameFirstView()
-        let contentView = BanksView(arrayList: bankListArray)
-        contentView.delegate = self
-        view = contentView
+        
         setNavigationController()
+        DispatchQueue.main.async {
+            Request.fetch { (bank) in
+                self.contentView.getOrganizations(organizations: bank[0].organizations)
+                self.contentView.bankTableView.reloadData()
+            }
+        }
     }
     
     func setNavigationController() {

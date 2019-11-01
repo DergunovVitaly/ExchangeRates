@@ -15,7 +15,7 @@
 		04ACED9D2349F31300264199 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9C2349F31300264199 /* Typealias.swift */; };
 		04ACED9F234A04F700264199 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9E234A04F700264199 /* TutorialView.swift */; };
 		04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */; };
-		04D5F6B82349D94400B25A05 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B72349D94400B25A05 /* Bank.swift */; };
+		04D5F6B82349D94400B25A05 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B72349D94400B25A05 /* BankModel.swift */; };
 		04D5F6C22349E26400B25A05 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6C12349E26400B25A05 /* R.generated.swift */; };
 		04D6DBA6235E286C00618A66 /* BankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6DBA5235E286C00618A66 /* BankTableViewCell.swift */; };
 		04D6DBA9235E28C400618A66 /* BanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6DBA8235E28C400618A66 /* BanksView.swift */; };
@@ -27,6 +27,9 @@
 		04F932A42349E62A00228657 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F932A32349E62A00228657 /* Colors.xcassets */; };
 		1F0E7539234E1F1B00A32B96 /* helveticaneue.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */; };
 		1F0E753A234E1F1B00A32B96 /* HelveticaNeueBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */; };
+		1F30B108236C16F2005E0C7F /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */; };
+		1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42BE22236581BA00A5AF81 /* NetworkService.swift */; };
+		1FD0170D2365F59900BC5CC8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0170C2365F59900BC5CC8 /* Request.swift */; };
 		5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */; };
 		5BBD71C72348B76000D0B9EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C62348B76000D0B9EA /* Assets.xcassets */; };
 		5BBD71CA2348B76000D0B9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C82348B76000D0B9EA /* LaunchScreen.storyboard */; };
@@ -43,7 +46,7 @@
 		04ACED9C2349F31300264199 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		04ACED9E234A04F700264199 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTutorialView.swift; sourceTree = "<group>"; };
-		04D5F6B72349D94400B25A05 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		04D5F6B72349D94400B25A05 /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
 		04D5F6C12349E26400B25A05 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		04D6DBA5235E286C00618A66 /* BankTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTableViewCell.swift; sourceTree = "<group>"; };
 		04D6DBA8235E28C400618A66 /* BanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksView.swift; sourceTree = "<group>"; };
@@ -55,6 +58,9 @@
 		04F932A32349E62A00228657 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = helveticaneue.ttf; sourceTree = "<group>"; };
 		1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeueBold.ttf; sourceTree = "<group>"; };
+		1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		1F42BE22236581BA00A5AF81 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		1FD0170C2365F59900BC5CC8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		215B438D33C5DB212CC5FE8D /* Pods-ExchangeRates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExchangeRates.release.xcconfig"; path = "Target Support Files/Pods-ExchangeRates/Pods-ExchangeRates.release.xcconfig"; sourceTree = "<group>"; };
 		5BBD71BA2348B75C00D0B9EA /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +97,7 @@
 		04D5F6AE2349D65E00B25A05 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				04D5F6B72349D94400B25A05 /* Bank.swift */,
+				04D5F6B72349D94400B25A05 /* BankModel.swift */,
 				048BB21B23639AFC00150421 /* Currency.swift */,
 			);
 			path = Models;
@@ -138,10 +144,9 @@
 		04D5F6BB2349DADF00B25A05 /* Resurses */ = {
 			isa = PBXGroup;
 			children = (
+				5B2069E72369AFC3009157F3 /* Images */,
 				1FA439F7234BBE99007B5504 /* Fonts */,
 				04D5F6C12349E26400B25A05 /* R.generated.swift */,
-				5BBD71C62348B76000D0B9EA /* Assets.xcassets */,
-				04F932A32349E62A00228657 /* Colors.xcassets */,
 				04F932A22349E59100228657 /* Localizable.strings */,
 				04ACED9C2349F31300264199 /* Typealias.swift */,
 			);
@@ -167,6 +172,15 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		1F42BE212365819800A5AF81 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1F42BE22236581BA00A5AF81 /* NetworkService.swift */,
+				1FD0170C2365F59900BC5CC8 /* Request.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		1FA439F7234BBE99007B5504 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,8 +193,18 @@
 		1FA43A60234D0204007B5504 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5B2069E72369AFC3009157F3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5BBD71C62348B76000D0B9EA /* Assets.xcassets */,
+				04F932A32349E62A00228657 /* Colors.xcassets */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		5BBD71B12348B75C00D0B9EA = {
@@ -211,6 +235,7 @@
 				04D5F6B02349D6B800B25A05 /* UserStories */,
 				04D5F6BB2349DADF00B25A05 /* Resurses */,
 				04D5F6BA2349DA7700B25A05 /* Storyboards */,
+				1F42BE212365819800A5AF81 /* Managers */,
 			);
 			path = ExchangeRates;
 			sourceTree = "<group>";
@@ -371,16 +396,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F30B108236C16F2005E0C7F /* UIStackView+Ext.swift in Sources */,
 				046B7E772363822A00C97B93 /* DetailBankVC.swift in Sources */,
 				048BB21A2363973100150421 /* DetailBankView.swift in Sources */,
 				04F74AE22364EB030089B919 /* ButtonView.swift in Sources */,
 				04F74ADB2363A16E0089B919 /* DetailTableViewCell.swift in Sources */,
 				04D6DBAB235E28D700618A66 /* BanksVC.swift in Sources */,
 				048C5390234BA13600ED883F /* TutorialVC.swift in Sources */,
+				1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */,
 				04ACED9F234A04F700264199 /* TutorialView.swift in Sources */,
 				04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */,
 				04D5F6C22349E26400B25A05 /* R.generated.swift in Sources */,
-				04D5F6B82349D94400B25A05 /* Bank.swift in Sources */,
+				04D5F6B82349D94400B25A05 /* BankModel.swift in Sources */,
+				1FD0170D2365F59900BC5CC8 /* Request.swift in Sources */,
 				04D6DBA9235E28C400618A66 /* BanksView.swift in Sources */,
 				04ACED9D2349F31300264199 /* Typealias.swift in Sources */,
 				048BB21C23639AFC00150421 /* Currency.swift in Sources */,

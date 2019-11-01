@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  ExchangeRates
+
+  Created by Mac on 06/10/2019.
+  Copyright © 2019 Denis Melnikov. All rights reserved.
+*/
+// Tutorial
+
+"descriptionTutorialFirstSlide" = "Переглядайте інформацію щодо банківських курсів та вибирайте оптимальний варіант";
+"titleTutorialFirstSlide" = "Заощаджуйте кошти";
+"descriptionTutorialSecondSlide" = "Отримайте вигідний відсоток з вигідним вкладом";
+"titleTutorialSecondSlide" = "Заробляйте";
+"descriptionTutorialThirdSlide" = "Повна інформація про грошові курси та банки";
+"titleTutorialThirdSlide" = "Аналізуйте";
+"titleButton" = "РОЗПОЧАТИ";
+<<<<<<< HEAD
+"url" = "https://resources.finance.ua/ua/public/currency-cash.json";
+=======
+"titleNameFirstView" = "Bank Informer";
+"nameCurrent" = "Назва Валюти";
+"actionCurrent" = "Покупка / Продаж";
+>>>>>>> develop
+

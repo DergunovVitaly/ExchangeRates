@@ -266,12 +266,16 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 11 localization keys.
     struct localizable {
       /// en translation: Bank Informer
       /// 
       /// Locales: en
       static let titleNameFirstView = Rswift.StringResource(key: "titleNameFirstView", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: https://resources.finance.ua/ua/public/currency-cash.json
+      /// 
+      /// Locales: en
+      static let url = Rswift.StringResource(key: "url", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Аналізуйте
       /// 
       /// Locales: en
@@ -314,6 +318,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func titleNameFirstView(_: Void = ()) -> String {
         return NSLocalizedString("titleNameFirstView", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: https://resources.finance.ua/ua/public/currency-cash.json
+      /// 
+      /// Locales: en
+      static func url(_: Void = ()) -> String {
+        return NSLocalizedString("url", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Аналізуйте

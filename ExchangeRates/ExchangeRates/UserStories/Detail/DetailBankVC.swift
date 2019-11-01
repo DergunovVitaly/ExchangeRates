@@ -25,7 +25,7 @@ class DetailBankVC: UIViewController {
     }
     
     func setNavigationController(){
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(perfomAdd))
+        //navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(perfomAdd))
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
         modalPresentationStyle = .fullScreen
@@ -44,6 +44,8 @@ class DetailBankVC: UIViewController {
 
 extension DetailBankVC: BankViewDelegatDelegate {
     func detailButtonAction() {
-        self.present(ButtonVC(), animated: false, completion: nil)
+        let navigationViewController = ButtonVC()
+        navigationViewController.modalPresentationStyle = .overCurrentContext
+        navigationController?.pushViewController(navigationViewController, animated: false)
     }
 }

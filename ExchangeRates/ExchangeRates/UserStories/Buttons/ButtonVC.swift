@@ -15,12 +15,13 @@ class ButtonVC: UIViewController {
         let contenView = ButtonView()
         view = contenView
         contenView.delegate = self
+        
     }
 }
 
 extension ButtonVC: ButtonViewDelegate {
     func exitButtonAction() {
-        self.present(DetailBankVC(), animated: false, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     func linkButtonAction() {

@@ -43,7 +43,6 @@ class BanksVC: UIViewController {
     }
 }
 
-
 extension BanksVC: BanksViewDelegate {
     func linkButtonAction() {
         
@@ -61,5 +60,3 @@ extension BanksVC: BanksViewDelegate {
         navigationController?.pushViewController(DetailBankVC(), animated: true)
     }
 }
-
-

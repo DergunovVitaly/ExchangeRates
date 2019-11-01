@@ -33,8 +33,9 @@ class TutorialVC: UIViewController {
 
 extension TutorialVC: TutorialViewDelegate {
     func startButtonAction() {
-        let navigation = UINavigationController(rootViewController: BanksVC())
-        navigation.modalPresentationStyle = .fullScreen
-        self.present(navigation, animated: true, completion: nil)
+        print("push")
+        //let navigation = UINavigationController(rootViewController: BanksVC())
+        // navigation.modalPresentationStyle = .fullScreen
+        navigationController?.popToViewController(BanksVC(), animated: true)
     }
 }

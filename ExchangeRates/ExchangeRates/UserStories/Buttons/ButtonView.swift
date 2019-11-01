@@ -25,7 +25,8 @@ class ButtonView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        backgroundColor = .white
+        backgroundColor = .clear
+        isOpaque = false
         setupLayout()
     }
     

@@ -58,7 +58,8 @@ extension BanksVC: BanksViewDelegate {
     }
     
     func detailButtonAction() {
-        navigationController?.pushViewController(DetailBankVC(), animated: true)
+        let navigationViewController = DetailBankVC()
+        navigationController?.pushViewController(navigationViewController, animated: true)
     }
 }
 

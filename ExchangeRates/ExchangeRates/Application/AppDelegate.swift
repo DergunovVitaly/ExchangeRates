@@ -26,7 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if firstLaunch {
             window?.rootViewController = TutorialVC()
         } else {
-            window?.rootViewController = BanksVC()
+            let navigation = UINavigationController(rootViewController: BanksVC())
+            window?.rootViewController = navigation
         }
         return true
     }

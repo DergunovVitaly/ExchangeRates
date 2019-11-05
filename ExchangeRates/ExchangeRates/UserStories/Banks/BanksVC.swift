@@ -6,7 +6,6 @@
 //  Copyright © 2019 Denis Melnikov. All rights reserved.
 //
 import UIKit
-import Moya
 
 class BanksVC: UIViewController {
     
@@ -27,6 +26,7 @@ class BanksVC: UIViewController {
             Request.fetch { (bank) in
                 self.contentView.getOrganizations(organizations: bank[0].organizations)
                 self.contentView.bankTableView.reloadData()
+                
             }
         }
     }

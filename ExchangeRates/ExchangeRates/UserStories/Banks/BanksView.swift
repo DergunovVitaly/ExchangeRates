@@ -22,7 +22,6 @@ class BanksView: UIView {
     let bankTableView = UITableView()
     let navigationControlExemp = UINavigationController()
     var organizationsArray: [Organization] = []
-    var orgClosure: (([Organization]) -> ())?
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -30,7 +29,6 @@ class BanksView: UIView {
         bankTableView.dataSource = self
         setupTableView()
         backgroundColor = R.color.grayView()
-        orgClosure?(organizationsArray)
     }
     
     required init?(coder: NSCoder) {

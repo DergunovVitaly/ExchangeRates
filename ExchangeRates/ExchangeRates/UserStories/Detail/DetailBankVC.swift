@@ -25,7 +25,6 @@ class DetailBankVC: UIViewController {
     }
     
     func setNavigationController(){
-        //navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(perfomAdd))
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
         modalPresentationStyle = .fullScreen

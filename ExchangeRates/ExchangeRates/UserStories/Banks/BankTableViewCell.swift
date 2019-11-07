@@ -20,6 +20,8 @@ class BankTableViewCell: UITableViewCell {
     weak var delegate: BanksTableViewCellDelegate?
     
     let organizations: Organization
+    let regionsName: String
+    let cityName: String
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
     private let nameCityLabel = UILabel()
@@ -32,8 +34,12 @@ class BankTableViewCell: UITableViewCell {
     private let phoneButton = UIButton()
     private let detailButton = UIButton()
     
-    init(organizations: Organization) {
+    init(organizations: Organization, regionsName: String, cityName: String) {
         self.organizations = organizations
+        self.regionsName = regionsName
+        self.cityName = cityName
+        self.nameRegionsLabel.text = regionsName
+        self.nameCityLabel.text = cityName
         self.titleBankLabel.text = organizations.title
         self.phoneLabel.text = organizations.phone
         self.adressLabel.text = organizations.address
@@ -145,8 +151,6 @@ class BankTableViewCell: UITableViewCell {
         phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)
         detailButton.addTarget(self, action: #selector(detailButtonSelection), for: .touchUpInside)
     }
-    
-    
     
     @objc func linkButtonSelection(){
         delegate?.linkButtonAction()

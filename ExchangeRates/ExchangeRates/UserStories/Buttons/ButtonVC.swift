@@ -15,7 +15,6 @@ class ButtonVC: UIViewController {
         let contenView = ButtonView()
         view = contenView
         contenView.delegate = self
-        
     }
 }
 

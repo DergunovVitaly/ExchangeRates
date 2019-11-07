@@ -22,6 +22,8 @@ class BanksView: UIView {
     let bankTableView = UITableView()
     let navigationControlExemp = UINavigationController()
     var organizationsArray: [Organization] = []
+    var regionNamesArray = [String]()
+    var cityNamesArray = [String]()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -35,8 +37,10 @@ class BanksView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getOrganizations(organizations: [Organization]) {
+    func getOrganizations(organizations: [Organization], regionName: [String], cityName: [String]) {
         self.organizationsArray = organizations
+        self.regionNamesArray = regionName
+        self.cityNamesArray = cityName
     }
     
     func setupTableView() {
@@ -61,7 +65,7 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row])
+        let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row], regionsName: regionNamesArray[indexPath.row], cityName: cityNamesArray[indexPath.row])
         cell.delegate = self
         return cell
     }

@@ -24,11 +24,24 @@ class BanksVC: UIViewController {
         setNavigationController()
         DispatchQueue.main.async {
             Request.fetch { (bank) in
-                self.contentView.getOrganizations(organizations: bank[0].organizations)
+                let cityId = bank[0].organizations.map { $0.cityId }
+                let cityDict = bank[0].cities
+                let cityName = self.addValueForKeyOfDict(keyArray: cityId, dict: cityDict)
+                let regionId = bank[0].organizations.map { $0.regionId }
+                let regionDict = bank[0].regions
+                let regionName = self.addValueForKeyOfDict(keyArray: regionId, dict: regionDict)
+                self.contentView.getOrganizations(organizations: bank[0].organizations, regionName: regionName, cityName: cityName)
                 self.contentView.bankTableView.reloadData()
-                
             }
         }
+    }
+    
+    func addValueForKeyOfDict(keyArray: [String], dict: [String : String]) -> [String] {
+        var resultArray = [String]()
+        for item in 0..<keyArray.count {
+            resultArray.append(dict[keyArray[item]]!)
+        }
+        return resultArray
     }
     
     func setNavigationController() {

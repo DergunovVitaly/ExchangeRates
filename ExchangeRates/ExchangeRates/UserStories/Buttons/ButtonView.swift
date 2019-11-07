@@ -18,7 +18,7 @@ protocol ButtonViewDelegate: class {
 class ButtonView: UIView {
     
     private let exitButton = UIButton()
-    private let linkButton = UIButton()
+    let linkButton = UIButton()
     private let mapButton = UIButton()
     private let callButton = UIButton()
     weak var delegate: ButtonViewDelegate?

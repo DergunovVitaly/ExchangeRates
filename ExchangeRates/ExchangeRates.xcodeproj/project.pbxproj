@@ -12,6 +12,7 @@
 		048BB21A2363973100150421 /* DetailBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BB2192363973100150421 /* DetailBankView.swift */; };
 		048BB21C23639AFC00150421 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BB21B23639AFC00150421 /* Currency.swift */; };
 		048C5390234BA13600ED883F /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C538F234BA13600ED883F /* TutorialVC.swift */; };
+		0496B85F2375A56500407371 /* MyFavoriteFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496B85E2375A56500407371 /* MyFavoriteFunc.swift */; };
 		04A3D13B236C547A005C44E7 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */; };
 		04ACED9D2349F31300264199 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9C2349F31300264199 /* Typealias.swift */; };
 		04ACED9F234A04F700264199 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9E234A04F700264199 /* TutorialView.swift */; };
@@ -44,6 +45,7 @@
 		048BB2192363973100150421 /* DetailBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBankView.swift; sourceTree = "<group>"; };
 		048BB21B23639AFC00150421 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		048C538F234BA13600ED883F /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
+		0496B85E2375A56500407371 /* MyFavoriteFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteFunc.swift; sourceTree = "<group>"; };
 		04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		04ACED9C2349F31300264199 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		04ACED9E234A04F700264199 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */,
 				04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */,
+				0496B85E2375A56500407371 /* MyFavoriteFunc.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				046B7E772363822A00C97B93 /* DetailBankVC.swift in Sources */,
 				048BB21A2363973100150421 /* DetailBankView.swift in Sources */,
 				04F74AE22364EB030089B919 /* ButtonView.swift in Sources */,
+				0496B85F2375A56500407371 /* MyFavoriteFunc.swift in Sources */,
 				04F74ADB2363A16E0089B919 /* DetailTableViewCell.swift in Sources */,
 				04D6DBAB235E28D700618A66 /* BanksVC.swift in Sources */,
 				048C5390234BA13600ED883F /* TutorialVC.swift in Sources */,

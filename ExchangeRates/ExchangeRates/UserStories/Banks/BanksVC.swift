@@ -26,22 +26,14 @@ class BanksVC: UIViewController {
             Request.fetch { (bank) in
                 let cityId = bank[0].organizations.map { $0.cityId }
                 let cityDict = bank[0].cities
-                let cityName = self.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict)
+                let cityName = MyFavoriteFunc.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict)
                 let regionId = bank[0].organizations.map { $0.regionId }
                 let regionDict = bank[0].regions
-                let regionName = self.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict)
+                let regionName = MyFavoriteFunc.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict)
                 self.contentView.getOrganizations(organizations: bank[0].organizations, regionName: regionName, cityName: cityName)
                 self.contentView.bankTableView.reloadData()
             }
         }
-    }
-    
-    private func compareArrayWithDictionaryKeys(keyArray: [String], dict: [String : String]) -> [String] {
-        var resultArray = [String]()
-        for item in 0..<keyArray.count {
-            resultArray.append(dict[keyArray[item]]!)
-        }
-        return resultArray
     }
     
     private func setNavigationController() {

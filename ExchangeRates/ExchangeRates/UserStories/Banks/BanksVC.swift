@@ -36,7 +36,7 @@ class BanksVC: UIViewController {
         }
     }
     
-    func addValueForKeyOfDict(keyArray: [String], dict: [String : String]) -> [String] {
+    private func addValueForKeyOfDict(keyArray: [String], dict: [String : String]) -> [String] {
         var resultArray = [String]()
         for item in 0..<keyArray.count {
             resultArray.append(dict[keyArray[item]]!)
@@ -44,7 +44,7 @@ class BanksVC: UIViewController {
         return resultArray
     }
     
-    func setNavigationController() {
+    private func setNavigationController() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButton))

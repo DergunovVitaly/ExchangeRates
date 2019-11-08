@@ -20,10 +20,9 @@ class BanksView: UIView {
     weak var delegate: BanksViewDelegate?
     
     let bankTableView = UITableView()
-    let navigationControlExemp = UINavigationController()
-    var organizationsArray: [Organization] = []
-    var regionNamesArray = [String]()
-    var cityNamesArray = [String]()
+    private(set) var organizationsArray: [Organization] = []
+    private(set) var regionNamesArray = [String]()
+    private(set) var cityNamesArray = [String]()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -43,7 +42,7 @@ class BanksView: UIView {
         self.cityNamesArray = cityName
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none
         bankTableView.allowsSelection = false
@@ -65,7 +64,9 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row], regionsName: regionNamesArray[indexPath.row], cityName: cityNamesArray[indexPath.row])
+        let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row],
+                                     regionsName: regionNamesArray[indexPath.row],
+                                     cityName: cityNamesArray[indexPath.row])
         cell.delegate = self
         return cell
     }

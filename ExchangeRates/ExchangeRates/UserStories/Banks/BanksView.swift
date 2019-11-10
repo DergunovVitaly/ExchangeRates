@@ -36,7 +36,7 @@ class BanksView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getOrganizations(organizations: [Organization], regionName: [String], cityName: [String]) {
+    func update(organizations: [Organization], regionName: [String], cityName: [String]) {
         self.organizationsArray = organizations
         self.regionNamesArray = regionName
         self.cityNamesArray = cityName

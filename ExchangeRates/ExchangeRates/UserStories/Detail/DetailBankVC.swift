@@ -10,12 +10,32 @@ import UIKit
 
 class DetailBankVC: UIViewController {
     
+    private let contenView = DetailBankView()
+    private let organizations: Organization
+    private let regionName: String
+    private let cityName: String
+    
+    init(organizations: Organization, regionName: String, cityName: String) {
+        self.organizations = organizations
+        self.regionName = regionName
+        self.cityName = cityName
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        view = contenView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let contenView = DetailBankView()
-        view = contenView
         contenView.delegate = self
         setNavigationController()
+        
+        contenView.getOrganizations(organizations: organizations, regionName: regionName, cityName: cityName)
     }
     
     func setNavigationController(){

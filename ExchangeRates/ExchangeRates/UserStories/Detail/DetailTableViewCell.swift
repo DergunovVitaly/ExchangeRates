@@ -25,18 +25,17 @@ class DetailTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func update(content: BankViewModel) {
-        nameLabel.text = content.title
-//        descriptionLabel.text = UILabel()
-        purchaseLabel.text = content.bid
-        saleLabel.text = content.ask
-    }
+//    
+//    func update(content: BankViewModel) {
+////        nameLabel.text = content.title
+//////        descriptionLabel.text = UILabel()
+////        purchaseLabel.text = content.bid
+////        saleLabel.text = content.ask
+//    }
     
     private func setupLayout() {
         
         addSubview(nameLabel)
-//        nameLabel.text = currencyModel.name
         nameLabel.textColor = R.color.lightDark()
         nameLabel.font = R.font.helveticaNeue(size: 18)
         nameLabel.snp.makeConstraints { (make) in

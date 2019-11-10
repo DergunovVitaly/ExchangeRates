@@ -24,14 +24,14 @@ class DetailBankView: UIView {
     private let detailButton = UIButton()
     
     weak var delegate: BankViewDelegatDelegate?
-
     
     init() {
         super.init(frame: .zero)
+        detailTableView.register(DetailTableViewCell.self, forCellReuseIdentifier: String(describing: DetailTableViewCell.self))
         detailTableView.delegate = self
         detailTableView.dataSource = self
         setupLayout()
-        backgroundColor = .white
+        
     }
     
     required init?(coder: NSCoder) {
@@ -39,15 +39,13 @@ class DetailBankView: UIView {
     }
     
     func getOrganizations(organizations: Organization, regionName: String, cityName: String) {
-        self.nameCurrentLabel.text = organizations.title
-//           self.regionNamesArray = regionName
-//           self.cityNamesArray = cityName
-       }
+        self.titleLabel.text = organizations.title
+    }
     
     func setupLayout() {
+        backgroundColor = .white
         
         addSubview(detailTableView)
-        detailTableView.register(DetailTableViewCell.self, forCellReuseIdentifier: String(describing: DetailTableViewCell.self))
         detailTableView.rowHeight = 70
         detailTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(450)
@@ -91,7 +89,6 @@ class DetailBankView: UIView {
         }
         
         addSubview(titleLabel)
-        titleLabel.backgroundColor = .green
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(68)
             make.leading.width.equalTo(descriptionLabel)

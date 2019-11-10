@@ -10,7 +10,7 @@ import UIKit
 class BanksVC: UIViewController {
     
     private let contentView = BanksView()
-    
+    var indexPath: IndexPath?
     override func loadView() {
         super.loadView()
         contentView.delegate = self
@@ -49,6 +49,12 @@ class BanksVC: UIViewController {
 }
 
 extension BanksVC: BanksViewDelegate {
+    func detailButtonAction(cell: BankTableViewCell) {
+        indexPath = contentView.bankTableView.indexPath(for: cell)
+        let navigationViewController = DetailBankVC()
+        navigationController?.pushViewController(navigationViewController, animated: true)
+    }
+    
     func linkButtonAction() {
         
     }
@@ -59,10 +65,5 @@ extension BanksVC: BanksViewDelegate {
     
     func phoneButtonAction() {
         
-    }
-    
-    func detailButtonAction() {
-        let navigationViewController = DetailBankVC()
-        navigationController?.pushViewController(navigationViewController, animated: true)
     }
 }

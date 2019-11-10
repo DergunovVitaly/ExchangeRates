@@ -24,10 +24,9 @@ class DetailBankView: UIView {
     private let detailButton = UIButton()
     
     weak var delegate: BankViewDelegatDelegate?
-    private var currencyArray : [CurrencyModel]
+
     
-    init(array: [CurrencyModel]) {
-        self.currencyArray = array
+    init() {
         super.init(frame: .zero)
         detailTableView.delegate = self
         detailTableView.dataSource = self
@@ -39,10 +38,16 @@ class DetailBankView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func getOrganizations(organizations: Organization, regionName: String, cityName: String) {
+        self.nameCurrentLabel.text = organizations.title
+//           self.regionNamesArray = regionName
+//           self.cityNamesArray = cityName
+       }
+    
     func setupLayout() {
         
         addSubview(detailTableView)
-        detailTableView.register(DetailTableViewCell.self, forCellReuseIdentifier: "cellDetail")
+        detailTableView.register(DetailTableViewCell.self, forCellReuseIdentifier: String(describing: DetailTableViewCell.self))
         detailTableView.rowHeight = 70
         detailTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(450)
@@ -111,11 +116,11 @@ class DetailBankView: UIView {
 
 extension DetailBankView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        currencyArray.count
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = DetailTableViewCell(currencyModel: currencyArray[indexPath.row])
+        let cell = DetailTableViewCell()
         return cell
     }
 }

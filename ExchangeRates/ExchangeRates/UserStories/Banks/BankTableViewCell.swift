@@ -12,7 +12,7 @@ protocol BanksTableViewCellDelegate: class {
     func linkButtonAction()
     func locationButtonAction()
     func phoneButtonAction()
-    func detailButtonAction()
+    func detailButtonAction(cell: BankTableViewCell)
 }
 
 class BankTableViewCell: UITableViewCell {
@@ -43,7 +43,7 @@ class BankTableViewCell: UITableViewCell {
         self.titleBankLabel.text = organizations.title
         self.phoneLabel.text = organizations.phone
         self.adressLabel.text = organizations.address
-        super.init(style: .default, reuseIdentifier: "Cell")
+        super.init(style: .default, reuseIdentifier: String(describing: BankTableViewCell.self))
         setupLayout()
         setLayerTableViewCell()
     }
@@ -151,6 +151,11 @@ class BankTableViewCell: UITableViewCell {
         phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)
         detailButton.addTarget(self, action: #selector(detailButtonSelection), for: .touchUpInside)
     }
+    //TODO: what does this func do?
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+    }
     
     @objc func linkButtonSelection(){
         delegate?.linkButtonAction()
@@ -161,16 +166,11 @@ class BankTableViewCell: UITableViewCell {
     @objc func phoneButtonSelection(){
         delegate?.phoneButtonAction()
     }
-    @objc func detailButtonSelection(){
-        delegate?.detailButtonAction()
+    @objc func detailButtonSelection() {
+        delegate?.detailButtonAction(cell: self)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-    }
-    
-    func setLayerTableViewCell() {
+    private func setLayerTableViewCell() {
         layer.cornerRadius = 5
         layer.shadowOffset = CGSize(width: 5, height: 5)
         layer.shadowOpacity = 0.1

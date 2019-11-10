@@ -10,15 +10,9 @@ import UIKit
 
 class DetailBankVC: UIViewController {
     
-    let currencieArray = [CurrencyModel(name: "USD", description: "Долар США", bid: "24.8000", ask: "25.2500"),
-                          CurrencyModel(name: "EUR", description: "Євро", bid: "27.5000", ask: "28.0000"),
-                          CurrencyModel(name: "GBF", description: "Англійський Фунт Стерлінгів", bid: "31.6000", ask: "31.7450"),
-                          CurrencyModel(name: "PLN", description: "Польський Злотий", bid: "6.3500", ask: "6.4700"),
-                          CurrencyModel(name: "RUB", description: "Pocійський Рубль", bid: "0.3500", ask: "0.3900")]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let contenView = DetailBankView(array: currencieArray)
+        let contenView = DetailBankView()
         view = contenView
         contenView.delegate = self
         setNavigationController()

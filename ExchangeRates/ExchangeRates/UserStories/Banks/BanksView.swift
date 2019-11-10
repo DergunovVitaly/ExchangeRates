@@ -12,7 +12,7 @@ protocol BanksViewDelegate: class {
     func linkButtonAction()
     func locationButtonAction()
     func phoneButtonAction()
-    func detailButtonAction()
+    func detailButtonAction(cell: BankTableViewCell)
 }
 
 class BanksView: UIView {
@@ -45,11 +45,11 @@ class BanksView: UIView {
     private func setupTableView() {
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none
-        bankTableView.allowsSelection = false
         bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = backgroundColor
         bankTableView.rowHeight = 200
-        bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: "Cell")
+        bankTableView.allowsSelection = false
+        bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
         bankTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(68)
             make.bottom.leading.trailing.equalToSuperview()
@@ -73,19 +73,19 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension BanksView: BanksTableViewCellDelegate {
+    func detailButtonAction(cell: BankTableViewCell) {
+        self.delegate?.detailButtonAction(cell: cell)
+    }
+    
     func linkButtonAction() {
-        delegate?.linkButtonAction()
+        self.delegate?.linkButtonAction()
     }
     
     func locationButtonAction() {
-        delegate?.locationButtonAction()
+        self.delegate?.locationButtonAction()
     }
     
     func phoneButtonAction() {
-        delegate?.phoneButtonAction()
-    }
-    
-    func detailButtonAction() {
-        delegate?.detailButtonAction()
+        self.delegate?.phoneButtonAction()
     }
 }

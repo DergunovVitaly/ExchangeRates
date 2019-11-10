@@ -10,7 +10,6 @@ import UIKit
 
 class DetailTableViewCell: UITableViewCell {
     
-    private let currencyModel : CurrencyModel
     private let nameLabel = UILabel()
     private let descriptionLabel = UILabel()
     private let purchaseLabel = UILabel()
@@ -18,9 +17,8 @@ class DetailTableViewCell: UITableViewCell {
     private let imageUp = UIImageView()
     private let imageDown = UIImageView()
     
-    init(currencyModel: CurrencyModel) {
-        self.currencyModel = currencyModel
-        super.init(style: .default, reuseIdentifier: "cellDetail")
+    init() {
+        super.init(style: .default, reuseIdentifier: String(describing: DetailTableViewCell.self))
         setupLayout()
     }
     
@@ -28,10 +26,17 @@ class DetailTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupLayout() {
+    func update(content: BankViewModel) {
+        nameLabel.text = content.title
+//        descriptionLabel.text = UILabel()
+        purchaseLabel.text = content.bid
+        saleLabel.text = content.ask
+    }
+    
+    private func setupLayout() {
         
         addSubview(nameLabel)
-        nameLabel.text = currencyModel.name
+//        nameLabel.text = currencyModel.name
         nameLabel.textColor = R.color.lightDark()
         nameLabel.font = R.font.helveticaNeue(size: 18)
         nameLabel.snp.makeConstraints { (make) in
@@ -41,7 +46,7 @@ class DetailTableViewCell: UITableViewCell {
         }
         
         addSubview(descriptionLabel)
-        descriptionLabel.text = currencyModel.description
+//        descriptionLabel.text = currencyModel.description
         descriptionLabel.numberOfLines = 0
         descriptionLabel.textColor = R.color.lightGrey()
         descriptionLabel.font = R.font.helveticaNeue(size: 16)
@@ -52,7 +57,7 @@ class DetailTableViewCell: UITableViewCell {
         }
         
         addSubview(purchaseLabel)
-        purchaseLabel.text = currencyModel.bid
+//        purchaseLabel.text = currencyModel.bid
         purchaseLabel.font = R.font.helveticaNeue(size: 14)
         purchaseLabel.textColor = R.color.lightGrey()
         purchaseLabel.snp.makeConstraints { (make) in
@@ -62,7 +67,7 @@ class DetailTableViewCell: UITableViewCell {
         }
         
         addSubview(saleLabel)
-        saleLabel.text = currencyModel.ask
+//        saleLabel.text = currencyModel.ask
         saleLabel.font = R.font.helveticaNeue(size: 14)
         saleLabel.textColor = R.color.lightGrey()
         saleLabel.snp.makeConstraints { (make) in

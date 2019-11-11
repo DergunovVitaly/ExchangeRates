@@ -75,6 +75,7 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.detailButtonActionDidSelectRow(indexPath: indexPath)
+        bankTableView.reloadData()
     }
 }
 

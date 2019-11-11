@@ -13,6 +13,7 @@ protocol BanksViewDelegate: class {
     func locationButtonAction()
     func phoneButtonAction()
     func detailButtonAction(cell: BankTableViewCell)
+    func detailButtonActionDidSelectRow(indexPath: IndexPath)
 }
 
 class BanksView: UIView {
@@ -48,7 +49,8 @@ class BanksView: UIView {
         bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = backgroundColor
         bankTableView.rowHeight = 200
-        bankTableView.allowsSelection = false
+//        bankTableView.allowsSelection = false
+//        bankTableView.allowsSelectionDuringEditing = false
         bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
         bankTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(68)
@@ -69,6 +71,10 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
                                      cityName: cityNamesArray[indexPath.row])
         cell.delegate = self
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.detailButtonActionDidSelectRow(indexPath: indexPath)
     }
 }
 

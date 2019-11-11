@@ -57,8 +57,10 @@ class DetailBankVC: UIViewController {
 
 extension DetailBankVC: BankViewDelegatDelegate {
     func detailButtonAction() {
-        let navigationViewController = ButtonVC()
+        let navigationViewController = ExtraMenuDetailVC()
         navigationViewController.modalPresentationStyle = .overCurrentContext
         navigationController?.pushViewController(navigationViewController, animated: false)
+//        present(navigationViewController, animated: true, completion: nil)
+
     }
 }

@@ -15,7 +15,7 @@ protocol ButtonViewDelegate: class {
     func callButtonAction()
 }
 
-class ButtonView: UIView {
+class ExtraMenuDetailView: UIView {
     
     private let exitButton = UIButton()
     let linkButton = UIButton()

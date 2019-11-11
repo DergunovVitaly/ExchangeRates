@@ -54,6 +54,10 @@ class BanksVC: UIViewController {
 }
 
 extension BanksVC: BanksViewDelegate {
+    func detailButtonActionDidSelectRow(indexPath: IndexPath) {
+        let navigationViewController = DetailBankVC(organizations: organizations[indexPath.row], regionName: regionName[indexPath.row], cityName: cityName[indexPath.row])
+         navigationController?.pushViewController(navigationViewController, animated: true)
+    }
     
     func detailButtonAction(cell: BankTableViewCell) {
         guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }

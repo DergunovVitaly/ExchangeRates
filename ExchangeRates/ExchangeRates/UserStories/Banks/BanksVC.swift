@@ -56,7 +56,7 @@ class BanksVC: UIViewController {
 extension BanksVC: BanksViewDelegate {
     func detailButtonActionDidSelectRow(indexPath: IndexPath) {
         let navigationViewController = DetailBankVC(organizations: organizations[indexPath.row], regionName: regionName[indexPath.row], cityName: cityName[indexPath.row])
-         navigationController?.pushViewController(navigationViewController, animated: true)
+        navigationController?.pushViewController(navigationViewController, animated: true)
     }
     
     func detailButtonAction(cell: BankTableViewCell) {
@@ -65,8 +65,10 @@ extension BanksVC: BanksViewDelegate {
         navigationController?.pushViewController(navigationViewController, animated: true)
     }
     
-    func linkButtonAction() {
-        
+    func linkButtonAction(cell: BankTableViewCell) {
+        guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }
+        let navigationViewController = WebViewController(urlBankWebView: URL(string: organizations[indexPath.row].link)!)
+        navigationController?.pushViewController(navigationViewController, animated: true)
     }
     
     func locationButtonAction() {

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BanksViewDelegate: class {
-    func linkButtonAction()
+    func linkButtonAction(cell: BankTableViewCell)
     func locationButtonAction()
     func phoneButtonAction()
     func detailButtonAction(cell: BankTableViewCell)
@@ -80,12 +80,13 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension BanksView: BanksTableViewCellDelegate {
+    
     func detailButtonAction(cell: BankTableViewCell) {
         self.delegate?.detailButtonAction(cell: cell)
     }
     
-    func linkButtonAction() {
-        self.delegate?.linkButtonAction()
+    func linkButtonAction(cell: BankTableViewCell) {
+        self.delegate?.linkButtonAction(cell: cell)
     }
     
     func locationButtonAction() {

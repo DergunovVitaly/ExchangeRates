@@ -12,6 +12,7 @@ class BanksVC: UIViewController {
     var regionName: [String] = []
     var cityName: [String] = []
     var organizations: [Organization] = []
+    
     private let contentView = BanksView()
     private let detailView = DetailBankView()
     
@@ -67,8 +68,10 @@ extension BanksVC: BanksViewDelegate {
     
     func linkButtonAction(cell: BankTableViewCell) {
         guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }
-        let navigationViewController = WebViewController(urlBankWebView: URL(string: organizations[indexPath.row].link)!)
-        navigationController?.pushViewController(navigationViewController, animated: true)
+        guard let url = URL(string: organizations[indexPath.row].link.deleteLastLettersAfter(character: "/")) else { return }
+        let urlForBankWebView = url
+        let webViewVC = WebViewController(url: urlForBankWebView)
+        self.present(webViewVC, animated: true, completion: nil)
     }
     
     func locationButtonAction() {

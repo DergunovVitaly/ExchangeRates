@@ -8,23 +8,45 @@
 
 import UIKit
 import WebKit
-
-class WebViewController: UIViewController, WKUIDelegate {
-    
+import SafariServices
+class WebViewController: SFSafariViewController {
+    //TODO: add activity indicator
     private var bankWebView = WKWebView()
     private var urlBankWebView: URL
-    
-    init(urlBankWebView: URL) {
-        self.urlBankWebView = urlBankWebView
-        super.init(nibName: nil, bundle: nil)
-        bankWebView.uiDelegate = self
-        bankWebView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
-        let myRequest = URLRequest(url: urlBankWebView)
-        bankWebView.load(myRequest)
-        view = bankWebView
+   
+     init(url URL: URL) {
+        self.urlBankWebView = URL
+        super.init(url: self.urlBankWebView, configuration: WebViewController.safariConfiguration())
+        delegate = self
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    static func safariConfiguration() -> Configuration {
+        let safariConfiguration = SFSafariViewController.Configuration()
+        safariConfiguration.barCollapsingEnabled = true
+        safariConfiguration.entersReaderIfAvailable = true
+        return safariConfiguration
+    }
+    
+//    init(urlBankWebView: URL) {
+//        self.urlBankWebView = urlBankWebView
+//        super.init(nibName: nil, bundle: nil)
+//         showActivityIndicatro()
+//        bankWebView.uiDelegate = self
+//        bankWebView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
+//        let myRequest = URLRequest(url: urlBankWebView)
+//
+//
+//        bankWebView.load(myRequest)
+//        view = bankWebView
+//    }
+    
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+}
+
+extension WebViewController: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

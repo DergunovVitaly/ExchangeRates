@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol BanksTableViewCellDelegate: class {
     func linkButtonAction(cell: BankTableViewCell)
@@ -66,6 +67,8 @@ class BankTableViewCell: UITableViewCell {
         
         addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
+        let url = URL(string: "https://file.liga.net/images/general/2018/05/29/20180529160030-5419.jpg")
+        bankLogo.kf.setImage(with: url)
         bankLogo.snp.makeConstraints { (make) in
             make.top.trailing.equalTo(titleBankLabel)
             make.width.equalTo(100)

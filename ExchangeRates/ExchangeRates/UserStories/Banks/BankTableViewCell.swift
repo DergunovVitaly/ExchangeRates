@@ -34,8 +34,9 @@ class BankTableViewCell: UITableViewCell {
     private let locationButton = UIButton()
     private let phoneButton = UIButton()
     private let detailButton = UIButton()
+    private var urlForBankLogo = String()
     
-    init(organizations: Organization, regionsName: String, cityName: String) {
+    init(organizations: Organization, regionsName: String, cityName: String, urlForBankLogo: String) {
         self.organizations = organizations
         self.regionsName = regionsName
         self.cityName = cityName
@@ -44,6 +45,7 @@ class BankTableViewCell: UITableViewCell {
         self.titleBankLabel.text = organizations.title
         self.phoneLabel.text = organizations.phone
         self.adressLabel.text = organizations.address
+//        self.urlForBankLogo = "https://static.finance.ua/img/ext/org-logo/88/\(String(organizations.oldId)).png"
         super.init(style: .default, reuseIdentifier: String(describing: BankTableViewCell.self))
         setupLayout()
         setLayerTableViewCell()
@@ -67,7 +69,7 @@ class BankTableViewCell: UITableViewCell {
         
         addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
-        let url = URL(string: "https://file.liga.net/images/general/2018/05/29/20180529160030-5419.jpg")
+        let url = URL(string: "https://static.finance.ua/img/ext/org-logo/88/\(String(organizations.oldId)).png")
         bankLogo.kf.setImage(with: url)
         bankLogo.snp.makeConstraints { (make) in
             make.top.trailing.equalTo(titleBankLabel)

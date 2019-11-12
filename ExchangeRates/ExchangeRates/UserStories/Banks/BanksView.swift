@@ -68,7 +68,7 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row],
                                      regionsName: regionNamesArray[indexPath.row],
-                                     cityName: cityNamesArray[indexPath.row])
+                                     cityName: cityNamesArray[indexPath.row], urlForBankLogo: "https://static.finance.ua/img/ext/org-logo/88/\(String(organizationsArray[indexPath.row].oldId)).png")
         cell.delegate = self
         return cell
     }

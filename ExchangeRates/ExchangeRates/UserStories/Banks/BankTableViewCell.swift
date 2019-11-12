@@ -45,7 +45,6 @@ class BankTableViewCell: UITableViewCell {
         self.titleBankLabel.text = organizations.title
         self.phoneLabel.text = organizations.phone
         self.adressLabel.text = organizations.address
-//        self.urlForBankLogo = "https://static.finance.ua/img/ext/org-logo/88/\(String(organizations.oldId)).png"
         super.init(style: .default, reuseIdentifier: String(describing: BankTableViewCell.self))
         setupLayout()
         setLayerTableViewCell()

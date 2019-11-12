@@ -34,7 +34,6 @@ class BankTableViewCell: UITableViewCell {
     private let locationButton = UIButton()
     private let phoneButton = UIButton()
     private let detailButton = UIButton()
-    private var urlForBankLogo = String()
     
     init(organizations: Organization, regionsName: String, cityName: String) {
         self.organizations = organizations

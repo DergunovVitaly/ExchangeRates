@@ -64,18 +64,7 @@ class BankTableViewCell: UITableViewCell {
             make.width.equalTo(200)
         }
         
-        contentView.addSubview(bankLogo)
-        bankLogo.contentMode = .scaleAspectFit
-        //TODO: move to BanksVC
-        let url = URL(string: "https://static.finance.ua/img/ext/org-logo/88/\(String(organizations.oldId)).png")
-        bankLogo.kf.setImage(with: url)
         
-        bankLogo.snp.makeConstraints { (make) in
-            make.top.equalTo(titleBankLabel)
-            make.trailing.equalToSuperview().offset(-10)
-            make.width.equalTo(100)
-            make.height.equalTo(100)
-        }
         
         contentView.addSubview(nameRegionsLabel)
         nameRegionsLabel.textColor = R.color.lightGrey()
@@ -96,20 +85,33 @@ class BankTableViewCell: UITableViewCell {
             make.leading.equalTo(nameRegionsLabel)
             make.width.equalTo(nameRegionsLabel)
             make.bottom.equalToSuperview().offset(-45)
-        }
 
+        }
+        
+        contentView.addSubview(bankLogo)
+        bankLogo.contentMode = .scaleAspectFit
+        //TODO: move to BanksVC
+        let url = URL(string: "https://static.finance.ua/img/ext/org-logo/88/\(String(organizations.oldId)).png")
+        bankLogo.kf.setImage(with: url)
+        
+        bankLogo.snp.makeConstraints { (make) in
+            make.top.equalTo(titleBankLabel)
+            make.trailing.equalToSuperview().offset(-10)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
+        }
         contentView.addSubview(phoneLabel)
         phoneLabel.numberOfLines = 0
         phoneLabel.textAlignment = .right
         phoneLabel.textColor = R.color.lightGrey()
         phoneLabel.font = R.font.helveticaNeue(size: 15)
         phoneLabel.snp.makeConstraints { (make) in
-            make.trailing.equalTo(bankLogo)
-            make.top.equalTo(nameRegionsLabel)
+            make.trailing.equalToSuperview().offset(-10)
+            make.top.equalTo(bankLogo.snp.bottom).offset(10)
             make.width.equalTo(contentView.bounds.width / 2)
-            make.height.equalTo(30)
+//            make.height.equalTo(30)
         }
-
+        
         contentView.addSubview(adressLabel)
         adressLabel.textAlignment = .right
         adressLabel.numberOfLines = 0
@@ -117,10 +119,11 @@ class BankTableViewCell: UITableViewCell {
         adressLabel.font = R.font.helveticaNeue(size: 15)
         adressLabel.snp.makeConstraints { (make) in
             make.trailing.equalTo(phoneLabel)
-            make.top.equalTo(phoneLabel).offset(25)
+            make.top.equalTo(phoneLabel.snp.bottom).offset(10)
             make.width.equalTo(phoneLabel)
+            make.bottom.equalToSuperview().offset(-45)
         }
-
+        
         contentView.addSubview(barStackView)
         barStackView.contentMode = .scaleToFill
         barStackView.axis = .horizontal
@@ -157,10 +160,10 @@ class BankTableViewCell: UITableViewCell {
         detailButton.addTarget(self, action: #selector(detailButtonSelection), for: .touchUpInside)
     }
     //TODO: what does this func do?
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-//    }
+//        override func layoutSubviews() {
+//            super.layoutSubviews()
+//            frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+//        }
     
     @objc func linkButtonSelection(){
         delegate?.linkButtonAction(cell: self)

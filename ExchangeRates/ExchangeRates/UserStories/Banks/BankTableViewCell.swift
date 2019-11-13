@@ -55,71 +55,72 @@ class BankTableViewCell: UITableViewCell {
     
     private func setupLayout() {
         
-        addSubview(titleBankLabel)
+        contentView.addSubview(titleBankLabel)
         titleBankLabel.font = R.font.helveticaNeue(size: 26)
         titleBankLabel.textColor = R.color.lightDark()
         titleBankLabel.numberOfLines = 0
         titleBankLabel.snp.makeConstraints { (make) in
             make.top.leading.equalToSuperview().offset(15)
-            make.trailing.equalToSuperview().offset(-15)
-            make.height.equalTo(44)
+            make.width.equalTo(150)
         }
         
-        addSubview(bankLogo)
+        contentView.addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
+        //TODO: move to BanksVC
         let url = URL(string: "https://static.finance.ua/img/ext/org-logo/88/\(String(organizations.oldId)).png")
         bankLogo.kf.setImage(with: url)
+        
         bankLogo.snp.makeConstraints { (make) in
-            make.top.trailing.equalTo(titleBankLabel)
+            make.top.equalTo(titleBankLabel)
+            make.trailing.equalToSuperview().offset(-10)
             make.width.equalTo(100)
             make.height.equalTo(75)
         }
         
-        addSubview(nameRegionsLabel)
+        contentView.addSubview(nameRegionsLabel)
         nameRegionsLabel.textColor = R.color.lightGrey()
         nameRegionsLabel.font = R.font.helveticaNeue(size: 20)
         nameRegionsLabel.numberOfLines = 0
         nameRegionsLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleBankLabel).offset(20)
+            make.top.equalTo(titleBankLabel.snp.bottom).offset(20)
             make.leading.equalTo(titleBankLabel)
-            make.width.equalTo(contentView.bounds.width / 2)
-            make.bottom.equalToSuperview().offset(-40)
+            make.width.equalTo(150)
+            make.height.equalTo(30)
         }
         
-        addSubview(nameCityLabel)
-        nameCityLabel.textColor = R.color.lightGrey()
-        nameCityLabel.font = R.font.helveticaNeue(size: 20)
-        nameCityLabel.numberOfLines = 0
-        nameCityLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(nameRegionsLabel).offset(65)
-            make.leading.equalTo(nameRegionsLabel)
-            make.width.equalTo(nameRegionsLabel)
-            make.bottom.equalToSuperview().offset(-40)
-        }
-        
-        addSubview(phoneLabel)
-        phoneLabel.numberOfLines = 0
-        phoneLabel.textColor = R.color.lightGrey()
-        phoneLabel.font = R.font.helveticaNeue(size: 15)
-        phoneLabel.snp.makeConstraints { (make) in
-            make.trailing.equalTo(bankLogo)
-            make.top.equalTo(nameRegionsLabel).offset(45)
-            make.height.equalTo(40)
-            make.width.equalTo((contentView.bounds.width / 2) - 20)
-        }
-        
-        addSubview(adressLabel)
-        adressLabel.numberOfLines = 0
-        adressLabel.textColor = R.color.lightGrey()
-        adressLabel.font = R.font.helveticaNeue(size: 15)
-        adressLabel.snp.makeConstraints { (make) in
-            make.trailing.equalTo(bankLogo)
-            make.top.equalTo(phoneLabel).offset(25)
-            make.height.equalTo(40)
-            make.width.equalTo(phoneLabel)
-        }
-        
-        addSubview(barStackView)
+//        contentView.addSubview(nameCityLabel)
+//        nameCityLabel.textColor = R.color.lightGrey()
+//        nameCityLabel.font = R.font.helveticaNeue(size: 20)
+//        nameCityLabel.numberOfLines = 0
+//        nameCityLabel.snp.makeConstraints { (make) in
+//            make.top.equalTo(nameRegionsLabel.snp.bottom).offset(65)
+//            make.leading.equalTo(nameRegionsLabel)
+//            make.width.height.equalTo(nameRegionsLabel)
+//            
+//        }
+//
+//        contentView.addSubview(phoneLabel)
+//        phoneLabel.numberOfLines = 0
+//        phoneLabel.textColor = R.color.lightGrey()
+//        phoneLabel.font = R.font.helveticaNeue(size: 15)
+//        phoneLabel.snp.makeConstraints { (make) in
+//            make.trailing.equalToSuperview().offset(-20)
+//            make.top.equalTo(nameRegionsLabel)
+//            make.width.equalTo(contentView.bounds.width / 2)
+//            make.height.equalTo(30)
+//        }
+//
+//        contentView.addSubview(adressLabel)
+//        adressLabel.numberOfLines = 0
+//        adressLabel.textColor = R.color.lightGrey()
+//        adressLabel.font = R.font.helveticaNeue(size: 15)
+//        adressLabel.snp.makeConstraints { (make) in
+//            make.trailing.equalTo(phoneLabel)
+//            make.top.equalTo(phoneLabel).offset(25)
+//            make.width.height.equalTo(phoneLabel)
+//        }
+
+        contentView.addSubview(barStackView)
         barStackView.contentMode = .scaleToFill
         barStackView.axis = .horizontal
         barStackView.spacing = 10
@@ -129,8 +130,8 @@ class BankTableViewCell: UITableViewCell {
         barStackView.distribution = .equalSpacing
         barStackView.alignment = .center
         barStackView.snp.makeConstraints { (make) in
-            make.bottom.leading.trailing.equalToSuperview()
             make.height.equalTo(40)
+            make.bottom.leading.trailing.equalToSuperview()
         }
         
         barStackView.addArrangedSubview(linkButton)
@@ -155,10 +156,10 @@ class BankTableViewCell: UITableViewCell {
         detailButton.addTarget(self, action: #selector(detailButtonSelection), for: .touchUpInside)
     }
     //TODO: what does this func do?
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+//    }
     
     @objc func linkButtonSelection(){
         delegate?.linkButtonAction(cell: self)

@@ -48,18 +48,27 @@ class BanksView: UIView {
         bankTableView.separatorStyle = .none
         bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = backgroundColor
-        bankTableView.rowHeight = 200
-//        bankTableView.allowsSelection = false
-//        bankTableView.allowsSelectionDuringEditing = false
+        
+//        bankTableView.estimatedRowHeight = 100.0
+        bankTableView.rowHeight = UITableView.automaticDimension
+       
+//        bankTableView.rowHeight = 250
+        //        bankTableView.allowsSelection = false
+        //        bankTableView.allowsSelectionDuringEditing = false
         bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
         bankTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(68)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview()
         }
     }
 }
 
 extension BanksView: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return organizationsArray.count

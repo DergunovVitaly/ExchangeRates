@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol BanksTableViewCellDelegate: class {
-    func linkButtonAction()
+    func linkButtonAction(cell: BankTableViewCell)
     func locationButtonAction()
     func phoneButtonAction()
-    func detailButtonAction()
+    func detailButtonAction(cell: BankTableViewCell)
 }
 
 class BankTableViewCell: UITableViewCell {
@@ -43,7 +44,7 @@ class BankTableViewCell: UITableViewCell {
         self.titleBankLabel.text = organizations.title
         self.phoneLabel.text = organizations.phone
         self.adressLabel.text = organizations.address
-        super.init(style: .default, reuseIdentifier: "Cell")
+        super.init(style: .default, reuseIdentifier: String(describing: BankTableViewCell.self))
         setupLayout()
         setLayerTableViewCell()
     }
@@ -66,6 +67,8 @@ class BankTableViewCell: UITableViewCell {
         
         addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
+        let url = URL(string: "https://static.finance.ua/img/ext/org-logo/88/\(String(organizations.oldId)).png")
+        bankLogo.kf.setImage(with: url)
         bankLogo.snp.makeConstraints { (make) in
             make.top.trailing.equalTo(titleBankLabel)
             make.width.equalTo(100)
@@ -151,9 +154,14 @@ class BankTableViewCell: UITableViewCell {
         phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)
         detailButton.addTarget(self, action: #selector(detailButtonSelection), for: .touchUpInside)
     }
+    //TODO: what does this func do?
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+    }
     
     @objc func linkButtonSelection(){
-        delegate?.linkButtonAction()
+        delegate?.linkButtonAction(cell: self)
     }
     @objc func locationButtonSelection(){
         delegate?.locationButtonAction()
@@ -161,16 +169,11 @@ class BankTableViewCell: UITableViewCell {
     @objc func phoneButtonSelection(){
         delegate?.phoneButtonAction()
     }
-    @objc func detailButtonSelection(){
-        delegate?.detailButtonAction()
+    @objc func detailButtonSelection() {
+        delegate?.detailButtonAction(cell: self)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-    }
-    
-    func setLayerTableViewCell() {
+    private func setLayerTableViewCell() {
         layer.cornerRadius = 5
         layer.shadowOffset = CGSize(width: 5, height: 5)
         layer.shadowOpacity = 0.1

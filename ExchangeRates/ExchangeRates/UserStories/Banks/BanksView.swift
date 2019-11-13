@@ -9,10 +9,11 @@
 import UIKit
 
 protocol BanksViewDelegate: class {
-    func linkButtonAction()
+    func linkButtonAction(cell: BankTableViewCell)
     func locationButtonAction()
     func phoneButtonAction()
-    func detailButtonAction()
+    func detailButtonAction(cell: BankTableViewCell)
+    func detailButtonActionDidSelectRow(indexPath: IndexPath)
 }
 
 class BanksView: UIView {
@@ -36,7 +37,7 @@ class BanksView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getOrganizations(organizations: [Organization], regionName: [String], cityName: [String]) {
+    func update(organizations: [Organization], regionName: [String], cityName: [String]) {
         self.organizationsArray = organizations
         self.regionNamesArray = regionName
         self.cityNamesArray = cityName
@@ -45,11 +46,12 @@ class BanksView: UIView {
     private func setupTableView() {
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none
-        bankTableView.allowsSelection = false
         bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = backgroundColor
         bankTableView.rowHeight = 200
-        bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: "Cell")
+//        bankTableView.allowsSelection = false
+//        bankTableView.allowsSelectionDuringEditing = false
+        bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
         bankTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(68)
             make.bottom.leading.trailing.equalToSuperview()
@@ -70,22 +72,28 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.detailButtonActionDidSelectRow(indexPath: indexPath)
+        bankTableView.reloadData()
+    }
 }
 
 extension BanksView: BanksTableViewCellDelegate {
-    func linkButtonAction() {
-        delegate?.linkButtonAction()
+    
+    func detailButtonAction(cell: BankTableViewCell) {
+        self.delegate?.detailButtonAction(cell: cell)
+    }
+    
+    func linkButtonAction(cell: BankTableViewCell) {
+        self.delegate?.linkButtonAction(cell: cell)
     }
     
     func locationButtonAction() {
-        delegate?.locationButtonAction()
+        self.delegate?.locationButtonAction()
     }
     
     func phoneButtonAction() {
-        delegate?.phoneButtonAction()
-    }
-    
-    func detailButtonAction() {
-        delegate?.detailButtonAction()
+        self.delegate?.phoneButtonAction()
     }
 }

@@ -9,7 +9,12 @@ import UIKit
 
 class BanksVC: UIViewController {
     
+    var regionName: [String] = []
+    var cityName: [String] = []
+    var organizations: [Organization] = []
+    
     private let contentView = BanksView()
+    private let detailView = DetailBankView()
     
     override func loadView() {
         super.loadView()
@@ -23,14 +28,15 @@ class BanksVC: UIViewController {
         
         setNavigationController()
         DispatchQueue.main.async {
-            Request.fetch { (bank) in
+            Request.fetch { [unowned self] (bank) in
                 let cityId = bank[0].organizations.map { $0.cityId }
                 let cityDict = bank[0].cities
-                let cityName = MyFavoriteFunc.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict)
+                self.cityName = MyFavoriteFunc.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict)
                 let regionId = bank[0].organizations.map { $0.regionId }
                 let regionDict = bank[0].regions
-                let regionName = MyFavoriteFunc.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict)
-                self.contentView.getOrganizations(organizations: bank[0].organizations, regionName: regionName, cityName: cityName)
+                self.regionName = MyFavoriteFunc.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict)
+                self.organizations = bank[0].organizations
+                self.contentView.update(organizations: self.organizations, regionName: self.regionName, cityName: self.cityName)
                 self.contentView.bankTableView.reloadData()
             }
         }
@@ -49,8 +55,23 @@ class BanksVC: UIViewController {
 }
 
 extension BanksVC: BanksViewDelegate {
-    func linkButtonAction() {
-        
+    func detailButtonActionDidSelectRow(indexPath: IndexPath) {
+        let navigationViewController = DetailBankVC(organizations: organizations[indexPath.row], regionName: regionName[indexPath.row], cityName: cityName[indexPath.row])
+        navigationController?.pushViewController(navigationViewController, animated: true)
+    }
+    
+    func detailButtonAction(cell: BankTableViewCell) {
+        guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }
+        let navigationViewController = DetailBankVC(organizations: organizations[indexPath.row], regionName: regionName[indexPath.row], cityName: cityName[indexPath.row])
+        navigationController?.pushViewController(navigationViewController, animated: true)
+    }
+    
+    func linkButtonAction(cell: BankTableViewCell) {
+        guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }
+        guard let url = URL(string: organizations[indexPath.row].link.deleteLastLettersAfter(character: "/")) else { return }
+        let urlForBankWebView = url
+        let webViewVC = WebViewController(url: urlForBankWebView)
+        self.present(webViewVC, animated: true, completion: nil)
     }
     
     func locationButtonAction() {
@@ -59,10 +80,5 @@ extension BanksVC: BanksViewDelegate {
     
     func phoneButtonAction() {
         
-    }
-    
-    func detailButtonAction() {
-        let navigationViewController = DetailBankVC()
-        navigationController?.pushViewController(navigationViewController, animated: true)
     }
 }

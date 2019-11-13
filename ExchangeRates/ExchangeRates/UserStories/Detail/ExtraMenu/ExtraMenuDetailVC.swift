@@ -8,17 +8,17 @@
 
 import UIKit
 
-class ButtonVC: UIViewController {
+class ExtraMenuDetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let contenView = ButtonView()
+        let contenView = ExtraMenuDetailView()
         view = contenView
         contenView.delegate = self
     }
 }
 
-extension ButtonVC: ButtonViewDelegate {
+extension ExtraMenuDetailVC: ButtonViewDelegate {
     func exitButtonAction() {
         navigationController?.popToRootViewController(animated: true)
     }

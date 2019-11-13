@@ -10,18 +10,32 @@ import UIKit
 
 class DetailBankVC: UIViewController {
     
-    let currencieArray = [CurrencyModel(name: "USD", description: "Долар США", bid: "24.8000", ask: "25.2500"),
-                          CurrencyModel(name: "EUR", description: "Євро", bid: "27.5000", ask: "28.0000"),
-                          CurrencyModel(name: "GBF", description: "Англійський Фунт Стерлінгів", bid: "31.6000", ask: "31.7450"),
-                          CurrencyModel(name: "PLN", description: "Польський Злотий", bid: "6.3500", ask: "6.4700"),
-                          CurrencyModel(name: "RUB", description: "Pocійський Рубль", bid: "0.3500", ask: "0.3900")]
+    private let contenView = DetailBankView()
+    private let organizations: Organization
+    private let regionName: String
+    private let cityName: String
+    
+    init(organizations: Organization, regionName: String, cityName: String) {
+        self.organizations = organizations
+        self.regionName = regionName
+        self.cityName = cityName
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        view = contenView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let contenView = DetailBankView(array: currencieArray)
-        view = contenView
         contenView.delegate = self
         setNavigationController()
+        
+        contenView.getOrganizations(organizations: organizations, regionName: regionName, cityName: cityName)
     }
     
     func setNavigationController(){
@@ -43,8 +57,10 @@ class DetailBankVC: UIViewController {
 
 extension DetailBankVC: BankViewDelegatDelegate {
     func detailButtonAction() {
-        let navigationViewController = ButtonVC()
+        let navigationViewController = ExtraMenuDetailVC()
         navigationViewController.modalPresentationStyle = .overCurrentContext
         navigationController?.pushViewController(navigationViewController, animated: false)
+//        present(navigationViewController, animated: true, completion: nil)
+
     }
 }

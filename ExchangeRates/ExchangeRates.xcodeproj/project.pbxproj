@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		0450BA0323510408003B0E98 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0450BA0223510408003B0E98 /* CloudKit.framework */; };
 		046B7E772363822A00C97B93 /* DetailBankVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B7E762363822A00C97B93 /* DetailBankVC.swift */; };
+		0479AF7E237B2C9800038838 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479AF7D237B2C9800038838 /* String+Ext.swift */; };
 		048BB21A2363973100150421 /* DetailBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BB2192363973100150421 /* DetailBankView.swift */; };
-		048BB21C23639AFC00150421 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BB21B23639AFC00150421 /* Currency.swift */; };
 		048C5390234BA13600ED883F /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C538F234BA13600ED883F /* TutorialVC.swift */; };
 		0496B85F2375A56500407371 /* MyFavoriteFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496B85E2375A56500407371 /* MyFavoriteFunc.swift */; };
 		04A3D13B236C547A005C44E7 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */; };
@@ -23,10 +23,11 @@
 		04D6DBA9235E28C400618A66 /* BanksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6DBA8235E28C400618A66 /* BanksView.swift */; };
 		04D6DBAB235E28D700618A66 /* BanksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D6DBAA235E28D700618A66 /* BanksVC.swift */; };
 		04F74ADB2363A16E0089B919 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F74ADA2363A16E0089B919 /* DetailTableViewCell.swift */; };
-		04F74ADF2364EA880089B919 /* ButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F74ADE2364EA880089B919 /* ButtonVC.swift */; };
-		04F74AE22364EB030089B919 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F74AE12364EB030089B919 /* ButtonView.swift */; };
+		04F74ADF2364EA880089B919 /* ExtraMenuDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F74ADE2364EA880089B919 /* ExtraMenuDetailVC.swift */; };
+		04F74AE22364EB030089B919 /* ExtraMenuDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F74AE12364EB030089B919 /* ExtraMenuDetailView.swift */; };
 		04F932A02349E59100228657 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 04F932A22349E59100228657 /* Localizable.strings */; };
 		04F932A42349E62A00228657 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04F932A32349E62A00228657 /* Colors.xcassets */; };
+		04FBDFEC23799D8300C856D1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FBDFEB23799D8300C856D1 /* WebViewController.swift */; };
 		1F0E7539234E1F1B00A32B96 /* helveticaneue.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */; };
 		1F0E753A234E1F1B00A32B96 /* HelveticaNeueBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */; };
 		1F30B108236C16F2005E0C7F /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */; };
@@ -42,8 +43,8 @@
 		0450BA01235103F9003B0E98 /* ExchangeRates.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ExchangeRates.entitlements; sourceTree = "<group>"; };
 		0450BA0223510408003B0E98 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		046B7E762363822A00C97B93 /* DetailBankVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBankVC.swift; sourceTree = "<group>"; };
+		0479AF7D237B2C9800038838 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		048BB2192363973100150421 /* DetailBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBankView.swift; sourceTree = "<group>"; };
-		048BB21B23639AFC00150421 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		048C538F234BA13600ED883F /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
 		0496B85E2375A56500407371 /* MyFavoriteFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteFunc.swift; sourceTree = "<group>"; };
 		04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
@@ -56,10 +57,11 @@
 		04D6DBA8235E28C400618A66 /* BanksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksView.swift; sourceTree = "<group>"; };
 		04D6DBAA235E28D700618A66 /* BanksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksVC.swift; sourceTree = "<group>"; };
 		04F74ADA2363A16E0089B919 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
-		04F74ADE2364EA880089B919 /* ButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonVC.swift; sourceTree = "<group>"; };
-		04F74AE12364EB030089B919 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		04F74ADE2364EA880089B919 /* ExtraMenuDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraMenuDetailVC.swift; sourceTree = "<group>"; };
+		04F74AE12364EB030089B919 /* ExtraMenuDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraMenuDetailView.swift; sourceTree = "<group>"; };
 		04F932A12349E59100228657 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		04F932A32349E62A00228657 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		04FBDFEB23799D8300C856D1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = helveticaneue.ttf; sourceTree = "<group>"; };
 		1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeueBold.ttf; sourceTree = "<group>"; };
 		1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				046B7E762363822A00C97B93 /* DetailBankVC.swift */,
 				048BB2192363973100150421 /* DetailBankView.swift */,
 				04F74ADA2363A16E0089B919 /* DetailTableViewCell.swift */,
+				04F74AE02364EAB30089B919 /* ExtraMenu */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -102,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				04D5F6B72349D94400B25A05 /* BankModel.swift */,
-				048BB21B23639AFC00150421 /* Currency.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -110,7 +112,6 @@
 		04D5F6B02349D6B800B25A05 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
-				04F74AE02364EAB30089B919 /* Buttons */,
 				046B7E782363822E00C97B93 /* Detail */,
 				04D6DBA7235E287E00618A66 /* Banks */,
 				04D5F6B12349D6E600B25A05 /* Tutorial */,
@@ -163,17 +164,26 @@
 				04D6DBA5235E286C00618A66 /* BankTableViewCell.swift */,
 				04D6DBA8235E28C400618A66 /* BanksView.swift */,
 				04D6DBAA235E28D700618A66 /* BanksVC.swift */,
+				04FBDFED23799D8800C856D1 /* Web */,
 			);
 			path = Banks;
 			sourceTree = "<group>";
 		};
-		04F74AE02364EAB30089B919 /* Buttons */ = {
+		04F74AE02364EAB30089B919 /* ExtraMenu */ = {
 			isa = PBXGroup;
 			children = (
-				04F74ADE2364EA880089B919 /* ButtonVC.swift */,
-				04F74AE12364EB030089B919 /* ButtonView.swift */,
+				04F74ADE2364EA880089B919 /* ExtraMenuDetailVC.swift */,
+				04F74AE12364EB030089B919 /* ExtraMenuDetailView.swift */,
 			);
-			path = Buttons;
+			path = ExtraMenu;
+			sourceTree = "<group>";
+		};
+		04FBDFED23799D8800C856D1 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				04FBDFEB23799D8300C856D1 /* WebViewController.swift */,
+			);
+			path = Web;
 			sourceTree = "<group>";
 		};
 		1F42BE212365819800A5AF81 /* Managers */ = {
@@ -199,6 +209,7 @@
 			children = (
 				1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */,
 				04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */,
+				0479AF7D237B2C9800038838 /* String+Ext.swift */,
 				0496B85E2375A56500407371 /* MyFavoriteFunc.swift */,
 			);
 			path = Extensions;
@@ -405,12 +416,14 @@
 				1F30B108236C16F2005E0C7F /* UIStackView+Ext.swift in Sources */,
 				046B7E772363822A00C97B93 /* DetailBankVC.swift in Sources */,
 				048BB21A2363973100150421 /* DetailBankView.swift in Sources */,
-				04F74AE22364EB030089B919 /* ButtonView.swift in Sources */,
+				04F74AE22364EB030089B919 /* ExtraMenuDetailView.swift in Sources */,
+				04FBDFEC23799D8300C856D1 /* WebViewController.swift in Sources */,
 				0496B85F2375A56500407371 /* MyFavoriteFunc.swift in Sources */,
 				04F74ADB2363A16E0089B919 /* DetailTableViewCell.swift in Sources */,
 				04D6DBAB235E28D700618A66 /* BanksVC.swift in Sources */,
 				048C5390234BA13600ED883F /* TutorialVC.swift in Sources */,
 				1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */,
+				0479AF7E237B2C9800038838 /* String+Ext.swift in Sources */,
 				04A3D13B236C547A005C44E7 /* UserDefaults+Ext.swift in Sources */,
 				04ACED9F234A04F700264199 /* TutorialView.swift in Sources */,
 				04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */,
@@ -419,8 +432,7 @@
 				1FD0170D2365F59900BC5CC8 /* Request.swift in Sources */,
 				04D6DBA9235E28C400618A66 /* BanksView.swift in Sources */,
 				04ACED9D2349F31300264199 /* Typealias.swift in Sources */,
-				048BB21C23639AFC00150421 /* Currency.swift in Sources */,
-				04F74ADF2364EA880089B919 /* ButtonVC.swift in Sources */,
+				04F74ADF2364EA880089B919 /* ExtraMenuDetailVC.swift in Sources */,
 				04D6DBA6235E286C00618A66 /* BankTableViewCell.swift in Sources */,
 				5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */,
 			);

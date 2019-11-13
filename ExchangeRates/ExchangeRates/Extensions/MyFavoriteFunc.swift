@@ -18,3 +18,4 @@ class MyFavoriteFunc {
         return resultArray
     }
 }
+

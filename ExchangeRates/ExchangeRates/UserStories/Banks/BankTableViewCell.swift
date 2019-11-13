@@ -61,7 +61,7 @@ class BankTableViewCell: UITableViewCell {
         titleBankLabel.numberOfLines = 0
         titleBankLabel.snp.makeConstraints { (make) in
             make.top.leading.equalToSuperview().offset(15)
-            make.width.equalTo(150)
+            make.width.equalTo(200)
         }
         
         contentView.addSubview(bankLogo)
@@ -74,7 +74,7 @@ class BankTableViewCell: UITableViewCell {
             make.top.equalTo(titleBankLabel)
             make.trailing.equalToSuperview().offset(-10)
             make.width.equalTo(100)
-            make.height.equalTo(75)
+            make.height.equalTo(100)
         }
         
         contentView.addSubview(nameRegionsLabel)
@@ -82,43 +82,44 @@ class BankTableViewCell: UITableViewCell {
         nameRegionsLabel.font = R.font.helveticaNeue(size: 20)
         nameRegionsLabel.numberOfLines = 0
         nameRegionsLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleBankLabel.snp.bottom).offset(20)
+            make.top.equalTo(titleBankLabel.snp.bottom).offset(25)
             make.leading.equalTo(titleBankLabel)
             make.width.equalTo(150)
-            make.height.equalTo(30)
         }
         
-//        contentView.addSubview(nameCityLabel)
-//        nameCityLabel.textColor = R.color.lightGrey()
-//        nameCityLabel.font = R.font.helveticaNeue(size: 20)
-//        nameCityLabel.numberOfLines = 0
-//        nameCityLabel.snp.makeConstraints { (make) in
-//            make.top.equalTo(nameRegionsLabel.snp.bottom).offset(65)
-//            make.leading.equalTo(nameRegionsLabel)
-//            make.width.height.equalTo(nameRegionsLabel)
-//            
-//        }
-//
-//        contentView.addSubview(phoneLabel)
-//        phoneLabel.numberOfLines = 0
-//        phoneLabel.textColor = R.color.lightGrey()
-//        phoneLabel.font = R.font.helveticaNeue(size: 15)
-//        phoneLabel.snp.makeConstraints { (make) in
-//            make.trailing.equalToSuperview().offset(-20)
-//            make.top.equalTo(nameRegionsLabel)
-//            make.width.equalTo(contentView.bounds.width / 2)
-//            make.height.equalTo(30)
-//        }
-//
-//        contentView.addSubview(adressLabel)
-//        adressLabel.numberOfLines = 0
-//        adressLabel.textColor = R.color.lightGrey()
-//        adressLabel.font = R.font.helveticaNeue(size: 15)
-//        adressLabel.snp.makeConstraints { (make) in
-//            make.trailing.equalTo(phoneLabel)
-//            make.top.equalTo(phoneLabel).offset(25)
-//            make.width.height.equalTo(phoneLabel)
-//        }
+        contentView.addSubview(nameCityLabel)
+        nameCityLabel.textColor = R.color.lightGrey()
+        nameCityLabel.font = R.font.helveticaNeue(size: 20)
+        nameCityLabel.numberOfLines = 0
+        nameCityLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(nameRegionsLabel.snp.bottom).offset(10)
+            make.leading.equalTo(nameRegionsLabel)
+            make.width.equalTo(nameRegionsLabel)
+            make.bottom.equalToSuperview().offset(-45)
+        }
+
+        contentView.addSubview(phoneLabel)
+        phoneLabel.numberOfLines = 0
+        phoneLabel.textAlignment = .right
+        phoneLabel.textColor = R.color.lightGrey()
+        phoneLabel.font = R.font.helveticaNeue(size: 15)
+        phoneLabel.snp.makeConstraints { (make) in
+            make.trailing.equalTo(bankLogo)
+            make.top.equalTo(nameRegionsLabel)
+            make.width.equalTo(contentView.bounds.width / 2)
+            make.height.equalTo(30)
+        }
+
+        contentView.addSubview(adressLabel)
+        adressLabel.textAlignment = .right
+        adressLabel.numberOfLines = 0
+        adressLabel.textColor = R.color.lightGrey()
+        adressLabel.font = R.font.helveticaNeue(size: 15)
+        adressLabel.snp.makeConstraints { (make) in
+            make.trailing.equalTo(phoneLabel)
+            make.top.equalTo(phoneLabel).offset(25)
+            make.width.equalTo(phoneLabel)
+        }
 
         contentView.addSubview(barStackView)
         barStackView.contentMode = .scaleToFill

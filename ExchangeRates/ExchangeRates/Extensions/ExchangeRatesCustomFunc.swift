@@ -1,5 +1,5 @@
 //
-//  MyFavoriteFunc.swift
+//  ExchangeRatesCustomFunc.swift
 //  ExchangeRates
 //
 //  Created by Mac on 08.11.2019.
@@ -8,12 +8,21 @@
 
 import Foundation
 
-class MyFavoriteFunc {
+class ExchangeRatesCustomFunc {
     
     static func compareArrayWithDictionaryKeys(keyArray: [String], dict: [String : String]) -> [String] {
         var resultArray = [String]()
         for item in 0..<keyArray.count {
             resultArray.append(dict[keyArray[item]]!)
+        }
+        return resultArray
+    }
+    
+    static func gettingStringsArrayFromAn(array: [Int]) -> [String] {
+        
+        var resultArray = [String]()
+        for i in 0..<array.count {
+            resultArray.append("https://static.finance.ua/img/ext/org-logo/88/\(String(array[i])).png")
         }
         return resultArray
     }

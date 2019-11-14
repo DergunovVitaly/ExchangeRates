@@ -24,6 +24,7 @@ class BanksView: UIView {
     private(set) var organizationsArray: [Organization] = []
     private(set) var regionNamesArray = [String]()
     private(set) var cityNamesArray = [String]()
+    private(set) var urlForImageBankLogoArray = [String]()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -37,10 +38,12 @@ class BanksView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(organizations: [Organization], regionName: [String], cityName: [String]) {
+    func update(organizations: [Organization], regionName: [String], cityName: [String], url: [String]) {
         self.organizationsArray = organizations
         self.regionNamesArray = regionName
         self.cityNamesArray = cityName
+        self.urlForImageBankLogoArray = url
+        
     }
     
     private func setupTableView() {
@@ -48,18 +51,27 @@ class BanksView: UIView {
         bankTableView.separatorStyle = .none
         bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = backgroundColor
-        bankTableView.rowHeight = 200
-//        bankTableView.allowsSelection = false
-//        bankTableView.allowsSelectionDuringEditing = false
+        
+        bankTableView.estimatedRowHeight = 300.0
+        bankTableView.rowHeight = UITableView.automaticDimension
+       
+//        bankTableView.rowHeight = 300
+        //        bankTableView.allowsSelection = false
+        //        bankTableView.allowsSelectionDuringEditing = false
         bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
         bankTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(68)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+            make.height.equalToSuperview()
         }
     }
 }
 
 extension BanksView: UITableViewDelegate, UITableViewDataSource {
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return organizationsArray.count
@@ -68,7 +80,7 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row],
                                      regionsName: regionNamesArray[indexPath.row],
-                                     cityName: cityNamesArray[indexPath.row])
+                                     cityName: cityNamesArray[indexPath.row], urlForImageBankLogo: urlForImageBankLogoArray[indexPath.row])
         cell.delegate = self
         return cell
     }

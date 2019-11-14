@@ -23,6 +23,7 @@ class BankTableViewCell: UITableViewCell {
     let organizations: Organization
     let regionsName: String
     let cityName: String
+    let urlForImageBankLogo: String
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
     private let nameCityLabel = UILabel()
@@ -34,16 +35,19 @@ class BankTableViewCell: UITableViewCell {
     private let locationButton = UIButton()
     private let phoneButton = UIButton()
     private let detailButton = UIButton()
+
     
-    init(organizations: Organization, regionsName: String, cityName: String) {
+    init(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
         self.organizations = organizations
         self.regionsName = regionsName
         self.cityName = cityName
+        self.urlForImageBankLogo = urlForImageBankLogo
         self.nameRegionsLabel.text = regionsName
         self.nameCityLabel.text = cityName
         self.titleBankLabel.text = organizations.title
         self.phoneLabel.text = organizations.phone
         self.adressLabel.text = organizations.address
+        bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo))
         super.init(style: .default, reuseIdentifier: String(describing: BankTableViewCell.self))
         setupLayout()
         setLayerTableViewCell()
@@ -91,8 +95,7 @@ class BankTableViewCell: UITableViewCell {
         contentView.addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
         //TODO: move to BanksVC
-        let url = URL(string: "https://static.finance.ua/img/ext/org-logo/88/\(String(organizations.oldId)).png")
-        bankLogo.kf.setImage(with: url)
+        
         
         bankLogo.snp.makeConstraints { (make) in
             make.top.equalTo(titleBankLabel)

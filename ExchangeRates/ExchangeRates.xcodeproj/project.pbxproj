@@ -12,10 +12,11 @@
 		0479AF7E237B2C9800038838 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479AF7D237B2C9800038838 /* String+Ext.swift */; };
 		048BB21A2363973100150421 /* DetailBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048BB2192363973100150421 /* DetailBankView.swift */; };
 		048C5390234BA13600ED883F /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C538F234BA13600ED883F /* TutorialVC.swift */; };
-		0496B85F2375A56500407371 /* MyFavoriteFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496B85E2375A56500407371 /* MyFavoriteFunc.swift */; };
+		0496B85F2375A56500407371 /* ExchangeRatesCustomFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496B85E2375A56500407371 /* ExchangeRatesCustomFunc.swift */; };
 		04A3D13B236C547A005C44E7 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */; };
 		04ACED9D2349F31300264199 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9C2349F31300264199 /* Typealias.swift */; };
 		04ACED9F234A04F700264199 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACED9E234A04F700264199 /* TutorialView.swift */; };
+		04D1744C237DB9DB00B7773D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1744B237DB9DB00B7773D /* URL.swift */; };
 		04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */; };
 		04D5F6B82349D94400B25A05 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6B72349D94400B25A05 /* BankModel.swift */; };
 		04D5F6C22349E26400B25A05 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D5F6C12349E26400B25A05 /* R.generated.swift */; };
@@ -46,10 +47,11 @@
 		0479AF7D237B2C9800038838 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		048BB2192363973100150421 /* DetailBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBankView.swift; sourceTree = "<group>"; };
 		048C538F234BA13600ED883F /* TutorialVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
-		0496B85E2375A56500407371 /* MyFavoriteFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavoriteFunc.swift; sourceTree = "<group>"; };
+		0496B85E2375A56500407371 /* ExchangeRatesCustomFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesCustomFunc.swift; sourceTree = "<group>"; };
 		04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		04ACED9C2349F31300264199 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
 		04ACED9E234A04F700264199 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
+		04D1744B237DB9DB00B7773D /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		04D5F6B52349D76C00B25A05 /* CreateTutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTutorialView.swift; sourceTree = "<group>"; };
 		04D5F6B72349D94400B25A05 /* BankModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
 		04D5F6C12349E26400B25A05 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
@@ -210,7 +212,8 @@
 				1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */,
 				04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */,
 				0479AF7D237B2C9800038838 /* String+Ext.swift */,
-				0496B85E2375A56500407371 /* MyFavoriteFunc.swift */,
+				0496B85E2375A56500407371 /* ExchangeRatesCustomFunc.swift */,
+				04D1744B237DB9DB00B7773D /* URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,11 +421,12 @@
 				048BB21A2363973100150421 /* DetailBankView.swift in Sources */,
 				04F74AE22364EB030089B919 /* ExtraMenuDetailView.swift in Sources */,
 				04FBDFEC23799D8300C856D1 /* WebViewController.swift in Sources */,
-				0496B85F2375A56500407371 /* MyFavoriteFunc.swift in Sources */,
+				0496B85F2375A56500407371 /* ExchangeRatesCustomFunc.swift in Sources */,
 				04F74ADB2363A16E0089B919 /* DetailTableViewCell.swift in Sources */,
 				04D6DBAB235E28D700618A66 /* BanksVC.swift in Sources */,
 				048C5390234BA13600ED883F /* TutorialVC.swift in Sources */,
 				1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */,
+				04D1744C237DB9DB00B7773D /* URL.swift in Sources */,
 				0479AF7E237B2C9800038838 /* String+Ext.swift in Sources */,
 				04A3D13B236C547A005C44E7 /* UserDefaults+Ext.swift in Sources */,
 				04ACED9F234A04F700264199 /* TutorialView.swift in Sources */,

@@ -24,6 +24,7 @@ class BanksView: UIView {
     private(set) var organizationsArray: [Organization] = []
     private(set) var regionNamesArray = [String]()
     private(set) var cityNamesArray = [String]()
+    private(set) var urlForImageBankLogoArray = [String]()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -37,10 +38,12 @@ class BanksView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(organizations: [Organization], regionName: [String], cityName: [String]) {
+    func update(organizations: [Organization], regionName: [String], cityName: [String], url: [String]) {
         self.organizationsArray = organizations
         self.regionNamesArray = regionName
         self.cityNamesArray = cityName
+        self.urlForImageBankLogoArray = url
+        
     }
     
     private func setupTableView() {
@@ -77,7 +80,7 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row],
                                      regionsName: regionNamesArray[indexPath.row],
-                                     cityName: cityNamesArray[indexPath.row])
+                                     cityName: cityNamesArray[indexPath.row], urlForImageBankLogo: urlForImageBankLogoArray[indexPath.row])
         cell.delegate = self
         return cell
     }

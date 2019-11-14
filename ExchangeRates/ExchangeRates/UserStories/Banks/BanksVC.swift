@@ -12,6 +12,7 @@ class BanksVC: UIViewController {
     var regionName: [String] = []
     var cityName: [String] = []
     var organizations: [Organization] = []
+    var urlBankLogo: [String] = []
     
     private let contentView = BanksView()
     private let detailView = DetailBankView()
@@ -31,12 +32,14 @@ class BanksVC: UIViewController {
             Request.fetch { [unowned self] (bank) in
                 let cityId = bank[0].organizations.map { $0.cityId }
                 let cityDict = bank[0].cities
-                self.cityName = MyFavoriteFunc.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict)
+                self.cityName = ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict)
                 let regionId = bank[0].organizations.map { $0.regionId }
                 let regionDict = bank[0].regions
-                self.regionName = MyFavoriteFunc.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict)
+                self.regionName = ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict)
                 self.organizations = bank[0].organizations
-                self.contentView.update(organizations: self.organizations, regionName: self.regionName, cityName: self.cityName)
+                let oldID = bank[0].organizations.map { $0.oldId }
+                self.urlBankLogo = ExchangeRatesCustomFunc.gettingStringsArrayFromAn(array: oldID)
+                self.contentView.update(organizations: self.organizations, regionName: self.regionName, cityName: self.cityName, url: self.urlBankLogo)
                 self.contentView.bankTableView.reloadData()
             }
         }

@@ -54,10 +54,6 @@ class BanksView: UIView {
         
         bankTableView.estimatedRowHeight = 300.0
         bankTableView.rowHeight = UITableView.automaticDimension
-       
-//        bankTableView.rowHeight = 300
-        //        bankTableView.allowsSelection = false
-        //        bankTableView.allowsSelectionDuringEditing = false
         bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
         bankTableView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(68)
@@ -68,10 +64,6 @@ class BanksView: UIView {
 }
 
 extension BanksView: UITableViewDelegate, UITableViewDataSource {
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return organizationsArray.count

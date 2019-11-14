@@ -73,7 +73,7 @@ extension BanksVC: BanksViewDelegate {
         guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }
         guard let url = URL(string: organizations[indexPath.row].link.deleteLastLettersAfter(character: "/")) else { return }
         let urlForBankWebView = url
-        let webViewVC = WebViewController(url: urlForBankWebView)
+        let webViewVC = SafariViewController(url: urlForBankWebView)
         self.present(webViewVC, animated: true, completion: nil)
     }
     

@@ -42,6 +42,7 @@ class BankTableViewCell: UITableViewCell {
         self.regionsName = regionsName
         self.cityName = cityName
         self.urlForImageBankLogo = urlForImageBankLogo
+        //TODO: Move to func
         self.nameRegionsLabel.text = regionsName
         self.nameCityLabel.text = cityName
         self.titleBankLabel.text = organizations.title
@@ -58,6 +59,7 @@ class BankTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
+        backgroundColor = .white
         
         contentView.addSubview(titleBankLabel)
         titleBankLabel.font = R.font.helveticaNeue(size: 26)
@@ -157,11 +159,6 @@ class BankTableViewCell: UITableViewCell {
         phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)
         detailButton.addTarget(self, action: #selector(detailButtonSelection), for: .touchUpInside)
     }
-    //TODO: what does this func do?
-//        override func layoutSubviews() {
-//            super.layoutSubviews()
-//            frame = frame.inset(by: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-//        }
     
     @objc func linkButtonSelection(){
         delegate?.linkButtonAction(cell: self)

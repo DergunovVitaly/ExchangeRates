@@ -68,8 +68,6 @@ class BankTableViewCell: UITableViewCell {
             make.width.equalTo(200)
         }
         
-        
-        
         contentView.addSubview(nameRegionsLabel)
         nameRegionsLabel.textColor = R.color.lightGrey()
         nameRegionsLabel.font = R.font.helveticaNeue(size: 20)
@@ -94,15 +92,13 @@ class BankTableViewCell: UITableViewCell {
         
         contentView.addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
-        //TODO: move to BanksVC
-        
-        
         bankLogo.snp.makeConstraints { (make) in
             make.top.equalTo(titleBankLabel)
             make.trailing.equalToSuperview().offset(-10)
             make.width.equalTo(100)
             make.height.equalTo(100)
         }
+        
         contentView.addSubview(phoneLabel)
         phoneLabel.numberOfLines = 0
         phoneLabel.textAlignment = .right
@@ -112,7 +108,6 @@ class BankTableViewCell: UITableViewCell {
             make.trailing.equalToSuperview().offset(-10)
             make.top.equalTo(bankLogo.snp.bottom).offset(10)
             make.width.equalTo(contentView.bounds.width / 2)
-//            make.height.equalTo(30)
         }
         
         contentView.addSubview(adressLabel)

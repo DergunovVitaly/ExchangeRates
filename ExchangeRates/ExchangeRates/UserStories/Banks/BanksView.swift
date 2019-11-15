@@ -50,7 +50,6 @@ class BanksView: UIView {
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none
         bankTableView.showsVerticalScrollIndicator = false
-        bankTableView.backgroundColor = backgroundColor
         bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
         bankTableView.snp.makeConstraints { (make) in
             make.top.width.height.equalToSuperview()
@@ -59,7 +58,7 @@ class BanksView: UIView {
 }
 
 extension BanksView: UITableViewDelegate, UITableViewDataSource {
-   
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return organizationsArray.count
     }
@@ -67,7 +66,8 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row],
                                      regionsName: regionNamesArray[indexPath.row],
-                                     cityName: cityNamesArray[indexPath.row], urlForImageBankLogo: urlForImageBankLogoArray[indexPath.row])
+                                     cityName: cityNamesArray[indexPath.row],
+                                     urlForImageBankLogo: urlForImageBankLogoArray[indexPath.row])
         cell.delegate = self
         return cell
     }

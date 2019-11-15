@@ -18,10 +18,10 @@ class DetailBankView: UIView {
     private let topTableViewCellLabel = UILabel()
     private let nameCurrentLabel = UILabel()
     private let actionCurrentLabel = UILabel()
-    private let descriptionLabel = UILabel()
     private let titleLabel = UILabel()
     private let bankLogo = UIImageView()
     private let detailButton = UIButton()
+    private let contentBankScrollView = UIScrollView()
     
     weak var delegate: BankViewDelegatDelegate?
     
@@ -31,7 +31,6 @@ class DetailBankView: UIView {
         detailTableView.delegate = self
         detailTableView.dataSource = self
         setupLayout()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -45,18 +44,19 @@ class DetailBankView: UIView {
     func setupLayout() {
         backgroundColor = .white
         
+        
         addSubview(detailTableView)
         detailTableView.rowHeight = 70
         detailTableView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(450)
-            make.bottom.leading.trailing.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(200)
         }
         
         addSubview(topTableViewCellLabel)
         topTableViewCellLabel.backgroundColor = R.color.grayView()
         topTableViewCellLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(detailTableView).offset(-50)
-            make.width.equalTo(detailTableView)
+            make.bottom.equalTo(detailTableView.snp.top)
+            make.leading.trailing.equalTo(detailTableView)
             make.height.equalTo(50)
         }
         
@@ -79,21 +79,24 @@ class DetailBankView: UIView {
             make.width.equalTo(170)
         }
         
-        addSubview(descriptionLabel)
-        descriptionLabel.backgroundColor = .red
-        descriptionLabel.snp.makeConstraints { (make) in
-            make.width.equalTo(230)
-            make.height.equalTo(280)
-            make.bottom.equalTo(topTableViewCellLabel).offset(-50)
-            make.leading.equalToSuperview().offset(15)
+        addSubview(titleLabel)
+        titleLabel.numberOfLines = 0
+        titleLabel.font = R.font.helveticaNeue(size: 34)
+        titleLabel.textColor = R.color.lightDark()
+        titleLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(80)
+            make.leading.trailing.equalToSuperview().offset(15)
         }
         
-        addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(68)
-            make.leading.width.equalTo(descriptionLabel)
-            make.height.equalTo(50)
+        addSubview(contentBankScrollView)
+        contentBankScrollView.backgroundColor = .yellow
+        contentBankScrollView.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.leading.equalTo(titleLabel)
+            make.trailing.equalToSuperview().inset(80)
+            make.bottom.equalTo(topTableViewCellLabel.snp.top)
         }
+        
         
         addSubview(bankLogo)
         

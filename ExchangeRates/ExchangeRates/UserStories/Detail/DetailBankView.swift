@@ -22,6 +22,9 @@ class DetailBankView: UIView {
     private let bankLogo = UIImageView()
     private let detailButton = UIButton()
     private let contentBankScrollView = UIScrollView()
+    private let linkBankLabel = UILabel()
+    private let adressBankLabel = UILabel()
+    private let numberTelephoneLabel = UILabel()
     
     weak var delegate: BankViewDelegatDelegate?
     

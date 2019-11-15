@@ -13,11 +13,9 @@ struct BankModel: Codable {
     let regions: [String: String]
     let cities: [String: String]
     let currencies: [String: String]
-    
 }
 
 struct Organization: Codable {
-    
     let id: String
     let oldId, orgType: Int
     let branch: Bool

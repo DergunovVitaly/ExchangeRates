@@ -266,16 +266,24 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 11 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 14 localization keys.
     struct localizable {
       /// en translation: Bank Informer
       /// 
       /// Locales: en
       static let titleNameFirstView = Rswift.StringResource(key: "titleNameFirstView", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Oфіційний сайт:
+      /// 
+      /// Locales: en
+      static let officialLink = Rswift.StringResource(key: "officialLink", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: https://resources.finance.ua/ua/public/currency-cash.json
       /// 
       /// Locales: en
       static let url = Rswift.StringResource(key: "url", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Адреса:
+      /// 
+      /// Locales: en
+      static let adressBank = Rswift.StringResource(key: "adressBank", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Аналізуйте
       /// 
       /// Locales: en
@@ -312,6 +320,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let titleButton = Rswift.StringResource(key: "titleButton", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Телефон:
+      /// 
+      /// Locales: en
+      static let bankPhoneNumber = Rswift.StringResource(key: "bankPhoneNumber", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       
       /// en translation: Bank Informer
       /// 
@@ -320,11 +332,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("titleNameFirstView", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Oфіційний сайт:
+      /// 
+      /// Locales: en
+      static func officialLink(_: Void = ()) -> String {
+        return NSLocalizedString("officialLink", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: https://resources.finance.ua/ua/public/currency-cash.json
       /// 
       /// Locales: en
       static func url(_: Void = ()) -> String {
         return NSLocalizedString("url", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Адреса:
+      /// 
+      /// Locales: en
+      static func adressBank(_: Void = ()) -> String {
+        return NSLocalizedString("adressBank", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Аналізуйте
@@ -388,6 +414,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func titleButton(_: Void = ()) -> String {
         return NSLocalizedString("titleButton", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Телефон:
+      /// 
+      /// Locales: en
+      static func bankPhoneNumber(_: Void = ()) -> String {
+        return NSLocalizedString("bankPhoneNumber", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}

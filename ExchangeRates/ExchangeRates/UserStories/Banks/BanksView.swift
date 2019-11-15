@@ -50,14 +50,9 @@ class BanksView: UIView {
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none
         bankTableView.showsVerticalScrollIndicator = false
-        bankTableView.backgroundColor = backgroundColor
-        
-        bankTableView.estimatedRowHeight = 300.0
-        bankTableView.rowHeight = UITableView.automaticDimension
         bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
         bankTableView.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(68)
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.top.equalToSuperview()
             make.height.equalToSuperview()
         }
     }

@@ -634,7 +634,7 @@
 				5BBD71CD2348B76000D0B9EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		5BBD71CE2348B76000D0B9EA /* Build configuration list for PBXNativeTarget "ExchangeRates" */ = {
 			isa = XCConfigurationList;
@@ -643,7 +643,7 @@
 				5BBD71D02348B76000D0B9EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

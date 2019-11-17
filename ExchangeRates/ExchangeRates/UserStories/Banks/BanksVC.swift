@@ -13,7 +13,7 @@ class BanksVC: UIViewController {
     var cityName: [String] = []
     var organizations: [Organization] = []
     var urlBankLogo: [String] = []
-    
+ 
     private let contentView = BanksView()
     private let detailView = DetailBankView()
     
@@ -58,6 +58,7 @@ class BanksVC: UIViewController {
 }
 
 extension BanksVC: BanksViewDelegate {
+   
     func detailButtonActionDidSelectRow(indexPath: IndexPath) {
         let navigationViewController = DetailBankVC(organizations: organizations[indexPath.row], regionName: regionName[indexPath.row], cityName: cityName[indexPath.row])
         navigationController?.pushViewController(navigationViewController, animated: true)

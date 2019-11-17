@@ -11,16 +11,13 @@ import UIKit
 
 class TutorialVC: UIViewController {
     
-    private let tutorialViewArray = [CreateTutorialView(frame: .zero,
-                                                        image: R.image.piggyBank(),
+    private let tutorialViewArray = [CreateTutorialView(image: R.image.piggyBank(),
                                                         titleLabelText: Localizable.titleTutorialFirstSlide(),
                                                         descriptionLabelText: Localizable.descriptionTutorialFirstSlide()),
-                                     CreateTutorialView(frame: .zero,
-                                                        image: R.image.money(),
+                                     CreateTutorialView(image: R.image.money(),
                                                         titleLabelText: Localizable.titleTutorialSecondSlide(),
                                                         descriptionLabelText: Localizable.descriptionTutorialSecondSlide()),
-                                     CreateTutorialView(frame: .zero,
-                                                        image: R.image.analysis(),
+                                     CreateTutorialView(image: R.image.analysis(),
                                                         titleLabelText: Localizable.titleTutorialThirdSlide(),
                                                         descriptionLabelText: Localizable.descriptionTutorialThirdSlide())]
     
@@ -32,10 +29,10 @@ class TutorialVC: UIViewController {
 }
 
 extension TutorialVC: TutorialViewDelegate {
+    
     func startButtonAction() {
-        print("push")
-        //let navigation = UINavigationController(rootViewController: BanksVC())
-        // navigation.modalPresentationStyle = .fullScreen
-        navigationController?.popToViewController(BanksVC(), animated: true)
+        let navigation = UINavigationController(rootViewController: BanksVC())
+        navigation.modalPresentationStyle = .fullScreen
+        self.present(navigation, animated: true, completion: nil)
     }
 }

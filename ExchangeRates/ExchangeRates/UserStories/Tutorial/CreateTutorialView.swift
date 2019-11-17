@@ -17,11 +17,11 @@ class CreateTutorialView: UIView {
     private let titleLabelText: String
     private let descriptionLabelText: String
     
-    init(frame: CGRect, image: UIImage?, titleLabelText: String, descriptionLabelText: String) {
+    init(image: UIImage?, titleLabelText: String, descriptionLabelText: String) {
         self.image = image
         self.titleLabelText = titleLabelText
         self.descriptionLabelText = descriptionLabelText
-        super.init(frame: frame)
+        super.init(frame: .zero)
         setupLayout()
     }
     

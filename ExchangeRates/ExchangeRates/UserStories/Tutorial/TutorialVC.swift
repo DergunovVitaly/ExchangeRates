@@ -25,6 +25,7 @@ class TutorialVC: UIViewController {
         let contentView = TutorialView(frame: .zero, imageArray: tutorialViewArray)
         contentView.delegate = self
         view = contentView
+        navigationController?.navigationBar.barStyle = .black
     }
 }
 

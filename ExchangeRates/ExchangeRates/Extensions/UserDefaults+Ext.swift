@@ -3,7 +3,7 @@
 //  ExchangeRates
 //
 //  Created by Mac on 01.11.2019.
-//  Copyright © 2019 Denis Melnikov. All rights reserved.
+//  Copyright © 2019 ExchangeRates. All rights reserved.
 //
 
 import Foundation

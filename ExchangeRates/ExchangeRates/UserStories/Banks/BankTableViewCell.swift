@@ -3,7 +3,7 @@
 //  ExchangeRates
 //
 //  Created by Mac on 21.10.2019.
-//  Copyright © 2019 Vitalii Derhunov. All rights reserved.
+//  Copyright © 2019 ExchangeRates. All rights reserved.
 //
 
 import UIKit

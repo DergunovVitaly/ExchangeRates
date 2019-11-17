@@ -84,7 +84,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 23 images.
+  /// This `R.image` struct is generated, and contains static references to 24 images.
   struct image {
     /// Image ` arrow-down`.
     static let arrowDown = Rswift.ImageResource(bundle: R.hostingBundle, name: " arrow-down")
@@ -102,6 +102,8 @@ struct R: Rswift.Validatable {
     static let phone = Rswift.ImageResource(bundle: R.hostingBundle, name: " phone")
     /// Image ` search`.
     static let search = Rswift.ImageResource(bundle: R.hostingBundle, name: " search")
+    /// Image `Splash`.
+    static let splash = Rswift.ImageResource(bundle: R.hostingBundle, name: "Splash")
     /// Image `alfa`.
     static let alfa = Rswift.ImageResource(bundle: R.hostingBundle, name: "alfa")
     /// Image `analysis`.
@@ -171,6 +173,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: " search", bundle: ..., traitCollection: ...)`
     static func search(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.search, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "Splash", bundle: ..., traitCollection: ...)`
+    static func splash(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.splash, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "alfa", bundle: ..., traitCollection: ...)`
@@ -426,6 +433,7 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
       
       static func validate() throws {
+        if UIKit.UIImage(named: "Splash", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'Splash' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, *) {
         }
       }

@@ -50,6 +50,7 @@ class DetailBankVC: UIViewController {
         let vc = UIActivityViewController(activityItems: [view ?? UIView()], applicationActivities: [])
         present(vc, animated: true)
     }
+    
     @objc func perfomAdd() {
         self.navigationController!.pushViewController(BanksVC(), animated: true)
     }
@@ -61,6 +62,5 @@ extension DetailBankVC: BankViewDelegatDelegate {
         navigationViewController.modalPresentationStyle = .overCurrentContext
         navigationController?.pushViewController(navigationViewController, animated: false)
 //        present(navigationViewController, animated: true, completion: nil)
-
     }
 }

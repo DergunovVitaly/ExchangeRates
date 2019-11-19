@@ -35,7 +35,7 @@ class BankTableViewCell: UITableViewCell {
     private let locationButton = UIButton()
     private let phoneButton = UIButton()
     private let detailButton = UIButton()
-
+    
     
     init(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
         self.organizations = organizations
@@ -44,7 +44,7 @@ class BankTableViewCell: UITableViewCell {
         self.urlForImageBankLogo = urlForImageBankLogo
         //TODO: Move to func
         self.nameRegionsLabel.text = regionsName
-        self.nameCityLabel.text = cityName
+        self.nameCityLabel.text = "м. " + cityName
         self.titleBankLabel.text = organizations.title
         self.phoneLabel.text = organizations.phone
         self.adressLabel.text = organizations.address
@@ -77,7 +77,7 @@ class BankTableViewCell: UITableViewCell {
         nameRegionsLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleBankLabel.snp.bottom).offset(25)
             make.leading.equalTo(titleBankLabel)
-            make.width.equalTo(150)
+            make.trailing.equalToSuperview().inset(115)
         }
         
         contentView.addSubview(nameCityLabel)
@@ -89,7 +89,6 @@ class BankTableViewCell: UITableViewCell {
             make.leading.equalTo(nameRegionsLabel)
             make.width.equalTo(nameRegionsLabel)
             make.bottom.equalToSuperview().offset(-45)
-
         }
         
         contentView.addSubview(bankLogo)

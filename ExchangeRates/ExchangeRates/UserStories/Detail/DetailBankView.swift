@@ -14,10 +14,10 @@ protocol BankViewDelegatDelegate: class {
 
 class DetailBankView: UIView {
     
-    private let detailTableView = UITableView()
-    private let topTableViewCellLabel = UILabel()
-    private let nameCurrentLabel = UILabel()
-    private let actionCurrentLabel = UILabel()
+    private let currencyTableView = UITableView()
+    private let headerView = UIView()
+    private let currencyHeaderName = UILabel()
+    private let purchaseSaleTitleHeaderLabel = UILabel()
     private let titleLabel = UILabel()
     private let bankLogo = UIImageView()
     private let detailButton = UIButton()
@@ -25,14 +25,16 @@ class DetailBankView: UIView {
     private let linkBankLabel = UILabel()
     private let adressBankLabel = UILabel()
     private let numberTelephoneLabel = UILabel()
+    private var currencyArray: [Currency] = []
+    private var currencyName: [String] = []
     
     weak var delegate: BankViewDelegatDelegate?
     
     init() {
         super.init(frame: .zero)
-        detailTableView.register(DetailTableViewCell.self, forCellReuseIdentifier: String(describing: DetailTableViewCell.self))
-        detailTableView.delegate = self
-        detailTableView.dataSource = self
+        currencyTableView.register(DetailTableViewCell.self, forCellReuseIdentifier: String(describing: DetailTableViewCell.self))
+        currencyTableView.delegate = self
+        currencyTableView.dataSource = self
         setupLayout()
     }
     
@@ -42,42 +44,45 @@ class DetailBankView: UIView {
     
     func getOrganizations(organizations: Organization, regionName: String, cityName: String) {
         self.titleLabel.text = organizations.title
+        self.currencyArray = organizations.currencies.map { $0.value }
+        self.currencyName = organizations.currencies.map { $0.key }
     }
     
     func setupLayout() {
         backgroundColor = .white
         
-        
-        addSubview(detailTableView)
-        detailTableView.rowHeight = 70
-        detailTableView.snp.makeConstraints { (make) in
+        addSubview(currencyTableView)
+        currencyTableView.rowHeight = 70
+        currencyTableView.backgroundColor = .white
+        currencyTableView.allowsSelection = false
+        currencyTableView.snp.makeConstraints { (make) in
             make.leading.trailing.bottom.equalToSuperview()
             make.height.equalTo(200)
         }
         
-        addSubview(topTableViewCellLabel)
-        topTableViewCellLabel.backgroundColor = R.color.grayView()
-        topTableViewCellLabel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(detailTableView.snp.top)
-            make.leading.trailing.equalTo(detailTableView)
+        addSubview(headerView)
+        headerView.backgroundColor = R.color.grayView()
+        headerView.snp.makeConstraints { (make) in
+            make.bottom.equalTo(currencyTableView.snp.top)
+            make.leading.trailing.equalTo(currencyTableView)
             make.height.equalTo(50)
         }
         
-        topTableViewCellLabel.addSubview(nameCurrentLabel)
-        nameCurrentLabel.text = Localizable.nameCurrent()
-        nameCurrentLabel.font = R.font.helveticaNeue(size: 18)
-        nameCurrentLabel.textColor = R.color.lightGrey()
-        nameCurrentLabel.snp.makeConstraints { (make) in
+        headerView.addSubview(currencyHeaderName)
+        currencyHeaderName.text = Localizable.nameCurrent()
+        currencyHeaderName.font = R.font.helveticaNeue(size: 18)
+        currencyHeaderName.textColor = R.color.lightGrey()
+        currencyHeaderName.snp.makeConstraints { (make) in
             make.top.height.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
             make.width.equalTo(150)
         }
         
-        topTableViewCellLabel.addSubview(actionCurrentLabel)
-        actionCurrentLabel.text = Localizable.actionCurrent()
-        actionCurrentLabel.font = R.font.helveticaNeue(size: 18)
-        actionCurrentLabel.textColor = R.color.lightGrey()
-        actionCurrentLabel.snp.makeConstraints { (make) in
+        headerView.addSubview(purchaseSaleTitleHeaderLabel)
+        purchaseSaleTitleHeaderLabel.text = Localizable.actionCurrent()
+        purchaseSaleTitleHeaderLabel.font = R.font.helveticaNeue(size: 18)
+        purchaseSaleTitleHeaderLabel.textColor = R.color.lightGrey()
+        purchaseSaleTitleHeaderLabel.snp.makeConstraints { (make) in
             make.top.trailing.height.equalToSuperview()
             make.width.equalTo(170)
         }
@@ -97,11 +102,8 @@ class DetailBankView: UIView {
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.equalTo(titleLabel)
             make.trailing.equalToSuperview().inset(80)
-            make.bottom.equalTo(topTableViewCellLabel.snp.top)
+            make.bottom.equalTo(headerView.snp.top)
         }
-        
-        
-        addSubview(bankLogo)
         
         addSubview(detailButton)
         detailButton.setImage(R.image.float(), for: .normal)
@@ -119,11 +121,14 @@ class DetailBankView: UIView {
 
 extension DetailBankView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return currencyArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = DetailTableViewCell()
+        cell.purchaseLabel.text = currencyArray[indexPath.row].bid
+        cell.saleLabel.text = currencyArray[indexPath.row].ask
+        cell.currencyNameLabel.text = currencyName[indexPath.row]
         return cell
     }
 }

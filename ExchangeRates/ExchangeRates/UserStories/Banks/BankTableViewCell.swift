@@ -88,7 +88,7 @@ class BankTableViewCell: UITableViewCell {
             make.top.equalTo(nameRegionsLabel.snp.bottom).offset(10)
             make.leading.equalTo(nameRegionsLabel)
             make.width.equalTo(nameRegionsLabel)
-            make.bottom.equalToSuperview().offset(-45)
+            make.bottom.equalToSuperview().offset(-50)
         }
         
         contentView.addSubview(bankLogo)
@@ -120,7 +120,7 @@ class BankTableViewCell: UITableViewCell {
             make.trailing.equalTo(phoneLabel)
             make.top.equalTo(phoneLabel.snp.bottom).offset(10)
             make.width.equalTo(phoneLabel)
-            make.bottom.equalToSuperview().offset(-45)
+            make.bottom.equalToSuperview().offset(-50)
         }
         
         contentView.addSubview(barStackView)

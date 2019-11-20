@@ -21,12 +21,13 @@ class DetailBankView: UIView {
     private let titleLabel = UILabel()
     private let bankLogo = UIImageView()
     private let detailButton = UIButton()
-    private let contentBankScrollView = UIScrollView()
+    private let contentBankView = UIView()
     private let linkBankLabel = UILabel()
     private let adressBankLabel = UILabel()
     private let numberTelephoneLabel = UILabel()
     private var currencyArray: [Currency] = []
     private var currencyName: [String] = []
+    private var organizationArray = [Organization]()
     
     weak var delegate: BankViewDelegatDelegate?
     
@@ -46,6 +47,8 @@ class DetailBankView: UIView {
         self.titleLabel.text = organizations.title
         self.currencyArray = organizations.currencies.map { $0.value }
         self.currencyName = organizations.currencies.map { $0.key }
+        self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.officialLink())
+        self.numberTelephoneLabel.addPrefixWithSpecialColorOnLabel(text: organizations.phone, prefix: Localizable.titlePhoneLongNumber())
     }
     
     func setupLayout() {
@@ -96,13 +99,35 @@ class DetailBankView: UIView {
             make.leading.trailing.equalToSuperview().offset(15)
         }
         
-        addSubview(contentBankScrollView)
-        contentBankScrollView.backgroundColor = .yellow
-        contentBankScrollView.snp.makeConstraints { (make) in
+        addSubview(contentBankView)
+        contentBankView.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.equalTo(titleLabel)
             make.trailing.equalToSuperview().inset(80)
             make.bottom.equalTo(headerView.snp.top)
+        }
+        
+        contentBankView.addSubview(linkBankLabel)
+        linkBankLabel.numberOfLines = 0
+        linkBankLabel.textColor = R.color.lightBlue()
+        linkBankLabel.snp.makeConstraints { (make) in
+            make.top.width.equalToSuperview()
+        }
+        
+        contentBankView.addSubview(adressBankLabel)
+        adressBankLabel.numberOfLines = 0
+        adressBankLabel.textColor = R.color.lightBlue()
+        adressBankLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(linkBankLabel.snp.bottom)
+            make.width.equalToSuperview()
+        }
+        
+        contentBankView.addSubview(numberTelephoneLabel)
+        numberTelephoneLabel.numberOfLines = 0
+        numberTelephoneLabel.textColor = R.color.lightBlue()
+        numberTelephoneLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(adressBankLabel.snp.bottom)
+            make.width.equalToSuperview()
         }
         
         addSubview(detailButton)

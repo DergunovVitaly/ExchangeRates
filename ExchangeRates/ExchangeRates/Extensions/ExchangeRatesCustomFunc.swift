@@ -6,6 +6,7 @@
 //  Copyright © 2019 ExchangeRates. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class ExchangeRatesCustomFunc {

@@ -43,9 +43,8 @@ class DetailTableViewCell: UITableViewCell {
         currencyNameLabel.textColor = R.color.lightGrey()
         currencyNameLabel.font = R.font.helveticaNeue(size: 16)
         currencyNameLabel.snp.makeConstraints { (make) in
-            make.top.height.equalTo(nameLabel)
+            make.top.height.leading.equalTo(nameLabel)
             make.width.equalTo(150)
-            make.leading.equalTo(nameLabel).offset(50)
         }
         
         addSubview(purchaseLabel)

@@ -27,7 +27,6 @@ class DetailBankView: UIView {
     private let numberTelephoneLabel = UILabel()
     private var currencyArray: [Currency] = []
     private var currencyName: [String] = []
-    private var organizationArray = [Organization]()
     
     weak var delegate: BankViewDelegatDelegate?
     
@@ -49,6 +48,7 @@ class DetailBankView: UIView {
         self.currencyName = organizations.currencies.map { $0.key }
         self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.officialLink())
         self.numberTelephoneLabel.addPrefixWithSpecialColorOnLabel(text: organizations.phone, prefix: Localizable.titlePhoneLongNumber())
+        self.adressBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.address, prefix: Localizable.titleAdressBank())
     }
     
     func setupLayout() {
@@ -101,7 +101,7 @@ class DetailBankView: UIView {
         
         addSubview(contentBankView)
         contentBankView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.equalTo(titleLabel)
             make.trailing.equalToSuperview().inset(80)
             make.bottom.equalTo(headerView.snp.top)
@@ -118,7 +118,7 @@ class DetailBankView: UIView {
         adressBankLabel.numberOfLines = 0
         adressBankLabel.textColor = R.color.lightBlue()
         adressBankLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(linkBankLabel.snp.bottom)
+            make.top.equalTo(linkBankLabel.snp.bottom).offset(5)
             make.width.equalToSuperview()
         }
         
@@ -126,7 +126,7 @@ class DetailBankView: UIView {
         numberTelephoneLabel.numberOfLines = 0
         numberTelephoneLabel.textColor = R.color.lightBlue()
         numberTelephoneLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(adressBankLabel.snp.bottom)
+            make.top.equalTo(adressBankLabel.snp.bottom).offset(5)
             make.width.equalToSuperview()
         }
         

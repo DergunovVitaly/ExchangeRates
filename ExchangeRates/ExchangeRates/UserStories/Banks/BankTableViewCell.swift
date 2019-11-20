@@ -36,7 +36,6 @@ class BankTableViewCell: UITableViewCell {
     private let phoneButton = UIButton()
     private let detailButton = UIButton()
     
-    
     init(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
         self.organizations = organizations
         self.regionsName = regionsName
@@ -88,7 +87,7 @@ class BankTableViewCell: UITableViewCell {
             make.top.equalTo(nameRegionsLabel.snp.bottom).offset(10)
             make.leading.equalTo(nameRegionsLabel)
             make.width.equalTo(nameRegionsLabel)
-            make.bottom.equalToSuperview().offset(-45)
+            make.bottom.equalToSuperview().offset(-55)
         }
         
         contentView.addSubview(bankLogo)
@@ -120,7 +119,7 @@ class BankTableViewCell: UITableViewCell {
             make.trailing.equalTo(phoneLabel)
             make.top.equalTo(phoneLabel.snp.bottom).offset(10)
             make.width.equalTo(phoneLabel)
-            make.bottom.equalToSuperview().offset(-45)
+            make.bottom.equalToSuperview().offset(-55)
         }
         
         contentView.addSubview(barStackView)
@@ -133,7 +132,7 @@ class BankTableViewCell: UITableViewCell {
         barStackView.distribution = .equalSpacing
         barStackView.alignment = .center
         barStackView.snp.makeConstraints { (make) in
-            make.height.equalTo(40)
+            make.height.equalTo(44)
             make.bottom.leading.trailing.equalToSuperview()
         }
         
@@ -148,7 +147,10 @@ class BankTableViewCell: UITableViewCell {
         barStackView.addArrangedSubview(phoneButton)
         phoneButton.imageView?.contentMode = .scaleAspectFit
         phoneButton.setImage(R.image.phone(), for: .normal)
-        
+        detailButton.backgroundColor = .red
+        detailButton.snp.makeConstraints { (make) in
+            make.size.equalTo(40)
+        }
         barStackView.addArrangedSubview(detailButton)
         detailButton.imageView?.contentMode = .scaleAspectFit
         detailButton.setImage(R.image.menu(), for: .normal)

@@ -26,10 +26,5 @@ class ExchangeRatesCustomFunc {
         }
         return resultArray
     }
-    
-    static func addPrefixAt(string: String) -> String {
-        var result = string
-        return ""
-    }
 }
 

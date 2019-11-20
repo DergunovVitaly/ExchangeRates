@@ -39,15 +39,18 @@ class BankTableViewCell: UITableViewCell {
     
     init(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
         self.organizations = organizations
-        self.regionsName = regionsName
         self.cityName = cityName
+        self.regionsName = regionsName
         self.urlForImageBankLogo = urlForImageBankLogo
         //TODO: Move to func
         self.nameRegionsLabel.text = regionsName
-        self.nameCityLabel.text = "м. " + cityName
+        if self.nameRegionsLabel.text == cityName {
+            self.nameRegionsLabel.text = regionsName.add(postfix: Localizable.longNameCountry())
+        }
+        self.nameCityLabel.text = cityName.add(prefix: Localizable.titleShortCityName())
         self.titleBankLabel.text = organizations.title
-        self.phoneLabel.text = organizations.phone
-        self.adressLabel.text = organizations.address
+        self.phoneLabel.text = organizations.phone.add(prefix: Localizable.titlePhoneShortNumber())
+        self.adressLabel.text = organizations.address.add(prefix: Localizable.titleAdressBank())
         bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo))
         super.init(style: .default, reuseIdentifier: String(describing: BankTableViewCell.self))
         setupLayout()

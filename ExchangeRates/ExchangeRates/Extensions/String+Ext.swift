@@ -12,4 +12,12 @@ extension String {
     func deleteLastLettersAfter(character: Character) -> String {
          return String(self[..<(self.lastIndex(of: character) ?? self.endIndex)])
      }
+    
+     func add(prefix: String) -> String {
+        return prefix + self
+    }
+    
+    func add(postfix: String) -> String {
+        return self + postfix
+    }
 }

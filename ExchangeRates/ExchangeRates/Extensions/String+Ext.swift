@@ -30,4 +30,17 @@ extension String {
         }
         return mutableAttributedstring
     }
+    
+     func number() -> String {
+        var string = self
+        let start = string.startIndex
+        string.insert(" ", at: string.index(start, offsetBy: 3))
+        string.insert(" ", at: string.index(start, offsetBy: 6))
+        string.insert(" ", at: string.index(start, offsetBy: 10))
+        return string
+    }
+    
+    func longNumber() -> String {
+        return self.number().add(prefix: "+380 ")
+    }
 }

@@ -47,7 +47,7 @@ class DetailBankView: UIView {
         self.currencyArray = organizations.currencies.map { $0.value }
         self.currencyName = organizations.currencies.map { $0.key }
         self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.officialLink())
-        self.numberTelephoneLabel.addPrefixWithSpecialColorOnLabel(text: organizations.phone, prefix: Localizable.titlePhoneLongNumber())
+        self.numberTelephoneLabel.addPrefixWithSpecialColorOnLabel(text: organizations.phone.longNumber(), prefix: Localizable.titlePhoneLongNumber())
         self.adressBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.address, prefix: Localizable.titleAdressBank())
     }
     

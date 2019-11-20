@@ -49,7 +49,7 @@ class BankTableViewCell: UITableViewCell {
         }
         self.nameCityLabel.text = cityName.add(prefix: Localizable.titleShortCityName())
         self.titleBankLabel.text = organizations.title
-        self.phoneLabel.text = organizations.phone.add(prefix: Localizable.titlePhoneShortNumber())
+        self.phoneLabel.text = organizations.phone.number().add(prefix: Localizable.titlePhoneShortNumber())
         self.adressLabel.text = organizations.address.add(prefix: Localizable.titleAdressBank())
         bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo))
         super.init(style: .default, reuseIdentifier: String(describing: BankTableViewCell.self))
@@ -111,7 +111,6 @@ class BankTableViewCell: UITableViewCell {
         phoneLabel.snp.makeConstraints { (make) in
             make.trailing.equalToSuperview().offset(-10)
             make.top.equalTo(bankLogo.snp.bottom).offset(10)
-            make.width.equalTo(contentView.bounds.width / 2)
         }
         
         contentView.addSubview(adressLabel)
@@ -121,8 +120,8 @@ class BankTableViewCell: UITableViewCell {
         adressLabel.font = R.font.helveticaNeue(size: 15)
         adressLabel.snp.makeConstraints { (make) in
             make.trailing.equalTo(phoneLabel)
-            make.top.equalTo(phoneLabel.snp.bottom).offset(10)
-            make.width.equalTo(phoneLabel)
+            make.top.equalTo(phoneLabel.snp.bottom)
+            make.width.equalTo(contentView.bounds.width / 2)
             make.bottom.equalToSuperview().offset(-50)
         }
         

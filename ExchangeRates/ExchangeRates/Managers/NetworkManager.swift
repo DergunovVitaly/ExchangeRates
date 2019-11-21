@@ -16,7 +16,7 @@ class NetworkReachabilityManager {
     static var shared = NetworkReachabilityManager()
     
     private init() {
-        self.reachability = Reachability()
+        self.reachability = try? Reachability()
     }
     
     deinit {
@@ -32,7 +32,6 @@ class NetworkReachabilityManager {
             try reachability?.startNotifier()
         } catch {
             debugPrint("could not start reachability notifier")
-            AppRouter.newState(.networkError)
         }
     }
         
@@ -57,7 +56,8 @@ class NetworkReachabilityManager {
             debugPrint("Reachable via Cellular")
         case .none:
             debugPrint("Network not reachable")
-            AppRouter.newState(.networkError)
+        case .unavailable:
+            debugPrint("Network is unavailable")
         }
     }
 }

@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let navigation = UINavigationController(rootViewController: BanksVC())
             window?.rootViewController = navigation
         }
+        NetworkReachabilityManager.shared.beginReachability()
         return true
     }
 }

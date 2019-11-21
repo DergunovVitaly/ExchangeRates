@@ -11,6 +11,7 @@ PODS:
   - R.swift (5.0.3):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
+  - ReachabilitySwift (5.0.0)
   - Result (4.1.0)
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.0)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - Kingfisher
   - Moya
   - R.swift
+  - ReachabilitySwift
   - SnapKit
   - SwiftyJSON
 
@@ -30,6 +32,7 @@ SPEC REPOS:
     - Moya
     - R.swift
     - R.swift.Library
+    - ReachabilitySwift
     - Result
     - SnapKit
     - SwiftyJSON
@@ -40,10 +43,11 @@ SPEC CHECKSUMS:
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   R.swift: f5a87643b91ea569d23d6afb3eee9c743edde239
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 474341a61ffeafb9584b722a626c699dc7e8dbb3
+PODFILE CHECKSUM: a3d36cc7d08f61f8769edd88ff823305c3367e9a
 
 COCOAPODS: 1.8.3

@@ -27,5 +27,8 @@ class ExchangeRatesCustomFunc {
         }
         return resultArray
     }
+    static func getStringfromAn(int: Int) -> String {
+        return "https://static.finance.ua/img/ext/org-logo/88/\(String(int)).png"
+    }
 }
 

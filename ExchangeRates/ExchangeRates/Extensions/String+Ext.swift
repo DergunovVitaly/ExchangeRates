@@ -39,8 +39,4 @@ extension String {
         string.insert(" ", at: string.index(start, offsetBy: 10))
         return string
     }
-    
-    func longNumber() -> String {
-        return self.number().add(prefix: "+380 ")
-    }
 }

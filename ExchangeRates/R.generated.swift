@@ -279,10 +279,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let titleNameFirstView = Rswift.StringResource(key: "titleNameFirstView", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Oфіційний сайт: 
-      /// 
-      /// Locales: en
-      static let officialLink = Rswift.StringResource(key: "officialLink", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: https://resources.finance.ua/ua/public/currency-cash.json
       /// 
       /// Locales: en
@@ -323,6 +319,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let actionCurrent = Rswift.StringResource(key: "actionCurrent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Посилання: 
+      /// 
+      /// Locales: en
+      static let link = Rswift.StringResource(key: "link", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: РОЗПОЧАТИ
       /// 
       /// Locales: en
@@ -349,13 +349,6 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func titleNameFirstView(_: Void = ()) -> String {
         return NSLocalizedString("titleNameFirstView", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Oфіційний сайт: 
-      /// 
-      /// Locales: en
-      static func officialLink(_: Void = ()) -> String {
-        return NSLocalizedString("officialLink", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: https://resources.finance.ua/ua/public/currency-cash.json
@@ -426,6 +419,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func actionCurrent(_: Void = ()) -> String {
         return NSLocalizedString("actionCurrent", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Посилання: 
+      /// 
+      /// Locales: en
+      static func link(_: Void = ()) -> String {
+        return NSLocalizedString("link", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: РОЗПОЧАТИ

@@ -6,6 +6,7 @@
 //  Copyright © 2019 Denis Melnikov. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 protocol BankViewDelegatDelegate: class {
@@ -27,6 +28,7 @@ class DetailBankView: UIView {
     private let numberTelephoneLabel = UILabel()
     private var currencyArray: [Currency] = []
     private var currencyName: [String] = []
+    private var urlBankLogo = String()
     
     weak var delegate: BankViewDelegatDelegate?
     
@@ -46,9 +48,11 @@ class DetailBankView: UIView {
         self.titleLabel.text = organizations.title
         self.currencyArray = organizations.currencies.map { $0.value }
         self.currencyName = organizations.currencies.map { $0.key }
-        self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.officialLink())
-        self.numberTelephoneLabel.addPrefixWithSpecialColorOnLabel(text: organizations.phone.longNumber(), prefix: Localizable.titlePhoneLongNumber())
+        self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.link())
+        self.numberTelephoneLabel.addPrefixWithSpecialColorOnLabel(text: organizations.phone.number(), prefix: Localizable.titlePhoneLongNumber())
         self.adressBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.address, prefix: Localizable.titleAdressBank())
+        self.urlBankLogo = ExchangeRatesCustomFunc.getStringfromAn(int: organizations.oldId)
+        bankLogo.kf.setImage(with: URL(string: urlBankLogo))
     }
     
     func setupLayout() {
@@ -107,11 +111,19 @@ class DetailBankView: UIView {
             make.bottom.equalTo(headerView.snp.top)
         }
         
+        contentBankView.addSubview(bankLogo)
+        bankLogo.contentMode = .scaleAspectFit
+        bankLogo.snp.makeConstraints { (make) in
+            make.top.width.equalToSuperview()
+            make.height.equalTo(120)
+        }
+        
         contentBankView.addSubview(linkBankLabel)
         linkBankLabel.numberOfLines = 0
         linkBankLabel.textColor = R.color.lightBlue()
         linkBankLabel.snp.makeConstraints { (make) in
-            make.top.width.equalToSuperview()
+            make.width.equalToSuperview()
+            make.top.equalTo(bankLogo.snp.bottom)
         }
         
         contentBankView.addSubview(adressBankLabel)

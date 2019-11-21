@@ -21,15 +21,15 @@ class BankTableViewCell: UITableViewCell {
     weak var delegate: BanksTableViewCellDelegate?
     
     let organizations: Organization
-    let regionsName: String
+    let regionName: String
     let cityName: String
     let urlForImageBankLogo: String
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
-    private let nameCityLabel = UILabel()
+    private let cityNameLabel = UILabel()
     private let phoneLabel = UILabel()
     private let adressLabel = UILabel()
-    private let nameRegionsLabel = UILabel()
+    private let regionNameLabel = UILabel()
     private let barStackView = UIStackView()
     private let linkButton = UIButton()
     private let locationButton = UIButton()
@@ -38,12 +38,12 @@ class BankTableViewCell: UITableViewCell {
     
     init(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
         self.organizations = organizations
-        self.regionsName = regionsName
+        self.regionName = regionsName
         self.cityName = cityName
         self.urlForImageBankLogo = urlForImageBankLogo
         //TODO: Move to func
-        self.nameRegionsLabel.text = regionsName
-        self.nameCityLabel.text = "м. " + cityName
+        self.regionNameLabel.text = regionsName
+        self.cityNameLabel.text = "м. " + cityName
         self.titleBankLabel.text = organizations.title
         self.phoneLabel.text = organizations.phone
         self.adressLabel.text = organizations.address
@@ -69,24 +69,24 @@ class BankTableViewCell: UITableViewCell {
             make.width.equalTo(200)
         }
         
-        contentView.addSubview(nameRegionsLabel)
-        nameRegionsLabel.textColor = R.color.lightGrey()
-        nameRegionsLabel.font = R.font.helveticaNeue(size: 20)
-        nameRegionsLabel.numberOfLines = 0
-        nameRegionsLabel.snp.makeConstraints { (make) in
+        contentView.addSubview(regionNameLabel)
+        regionNameLabel.textColor = R.color.lightGrey()
+        regionNameLabel.font = R.font.helveticaNeue(size: 20)
+        regionNameLabel.numberOfLines = 0
+        regionNameLabel.snp.makeConstraints { (make) in
             make.top.equalTo(titleBankLabel.snp.bottom).offset(25)
             make.leading.equalTo(titleBankLabel)
             make.trailing.equalToSuperview().inset(115)
         }
         
-        contentView.addSubview(nameCityLabel)
-        nameCityLabel.textColor = R.color.lightGrey()
-        nameCityLabel.font = R.font.helveticaNeue(size: 20)
-        nameCityLabel.numberOfLines = 0
-        nameCityLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(nameRegionsLabel.snp.bottom).offset(10)
-            make.leading.equalTo(nameRegionsLabel)
-            make.width.equalTo(nameRegionsLabel)
+        contentView.addSubview(cityNameLabel)
+        cityNameLabel.textColor = R.color.lightGrey()
+        cityNameLabel.font = R.font.helveticaNeue(size: 20)
+        cityNameLabel.numberOfLines = 0
+        cityNameLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(regionNameLabel.snp.bottom).offset(10)
+            make.leading.equalTo(regionNameLabel)
+            make.width.equalTo(regionNameLabel)
             make.bottom.equalToSuperview().offset(-55)
         }
         
@@ -147,14 +147,13 @@ class BankTableViewCell: UITableViewCell {
         barStackView.addArrangedSubview(phoneButton)
         phoneButton.imageView?.contentMode = .scaleAspectFit
         phoneButton.setImage(R.image.phone(), for: .normal)
-        detailButton.backgroundColor = .red
-        detailButton.snp.makeConstraints { (make) in
-            make.size.equalTo(40)
-        }
+       
         barStackView.addArrangedSubview(detailButton)
         detailButton.imageView?.contentMode = .scaleAspectFit
         detailButton.setImage(R.image.menu(), for: .normal)
-        
+        detailButton.snp.makeConstraints { (make) in
+                   make.width.equalTo(40)
+               }
         linkButton.addTarget(self, action: #selector(linkButtonSelection), for: .touchUpInside)
         locationButton.addTarget(self, action: #selector(locationButtonSelection), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)

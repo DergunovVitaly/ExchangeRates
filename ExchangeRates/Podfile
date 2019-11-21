@@ -12,4 +12,5 @@ pod 'R.swift'
 pod 'SnapKit'
 pod 'Moya'
 pod 'SwiftyJSON'
+pod 'ReachabilitySwift'
 end

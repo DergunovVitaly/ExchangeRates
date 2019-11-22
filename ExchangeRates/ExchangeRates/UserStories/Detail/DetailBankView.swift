@@ -22,7 +22,7 @@ class DetailBankView: UIView {
     private let titleLabel = UILabel()
     private let bankLogo = UIImageView()
     private let detailButton = UIButton()
-    private let contentBankView = UIView()
+    private let contentBankScrollView = UIScrollView()
     private let linkBankLabel = UILabel()
     private let adressBankLabel = UILabel()
     private let numberTelephoneLabel = UILabel()
@@ -103,22 +103,26 @@ class DetailBankView: UIView {
             make.leading.trailing.equalToSuperview().offset(15)
         }
         
-        addSubview(contentBankView)
-        contentBankView.snp.makeConstraints { (make) in
+        addSubview(contentBankScrollView)
+        contentBankScrollView.bounces = false
+        contentBankScrollView.showsVerticalScrollIndicator = false
+        contentBankScrollView.contentSize = CGSize(width: contentBankScrollView.bounds.size.width, height: 270)
+        contentBankScrollView.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
             make.leading.equalTo(titleLabel)
             make.trailing.equalToSuperview().inset(80)
             make.bottom.equalTo(headerView.snp.top)
         }
-        
-        contentBankView.addSubview(bankLogo)
+
+        contentBankScrollView.addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
         bankLogo.snp.makeConstraints { (make) in
             make.top.width.equalToSuperview()
             make.height.equalTo(120)
+            make.centerX.equalTo(headerView.snp.centerX)
         }
         
-        contentBankView.addSubview(linkBankLabel)
+        contentBankScrollView.addSubview(linkBankLabel)
         linkBankLabel.numberOfLines = 0
         linkBankLabel.textColor = R.color.lightBlue()
         linkBankLabel.snp.makeConstraints { (make) in
@@ -126,7 +130,7 @@ class DetailBankView: UIView {
             make.top.equalTo(bankLogo.snp.bottom).offset(20)
         }
         
-        contentBankView.addSubview(adressBankLabel)
+        contentBankScrollView.addSubview(adressBankLabel)
         adressBankLabel.numberOfLines = 0
         adressBankLabel.textColor = R.color.lightBlue()
         adressBankLabel.snp.makeConstraints { (make) in
@@ -134,7 +138,7 @@ class DetailBankView: UIView {
             make.width.equalToSuperview()
         }
         
-        contentBankView.addSubview(numberTelephoneLabel)
+        contentBankScrollView.addSubview(numberTelephoneLabel)
         numberTelephoneLabel.numberOfLines = 0
         numberTelephoneLabel.textColor = R.color.lightBlue()
         numberTelephoneLabel.snp.makeConstraints { (make) in

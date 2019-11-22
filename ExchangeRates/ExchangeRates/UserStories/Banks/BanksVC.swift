@@ -16,7 +16,8 @@ class BanksVC: UIViewController {
     
     private let contentView = BanksView()
     private let detailView = DetailBankView()
-    
+    private var connectionAlert = UIAlertController()
+
     override func loadView() {
         super.loadView()
         contentView.delegate = self
@@ -27,6 +28,7 @@ class BanksVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupAlertConnection()
         setNavigationController()
         DispatchQueue.main.async {
             Request.fetch { [unowned self] (bank) in
@@ -42,6 +44,15 @@ class BanksVC: UIViewController {
                 self.contentView.update(organizations: self.organizations, regionName: self.regionName, cityName: self.cityName, url: self.urlBankLogo)
                 self.contentView.bankTableView.reloadData()
             }
+        }
+    }
+    
+    private func setupAlertConnection() {
+        connectionAlert = UIAlertController(title: "", message: Localizable.disconnectedInternet(), preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .destructive)
+        connectionAlert.addAction(action)
+        if !Connectivity.isConnectedToInternet {
+            self.present(connectionAlert, animated: true, completion: nil)
         }
     }
     

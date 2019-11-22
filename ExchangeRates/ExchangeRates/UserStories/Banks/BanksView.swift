@@ -47,7 +47,7 @@ class BanksView: UIView {
     
     private func setupTableView() {
         backgroundColor = .white
-        
+                
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none
         bankTableView.allowsSelection = false

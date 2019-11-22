@@ -273,7 +273,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 17 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 18 localization keys.
     struct localizable {
       /// en translation: Bank Informer
       /// 
@@ -283,6 +283,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let url = Rswift.StringResource(key: "url", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Інтернет відсутній, будь ласка перевірте з'єднання!
+      /// 
+      /// Locales: en
+      static let disconnectedInternet = Rswift.StringResource(key: "disconnectedInternet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Адреса: 
       /// 
       /// Locales: en
@@ -356,6 +360,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func url(_: Void = ()) -> String {
         return NSLocalizedString("url", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Інтернет відсутній, будь ласка перевірте з'єднання!
+      /// 
+      /// Locales: en
+      static func disconnectedInternet(_: Void = ()) -> String {
+        return NSLocalizedString("disconnectedInternet", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Адреса: 

@@ -6,6 +6,7 @@
 //  Copyright © 2019 ExchangeRates. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class ExchangeRatesCustomFunc {
@@ -26,10 +27,8 @@ class ExchangeRatesCustomFunc {
         }
         return resultArray
     }
-    
-    static func addPrefixAt(string: String) -> String {
-        var result = string
-        return ""
+    static func getStringfromAn(int: Int) -> String {
+        return "https://static.finance.ua/img/ext/org-logo/88/\(String(int)).png"
     }
 }
 

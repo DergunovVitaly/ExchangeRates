@@ -46,10 +46,13 @@ class BanksView: UIView {
     }
     
     private func setupTableView() {
+        backgroundColor = .white
+        
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none
         bankTableView.allowsSelection = false
         bankTableView.showsVerticalScrollIndicator = false
+        bankTableView.backgroundColor = .white
         bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
         bankTableView.snp.makeConstraints { (make) in
             make.leading.trailing.top.equalToSuperview()

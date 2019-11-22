@@ -123,7 +123,7 @@ class DetailBankView: UIView {
         linkBankLabel.textColor = R.color.lightBlue()
         linkBankLabel.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
-            make.top.equalTo(bankLogo.snp.bottom)
+            make.top.equalTo(bankLogo.snp.bottom).offset(20)
         }
         
         contentBankView.addSubview(adressBankLabel)

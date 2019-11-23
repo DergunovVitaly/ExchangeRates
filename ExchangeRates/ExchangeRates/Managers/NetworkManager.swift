@@ -8,6 +8,7 @@
 
 import Foundation
 import Reachability
+import SCLAlertView
 
 class NetworkReachabilityManager {
     
@@ -23,6 +24,11 @@ class NetworkReachabilityManager {
         stopReachability()
     }
     
+    func showAlertView() {
+        let alertView = SCLAlertView()
+        alertView.showTitle(Localizable.alertWarring(), subTitle: Localizable.alertNoCoonection(), style: .warning, closeButtonTitle: Localizable.alertGarazd(), colorStyle: 0x4A90E2, colorTextButton: 0x000000, animationStyle: .noAnimation)
+    }
+    
     func beginReachability() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(reachabilityChanged),
@@ -34,7 +40,7 @@ class NetworkReachabilityManager {
             debugPrint("could not start reachability notifier")
         }
     }
-        
+    
     func stopReachability() {
         reachability?.stopNotifier()
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
@@ -57,6 +63,7 @@ class NetworkReachabilityManager {
         case .none:
             debugPrint("Network not reachable")
         case .unavailable:
+            showAlertView()
             debugPrint("Network is unavailable")
         }
     }

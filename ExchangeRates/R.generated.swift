@@ -273,7 +273,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 17 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
     struct localizable {
       /// en translation: Bank Informer
       /// 
@@ -291,6 +291,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let titleTutorialThirdSlide = Rswift.StringResource(key: "titleTutorialThirdSlide", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Будь ласка перевірте з'єднання з інтернетом
+      /// 
+      /// Locales: en
+      static let alertNoCoonection = Rswift.StringResource(key: "alert.noCoonection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Добре
+      /// 
+      /// Locales: en
+      static let alertGarazd = Rswift.StringResource(key: "alert.garazd", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Заощаджуйте кошти
       /// 
       /// Locales: en
@@ -335,6 +343,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let titlePhoneLongNumber = Rswift.StringResource(key: "titlePhoneLongNumber", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Увага
+      /// 
+      /// Locales: en
+      static let alertWarring = Rswift.StringResource(key: "alert.warring", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: м. 
       /// 
       /// Locales: en
@@ -370,6 +382,20 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func titleTutorialThirdSlide(_: Void = ()) -> String {
         return NSLocalizedString("titleTutorialThirdSlide", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Будь ласка перевірте з'єднання з інтернетом
+      /// 
+      /// Locales: en
+      static func alertNoCoonection(_: Void = ()) -> String {
+        return NSLocalizedString("alert.noCoonection", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Добре
+      /// 
+      /// Locales: en
+      static func alertGarazd(_: Void = ()) -> String {
+        return NSLocalizedString("alert.garazd", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Заощаджуйте кошти
@@ -447,6 +473,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func titlePhoneLongNumber(_: Void = ()) -> String {
         return NSLocalizedString("titlePhoneLongNumber", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Увага
+      /// 
+      /// Locales: en
+      static func alertWarring(_: Void = ()) -> String {
+        return NSLocalizedString("alert.warring", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: м. 

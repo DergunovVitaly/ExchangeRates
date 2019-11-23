@@ -13,4 +13,5 @@ pod 'SnapKit'
 pod 'Moya'
 pod 'SwiftyJSON'
 pod 'ReachabilitySwift'
+pod 'SCLAlertView'
 end

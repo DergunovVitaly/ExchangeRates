@@ -155,7 +155,7 @@ class BankTableViewCell: UITableViewCell {
         detailButton.imageView?.contentMode = .scaleAspectFit
         detailButton.setImage(R.image.menu(), for: .normal)
         detailButton.snp.makeConstraints { (make) in
-            make.width.equalTo(40u)
+            make.width.equalTo(40)
         }
         linkButton.addTarget(self, action: #selector(linkButtonSelection), for: .touchUpInside)
         locationButton.addTarget(self, action: #selector(locationButtonSelection), for: .touchUpInside)

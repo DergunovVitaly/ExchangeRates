@@ -6,6 +6,7 @@
 //  Copyright © 2019 ExchangeRates. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class ExchangeRatesCustomFunc {
@@ -25,6 +26,9 @@ class ExchangeRatesCustomFunc {
             resultArray.append("https://static.finance.ua/img/ext/org-logo/88/\(String(array[i])).png")
         }
         return resultArray
+    }
+    static func getStringfromAn(int: Int) -> String {
+        return "https://static.finance.ua/img/ext/org-logo/88/\(String(int)).png"
     }
 }
 

@@ -18,6 +18,9 @@
 "nameCurrent" = "Назва Валюти";
 "actionCurrent" = "Покупка / Продаж";
 "url" = "https://resources.finance.ua/ua/public/currency-cash.json";
-"officialLink" = "Oфіційний сайт:";
-"adressBank" = "Адреса:";
-"bankPhoneNumber" = "Телефон:";
+"link" = "Посилання: ";
+"titleAdressBank" = "Адреса: ";
+"titlePhoneLongNumber" = "Телефон: ";
+"titlePhoneShortNumber" = "Тел.: ";
+"titleShortCityName" = "м. ";
+"longNameCountry" = "ська область";

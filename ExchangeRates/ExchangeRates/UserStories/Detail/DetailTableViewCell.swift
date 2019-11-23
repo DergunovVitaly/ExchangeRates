@@ -10,10 +10,10 @@ import UIKit
 
 class DetailTableViewCell: UITableViewCell {
     
+    let purchaseLabel = UILabel()
+    let saleLabel = UILabel()
+    let currencyNameLabel = UILabel()
     private let nameLabel = UILabel()
-    private let descriptionLabel = UILabel()
-    private let purchaseLabel = UILabel()
-    private let saleLabel = UILabel()
     private let imageUp = UIImageView()
     private let imageDown = UIImageView()
     
@@ -27,6 +27,7 @@ class DetailTableViewCell: UITableViewCell {
     }
     
     private func setupLayout() {
+        backgroundColor = .white
         
         addSubview(nameLabel)
         nameLabel.textColor = R.color.lightDark()
@@ -37,19 +38,16 @@ class DetailTableViewCell: UITableViewCell {
             make.width.equalTo(50)
         }
         
-        addSubview(descriptionLabel)
-//        descriptionLabel.text = currencyModel.description
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.textColor = R.color.lightGrey()
-        descriptionLabel.font = R.font.helveticaNeue(size: 16)
-        descriptionLabel.snp.makeConstraints { (make) in
-            make.top.height.equalTo(nameLabel)
+        addSubview(currencyNameLabel)
+        currencyNameLabel.numberOfLines = 0
+        currencyNameLabel.textColor = R.color.lightGrey()
+        currencyNameLabel.font = R.font.helveticaNeue(size: 16)
+        currencyNameLabel.snp.makeConstraints { (make) in
+            make.top.height.leading.equalTo(nameLabel)
             make.width.equalTo(150)
-            make.leading.equalTo(nameLabel).offset(50)
         }
         
         addSubview(purchaseLabel)
-//        purchaseLabel.text = currencyModel.bid
         purchaseLabel.font = R.font.helveticaNeue(size: 14)
         purchaseLabel.textColor = R.color.lightGrey()
         purchaseLabel.snp.makeConstraints { (make) in
@@ -59,7 +57,6 @@ class DetailTableViewCell: UITableViewCell {
         }
         
         addSubview(saleLabel)
-//        saleLabel.text = currencyModel.ask
         saleLabel.font = R.font.helveticaNeue(size: 14)
         saleLabel.textColor = R.color.lightGrey()
         saleLabel.snp.makeConstraints { (make) in

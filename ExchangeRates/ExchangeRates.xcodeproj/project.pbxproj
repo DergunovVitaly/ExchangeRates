@@ -33,6 +33,7 @@
 		1F0E753A234E1F1B00A32B96 /* HelveticaNeueBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */; };
 		1F1C075F238673380090B58B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C075E238673380090B58B /* NetworkManager.swift */; };
 		1F1CFAF723893ECF00BD31F0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CFAF623893ECF00BD31F0 /* AlertController.swift */; };
+		1F1CFAF92389654F00BD31F0 /* BankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CFAF82389654F00BD31F0 /* BankViewModel.swift */; };
 		1F30B108236C16F2005E0C7F /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */; };
 		1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42BE22236581BA00A5AF81 /* NetworkService.swift */; };
 		1FD0170D2365F59900BC5CC8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0170C2365F59900BC5CC8 /* Request.swift */; };
@@ -69,6 +70,7 @@
 		1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeueBold.ttf; sourceTree = "<group>"; };
 		1F1C075E238673380090B58B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1F1CFAF623893ECF00BD31F0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		1F1CFAF82389654F00BD31F0 /* BankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewModel.swift; sourceTree = "<group>"; };
 		1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 		1F42BE22236581BA00A5AF81 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1FCD2C0023846BB1007B77D5 /* ExchangeRates.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ExchangeRates.entitlements; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				04D6DBA5235E286C00618A66 /* BankTableViewCell.swift */,
 				04D6DBA8235E28C400618A66 /* BanksView.swift */,
 				04D6DBAA235E28D700618A66 /* BanksVC.swift */,
+				1F1CFAF82389654F00BD31F0 /* BankViewModel.swift */,
 			);
 			path = Banks;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F1CFAF92389654F00BD31F0 /* BankViewModel.swift in Sources */,
 				1F1C075F238673380090B58B /* NetworkManager.swift in Sources */,
 				1F30B108236C16F2005E0C7F /* UIStackView+Ext.swift in Sources */,
 				046B7E772363822A00C97B93 /* DetailBankVC.swift in Sources */,

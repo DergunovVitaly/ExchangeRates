@@ -14,12 +14,23 @@ class BanksVC: UIViewController {
     var organizations: [Organization] = []
     var urlBankLogo: [String] = []
     
+    private var searchFilteredBanksArray: [Organization] = []
+    private var searchBarIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else {
+            return false
+        }
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmpty
+    }
+    
     private let contentView = BanksView()
     private let detailView = DetailBankView()
+    private let searchController = UISearchController(searchResultsController: nil)
     
     override func loadView() {
         super.loadView()
-        contentView.delegate = self
         view = contentView
         title = Localizable.titleNameFirstView()
     }
@@ -27,22 +38,41 @@ class BanksVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        contentView.delegate = self
+        setupSearchController()
         setNavigationController()
-        DispatchQueue.main.async {
-            Request.fetch { [unowned self] (bank) in
+        
+        Request.fetch { [unowned self] (bank) in
+            
+            DispatchQueue.main.async {
+                
                 let cityId = bank[0].organizations.map { $0.cityId }
                 let cityDict = bank[0].cities
-                self.cityName = ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict)
+//                self.cityName = ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict)
                 let regionId = bank[0].organizations.map { $0.regionId }
                 let regionDict = bank[0].regions
-                self.regionName = ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict)
-                self.organizations = bank[0].organizations
+//                self.regionName = ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict)
+//                self.organizations = bank[0].organizations
                 let oldID = bank[0].organizations.map { $0.oldId }
-                self.urlBankLogo = ExchangeRatesCustomFunc.gettingStringsArrayFromAn(array: oldID)
-                self.contentView.update(organizations: self.organizations, regionName: self.regionName, cityName: self.cityName, url: self.urlBankLogo)
-                self.contentView.bankTableView.reloadData()
+//                self.urlBankLogo = ExchangeRatesCustomFunc.gettingStringsArrayFromAn(array: oldID)
+                var banksVM = BankViewModel(organization: bank[0].organizations, regionName: ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict), cityName: ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict), urlBankLogo: ExchangeRatesCustomFunc.gettingStringsArrayFromAn(array: oldID))
+                if self.isFiltering {
+                    self.contentView.update(organizations: self.searchFilteredBanksArray, regionName: self.regionName, cityName: self.cityName, url: self.urlBankLogo)
+//                    self.contentView.bankTableView.reloadData()
+                } else {
+                    self.contentView.update(organizations: self.organizations, regionName: self.regionName, cityName: self.cityName, url: self.urlBankLogo)
+//                    self.contentView.bankTableView.reloadData()
+                }
             }
         }
+    }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Щукати"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     private func setNavigationController() {
@@ -58,7 +88,7 @@ class BanksVC: UIViewController {
 }
 
 extension BanksVC: BanksViewDelegate {
-
+    
     func detailButtonAction(cell: BankTableViewCell) {
         guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }
         let navigationViewController = DetailBankVC(organizations: organizations[indexPath.row], regionName: regionName[indexPath.row], cityName: cityName[indexPath.row])
@@ -79,5 +109,16 @@ extension BanksVC: BanksViewDelegate {
     
     func phoneButtonAction() {
         
+    }
+}
+
+extension BanksVC: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filtercontentForSeacrhText(searchController.searchBar.text!)
+    }
+    
+    private func filtercontentForSeacrhText(_ searchText: String) {
+        searchFilteredBanksArray = organizations.filter { $0.title.lowercased().contains(searchText.lowercased()) }
+        contentView.bankTableView.reloadData()
     }
 }

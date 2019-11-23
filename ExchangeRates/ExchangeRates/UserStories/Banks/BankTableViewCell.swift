@@ -154,7 +154,9 @@ class BankTableViewCell: UITableViewCell {
         barStackView.addArrangedSubview(detailButton)
         detailButton.imageView?.contentMode = .scaleAspectFit
         detailButton.setImage(R.image.menu(), for: .normal)
-        
+        detailButton.snp.makeConstraints { (make) in
+            make.width.equalTo(40u)
+        }
         linkButton.addTarget(self, action: #selector(linkButtonSelection), for: .touchUpInside)
         locationButton.addTarget(self, action: #selector(locationButtonSelection), for: .touchUpInside)
         phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)

@@ -15,6 +15,8 @@ class BanksVC: UIViewController {
     private let detailView = DetailBankView()
     private let searchController = UISearchController(searchResultsController: nil)
     
+    private var filteredViewModel: [BankViewModel] = []
+    
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
@@ -108,9 +110,7 @@ extension BanksVC: UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String) {
-        //        filteredRestaurants = restaurants.filter({ (restaurant: Restaurant) -> Bool in
-        //        return restaurant.name.lowercased().contains(searchText.lowercased())
-        //                })
-        //                tableView.reloadData()
+        filteredViewModel = vm.filter { $0.organization.title.lowercased().contains(searchText.lowercased()) }
+        contentView.bankTableView.reloadData()
     }
 }

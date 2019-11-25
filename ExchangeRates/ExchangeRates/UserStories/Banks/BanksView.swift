@@ -20,10 +20,11 @@ class BanksView: UIView {
     weak var delegate: BanksViewDelegate?
     
     let bankTableView = UITableView()
-    private(set) var organizationsArray: [Organization] = []
-    private(set) var regionNamesArray = [String]()
-    private(set) var cityNamesArray = [String]()
-    private(set) var urlForImageBankLogoArray = [String]()
+    var vm: [BankViewModel] = []
+//    private(set) var organizationsArray: [Organization] = []
+//    private(set) var regionNamesArray = [String]()
+//    private(set) var cityNamesArray = [String]()
+//    private(set) var urlForImageBankLogoArray = [String]()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -37,12 +38,12 @@ class BanksView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(organizations: [Organization], regionName: [String], cityName: [String], url: [String]) {
-        self.organizationsArray = organizations
-        self.regionNamesArray = regionName
-        self.cityNamesArray = cityName
-        self.urlForImageBankLogoArray = url
-        
+    func update(vm: [BankViewModel]) {
+        self.vm = vm
+//        self.organizationsArray = vm.organization
+//        self.regionNamesArray = vm.regionName
+//        self.cityNamesArray = vm.cityName
+//        self.urlForImageBankLogoArray = vm.urlBankLogo
     }
     
     private func setupTableView() {
@@ -64,13 +65,11 @@ class BanksView: UIView {
 extension BanksView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return organizationsArray.count
+        return vm.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BankTableViewCell(organizations: organizationsArray[indexPath.row],
-                                     regionsName: regionNamesArray[indexPath.row],
-                                     cityName: cityNamesArray[indexPath.row], urlForImageBankLogo: urlForImageBankLogoArray[indexPath.row])
+        let cell = BankTableViewCell(organizations: vm[indexPath.row].organization, regionsName: vm[indexPath.row].regionName, cityName: vm[indexPath.row].cityName, urlForImageBankLogo: vm[indexPath.row].urlBankLogo)
         cell.delegate = self
         return cell
     }

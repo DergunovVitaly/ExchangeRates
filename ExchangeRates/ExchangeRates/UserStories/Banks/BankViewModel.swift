@@ -10,12 +10,12 @@ import Foundation
 
 class BankViewModel {
     
-    var organization: [Organization]?
-    var regionName: [String]?
-    var cityName: [String]?
-    var urlBankLogo: [String]?
+    var organization: Organization
+    var regionName: String
+    var cityName: String
+    var urlBankLogo: String
     
-    init(organization: [Organization], regionName: [String], cityName: [String], urlBankLogo: [String]) {
+    init(organization: Organization, regionName: String, cityName: String, urlBankLogo: String) {
         self.organization = organization
         self.regionName = regionName
         self.cityName = cityName

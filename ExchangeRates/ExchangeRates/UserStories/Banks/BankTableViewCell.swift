@@ -42,7 +42,6 @@ class BankTableViewCell: UITableViewCell {
         self.cityName = cityName
         self.regionsName = regionsName
         self.urlForImageBankLogo = urlForImageBankLogo
-        //TODO: Move to func
         self.nameRegionsLabel.text = regionsName
         if self.nameRegionsLabel.text == cityName {
             self.nameRegionsLabel.text = regionsName.add(postfix: Localizable.longNameCountry())

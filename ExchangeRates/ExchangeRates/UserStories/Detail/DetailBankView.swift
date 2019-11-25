@@ -44,14 +44,14 @@ class DetailBankView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getOrganizations(organizations: Organization, regionName: String, cityName: String) {
-        self.titleLabel.text = organizations.title
-        self.currencyArray = organizations.currencies.map { $0.value }
-        self.currencyName = organizations.currencies.map { $0.key }
-        self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.link())
-        self.numberTelephoneLabel.addPrefixWithSpecialColorOnLabel(text: organizations.phone.number(), prefix: Localizable.titlePhoneLongNumber())
-        self.adressBankLabel.addPrefixWithSpecialColorOnLabel(text: organizations.address, prefix: Localizable.titleAdressBank())
-        self.urlBankLogo = ExchangeRatesCustomFunc.getStringfromAn(int: organizations.oldId)
+    func getOrganizations(vm: BankViewModel) {
+        self.titleLabel.text = vm.organization.title
+        self.currencyArray = vm.organization.currencies.map { $0.value }
+        self.currencyName = vm.organization.currencies.map { $0.key }
+        self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.link())
+        self.numberTelephoneLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.phone.number(), prefix: Localizable.titlePhoneLongNumber())
+        self.adressBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.address, prefix: Localizable.titleAdressBank())
+        self.urlBankLogo = ExchangeRatesCustomFunc.getStringfromAn(int: vm.organization.oldId)
         bankLogo.kf.setImage(with: URL(string: urlBankLogo))
     }
     

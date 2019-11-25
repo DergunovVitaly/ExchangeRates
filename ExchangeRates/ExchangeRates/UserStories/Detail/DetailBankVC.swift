@@ -11,14 +11,10 @@ import UIKit
 class DetailBankVC: UIViewController {
     
     private let contenView = DetailBankView()
-    private let organizations: Organization
-    private let regionName: String
-    private let cityName: String
+    private let vm: BankViewModel
     
-    init(organizations: Organization, regionName: String, cityName: String) {
-        self.organizations = organizations
-        self.regionName = regionName
-        self.cityName = cityName
+    init(vm: BankViewModel) {
+        self.vm = vm
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,7 +31,7 @@ class DetailBankVC: UIViewController {
         contenView.delegate = self
         setNavigationController()
         
-        contenView.getOrganizations(organizations: organizations, regionName: regionName, cityName: cityName)
+        contenView.getOrganizations(vm: vm)
     }
     
     func setNavigationController(){
@@ -61,6 +57,5 @@ extension DetailBankVC: BankViewDelegatDelegate {
         let navigationViewController = ExtraMenuDetailVC()
         navigationViewController.modalPresentationStyle = .overCurrentContext
         navigationController?.pushViewController(navigationViewController, animated: false)
-//        present(navigationViewController, animated: true, completion: nil)
     }
 }

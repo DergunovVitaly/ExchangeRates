@@ -156,25 +156,24 @@ class BankTableViewCell: UITableViewCell {
         detailButton.snp.makeConstraints { (make) in
             make.width.equalTo(40)
         }
-        linkButton.addTarget(self, action: #selector(linkButtonSelection), for: .touchUpInside)
-        locationButton.addTarget(self, action: #selector(locationButtonSelection), for: .touchUpInside)
-        phoneButton.addTarget(self, action: #selector(phoneButtonSelection), for: .touchUpInside)
-        detailButton.addTarget(self, action: #selector(detailButtonSelection), for: .touchUpInside)
+        
+        linkButton.addTargetClosure { [unowned self] (btn) in
+            self.delegate?.linkButtonAction(cell: self)
+        }
+            
+        locationButton.addTargetClosure { [unowned self] (btn) in
+            self.delegate?.locationButtonAction()
+        }
+        
+        phoneButton.addTargetClosure { [unowned self] (btn) in
+            self.delegate?.phoneButtonAction()
+        }
+        
+        detailButton.addTargetClosure { [unowned self] (btn) in
+            self.delegate?.detailButtonAction(cell: self)
+        }
     }
-    
-    @objc func linkButtonSelection(){
-        delegate?.linkButtonAction(cell: self)
-    }
-    @objc func locationButtonSelection(){
-        delegate?.locationButtonAction()
-    }
-    @objc func phoneButtonSelection(){
-        delegate?.phoneButtonAction()
-    }
-    @objc func detailButtonSelection() {
-        delegate?.detailButtonAction(cell: self)
-    }
-    
+  
     private func setLayerTableViewCell() {
         layer.cornerRadius = 5
         layer.shadowOffset = CGSize(width: 5, height: 5)

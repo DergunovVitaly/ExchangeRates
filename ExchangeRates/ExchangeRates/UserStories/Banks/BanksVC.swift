@@ -9,7 +9,7 @@ import UIKit
 
 class BanksVC: UIViewController {
     
-    private var vm: [BankViewModel] = []
+    private var viewModelsArray: [BankViewModel] = []
     
     private let contentView = BanksView()
     private let detailView = DetailBankView()
@@ -22,6 +22,7 @@ class BanksVC: UIViewController {
         return text.isEmpty
     }
     private var isFiltering: Bool {
+        return true
         return searchController.isActive && !searchBarIsEmpty
     }
     
@@ -50,16 +51,15 @@ class BanksVC: UIViewController {
                 let oldID = bank[0].organizations.map { $0.oldId }
                 let urlBankLogo = ExchangeRatesCustomFunc.gettingStringsArrayFromAn(array: oldID)
                 for item in 0...bank[0].organizations.count - 1 {
-                    self.vm.append(BankViewModel(organization: organizations[item], regionName: regionName[item], cityName: cityName[item], urlBankLogo: urlBankLogo[item]))
+                    self.viewModelsArray.append(BankViewModel(organization: organizations[item], regionName: regionName[item], cityName: cityName[item], urlBankLogo: urlBankLogo[item]))
                 }
                 if self.isFiltering {
                     self.contentView.update(vm: self.filteredViewModel)
                     self.contentView.bankTableView.reloadData()
                 } else {
-                    self.contentView.update(vm: self.vm)
+                    self.contentView.update(vm: self.viewModelsArray)
                     self.contentView.bankTableView.reloadData()
                 }
-                
             }
         }
     }
@@ -67,22 +67,16 @@ class BanksVC: UIViewController {
     private func setNavigationController() {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButton))
         navigationController?.navigationBar.tintColor = .white
     }
     
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.dimsBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = Localizable.find()
-        searchController.extendedLayoutIncludesOpaqueBars = true
         navigationItem.searchController = searchController
         definesPresentationContext = true
-    }
-    
-    @objc func searchButton() {
-        print("work")
+        searchController.searchBar.placeholder = Localizable.find()
+
     }
 }
 
@@ -90,16 +84,16 @@ extension BanksVC: BanksViewDelegate {
     
     func detailButtonAction(cell: BankTableViewCell) {
         guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }
-                let navigationViewController = DetailBankVC(vm: vm[indexPath.row])
-                navigationController?.pushViewController(navigationViewController, animated: true)
+        let navigationViewController = DetailBankVC(vm: viewModelsArray[indexPath.row])
+        navigationController?.pushViewController(navigationViewController, animated: true)
     }
     
     func linkButtonAction(cell: BankTableViewCell) {
         guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }
-        guard let url = URL(string: vm[indexPath.row].organization.link.deleteLastLettersAfter(character: "/")) else { return }
-                let urlForBankWebView = url
-                let safariVC = SafariViewController(url: urlForBankWebView)
-                self.present(safariVC, animated: true, completion: nil)
+        guard let url = URL(string: viewModelsArray[indexPath.row].organization.link.deleteLastLettersAfter(character: "/")) else { return }
+        let urlForBankWebView = url
+        let safariVC = SafariViewController(url: urlForBankWebView)
+        self.present(safariVC, animated: true, completion: nil)
     }
     
     func locationButtonAction() {
@@ -116,6 +110,8 @@ extension BanksVC: UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String) {
-        filteredViewModel = vm.filter { $0.organization.title.lowercased().contains(searchText.lowercased()) }
+        filteredViewModel = viewModelsArray.filter { $0.organization.title.lowercased().contains(searchText.lowercased())
+        }
+        self.contentView.bankTableView.reloadData()
     }
 }

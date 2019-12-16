@@ -148,15 +148,14 @@ class DetailBankView: UIView {
         
         addSubview(detailButton)
         detailButton.setImage(R.image.float(), for: .normal)
-        detailButton.addTarget(self, action: #selector(setdetailButtonAction), for: .touchUpInside)
         detailButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview()
             make.trailing.equalToSuperview().offset(-45)
             make.width.height.equalTo(70)
         }
-    }
-    @objc func setdetailButtonAction() {
-        delegate?.detailButtonAction()
+        detailButton.addTargetClosure { [unowned self] _ in
+            self.delegate?.detailButtonAction()
+        }
     }
 }
 

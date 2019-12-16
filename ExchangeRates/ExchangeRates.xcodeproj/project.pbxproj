@@ -37,6 +37,8 @@
 		1F30B108236C16F2005E0C7F /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */; };
 		1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42BE22236581BA00A5AF81 /* NetworkService.swift */; };
 		1FD0170D2365F59900BC5CC8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0170C2365F59900BC5CC8 /* Request.swift */; };
+		1FECEB7523A7DC020001AD15 /* UIScreen+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECEB7423A7DC020001AD15 /* UIScreen+Ext.swift */; };
+		1FECEB7723A7DDBA0001AD15 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECEB7623A7DDBA0001AD15 /* UIButton+Ext.swift */; };
 		5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */; };
 		5BBD71C72348B76000D0B9EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C62348B76000D0B9EA /* Assets.xcassets */; };
 		5BBD71CA2348B76000D0B9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BBD71C82348B76000D0B9EA /* LaunchScreen.storyboard */; };
@@ -75,6 +77,8 @@
 		1F42BE22236581BA00A5AF81 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1FCD2C0023846BB1007B77D5 /* ExchangeRates.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ExchangeRates.entitlements; sourceTree = "<group>"; };
 		1FD0170C2365F59900BC5CC8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		1FECEB7423A7DC020001AD15 /* UIScreen+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Ext.swift"; sourceTree = "<group>"; };
+		1FECEB7623A7DDBA0001AD15 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		215B438D33C5DB212CC5FE8D /* Pods-ExchangeRates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExchangeRates.release.xcconfig"; path = "Target Support Files/Pods-ExchangeRates/Pods-ExchangeRates.release.xcconfig"; sourceTree = "<group>"; };
 		5BBD71BA2348B75C00D0B9EA /* ExchangeRates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExchangeRates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -158,12 +162,12 @@
 		04D5F6BB2349DADF00B25A05 /* Resurses */ = {
 			isa = PBXGroup;
 			children = (
+				1FECEB7323A7DB7A0001AD15 /* Helpers */,
 				1F1CFAF523893EA000BD31F0 /* Reusable */,
 				5B2069E72369AFC3009157F3 /* Images */,
 				1FA439F7234BBE99007B5504 /* Fonts */,
 				04D5F6C12349E26400B25A05 /* R.generated.swift */,
 				04F932A22349E59100228657 /* Localizable.strings */,
-				04ACED9C2349F31300264199 /* Typealias.swift */,
 			);
 			path = Resurses;
 			sourceTree = "<group>";
@@ -227,12 +231,22 @@
 			isa = PBXGroup;
 			children = (
 				1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */,
+				1FECEB7423A7DC020001AD15 /* UIScreen+Ext.swift */,
 				04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */,
 				0479AF7D237B2C9800038838 /* String+Ext.swift */,
 				0496B85E2375A56500407371 /* ExchangeRatesCustomFunc.swift */,
 				04E9BCF92385DA7100BF213B /* UILabel+Ext.swift */,
+				1FECEB7623A7DDBA0001AD15 /* UIButton+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1FECEB7323A7DB7A0001AD15 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				04ACED9C2349F31300264199 /* Typealias.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		5B2069E72369AFC3009157F3 /* Images */ = {
@@ -268,11 +282,11 @@
 				1FCD2C0023846BB1007B77D5 /* ExchangeRates.entitlements */,
 				1FA43A60234D0204007B5504 /* Extensions */,
 				04D5F6B92349DA2800B25A05 /* Application */,
+				1F42BE212365819800A5AF81 /* Managers */,
 				04D5F6AE2349D65E00B25A05 /* Models */,
 				04D5F6B02349D6B800B25A05 /* UserStories */,
 				04D5F6BB2349DADF00B25A05 /* Resurses */,
 				04D5F6BA2349DA7700B25A05 /* Storyboards */,
-				1F42BE212365819800A5AF81 /* Managers */,
 			);
 			path = ExchangeRates;
 			sourceTree = "<group>";
@@ -452,9 +466,11 @@
 				04D5F6B62349D76C00B25A05 /* CreateTutorialView.swift in Sources */,
 				04D5F6C22349E26400B25A05 /* R.generated.swift in Sources */,
 				04D5F6B82349D94400B25A05 /* BankModel.swift in Sources */,
+				1FECEB7523A7DC020001AD15 /* UIScreen+Ext.swift in Sources */,
 				1FD0170D2365F59900BC5CC8 /* Request.swift in Sources */,
 				04D6DBA9235E28C400618A66 /* BanksView.swift in Sources */,
 				04ACED9D2349F31300264199 /* Typealias.swift in Sources */,
+				1FECEB7723A7DDBA0001AD15 /* UIButton+Ext.swift in Sources */,
 				04F74ADF2364EA880089B919 /* ExtraMenuDetailVC.swift in Sources */,
 				04D6DBA6235E286C00618A66 /* BankTableViewCell.swift in Sources */,
 				5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */,

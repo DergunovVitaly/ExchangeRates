@@ -22,9 +22,9 @@ class TutorialView: UIView {
     private let startButtonAction = UIButton()
     private var coinsImageView: UIImageView
     private let widthCoinsImageView: CGFloat = 150
-    private let heightCoinsImageView: CGFloat = UIScreen.main.bounds.height * 0.54
-    private let xPositionCoinsImageView: CGFloat = UIScreen.main.bounds.width * 0.66
-    private(set) var yPositionCoinsImageView: CGFloat = UIScreen.main.bounds.height * 0.75
+    private let heightCoinsImageView: CGFloat = UIScreen.height * 0.54
+    private let xPositionCoinsImageView: CGFloat = UIScreen.width * 0.66
+    private(set) var yPositionCoinsImageView: CGFloat = UIScreen.height * 0.75
     
     init(frame: CGRect, imageArray: [CreateTutorialView]) {
         self.viewArray = imageArray

@@ -21,10 +21,8 @@ class BanksView: UIView {
     
     let bankTableView = UITableView()
     var vm: [BankViewModel] = []
-//    private(set) var organizationsArray: [Organization] = []
-//    private(set) var regionNamesArray = [String]()
-//    private(set) var cityNamesArray = [String]()
-//    private(set) var urlForImageBankLogoArray = [String]()
+    private let searchController = UISearchController(searchResultsController: nil)
+
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -40,10 +38,6 @@ class BanksView: UIView {
     
     func update(vm: [BankViewModel]) {
         self.vm = vm
-//        self.organizationsArray = vm.organization
-//        self.regionNamesArray = vm.regionName
-//        self.cityNamesArray = vm.cityName
-//        self.urlForImageBankLogoArray = vm.urlBankLogo
     }
     
     private func setupTableView() {

@@ -60,8 +60,9 @@ class BankTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     private func setupLayout() {
-        backgroundColor = .white
+        backgroundColor = .red
         
         contentView.addSubview(titleBankLabel)
         titleBankLabel.font = R.font.helveticaNeue(size: 26)
@@ -160,7 +161,7 @@ class BankTableViewCell: UITableViewCell {
         linkButton.addTargetClosure { [unowned self] (btn) in
             self.delegate?.linkButtonAction(cell: self)
         }
-            
+        
         locationButton.addTargetClosure { [unowned self] (btn) in
             self.delegate?.locationButtonAction()
         }
@@ -173,10 +174,18 @@ class BankTableViewCell: UITableViewCell {
             self.delegate?.detailButtonAction(cell: self)
         }
     }
-  
+    
     private func setLayerTableViewCell() {
         layer.cornerRadius = 5
         layer.shadowOffset = CGSize(width: 5, height: 5)
         layer.shadowOpacity = 0.1
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 15,
+                                                                     left: 15,
+                                                                     bottom: 0,
+                                                                     right: 15))
     }
 }

@@ -64,10 +64,9 @@ class BanksVC: UIViewController {
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = Localizable.find()
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        searchController.searchBar.placeholder = Localizable.find()
-        
     }
 }
 
@@ -75,8 +74,14 @@ extension BanksVC: BanksViewDelegate {
     
     func detailButtonAction(cell: BankTableViewCell) {
         guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }
-        let navigationViewController = DetailBankVC(vm: viewModelsArray[indexPath.row])
-        navigationController?.pushViewController(navigationViewController, animated: true)
+        if searchController.isActive && !searchBarIsEmpty {
+            let detailsBankVC = DetailBankVC(vm: filteredViewModel[indexPath.row])
+            navigationController?.pushViewController(detailsBankVC, animated: true)
+        } else {
+            self.contentView.update(vm: self.viewModelsArray)
+            let detailsBankVC = DetailBankVC(vm: viewModelsArray[indexPath.row])
+            navigationController?.pushViewController(detailsBankVC, animated: true)
+        }
     }
     
     func linkButtonAction(cell: BankTableViewCell) {
@@ -103,7 +108,6 @@ extension BanksVC: UISearchResultsUpdating {
     private func filterContentForSearchText(_ searchText: String) {
         filteredViewModel = viewModelsArray.filter { $0.organization.title.lowercased().contains(searchText.lowercased())
         }
-        
         if searchController.isActive && !searchBarIsEmpty {
             self.contentView.update(vm: self.filteredViewModel)
         } else {

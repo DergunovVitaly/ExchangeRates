@@ -22,9 +22,9 @@ class TutorialView: UIView {
     private let startButtonAction = UIButton()
     private var coinsImageView: UIImageView
     private let widthCoinsImageView: CGFloat = 150
-    private let heightCoinsImageView: CGFloat = 360
-    private let xPositionCoinsImageView: CGFloat = 250
-    private(set) var yPositionCoinsImageView: CGFloat = 500
+    private let heightCoinsImageView: CGFloat = UIScreen.main.bounds.height * 0.54
+    private let xPositionCoinsImageView: CGFloat = UIScreen.main.bounds.width * 0.66
+    private(set) var yPositionCoinsImageView: CGFloat = UIScreen.main.bounds.height * 0.75
     
     init(frame: CGRect, imageArray: [CreateTutorialView]) {
         self.viewArray = imageArray
@@ -87,7 +87,7 @@ class TutorialView: UIView {
         startButtonAction.snp.makeConstraints { (make) in
             make.width.equalTo(250)
             make.height.equalTo(60)
-            make.bottom.equalToSuperview().offset(-60)
+            make.bottom.equalToSuperview().offset(-30)
             make.centerX.equalToSuperview()
         }
     }
@@ -105,7 +105,7 @@ extension TutorialView: UIScrollViewDelegate {
         let pageIndex = round(CGFloat(contentOfsetX) / frame)
         pageControl.currentPage = Int(pageIndex)
         
-        self.yPositionCoinsImageView = 500
+        self.yPositionCoinsImageView = UIScreen.main.bounds.height * 0.75
         self.yPositionCoinsImageView -= round(CGFloat(contentOfsetX) / 5 )
         UIView.animate(withDuration: 1.0, animations: {
             self.coinsImageView.frame = CGRect(x: self.xPositionCoinsImageView, y: self.yPositionCoinsImageView, width: self.widthCoinsImageView, height: self.heightCoinsImageView)

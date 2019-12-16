@@ -52,8 +52,14 @@ class BanksVC: UIViewController {
                 for item in 0...bank[0].organizations.count - 1 {
                     self.vm.append(BankViewModel(organization: organizations[item], regionName: regionName[item], cityName: cityName[item], urlBankLogo: urlBankLogo[item]))
                 }
-                self.contentView.update(vm: self.vm)
-                self.contentView.bankTableView.reloadData()
+                if self.isFiltering {
+                    self.contentView.update(vm: self.filteredViewModel)
+                    self.contentView.bankTableView.reloadData()
+                } else {
+                    self.contentView.update(vm: self.vm)
+                    self.contentView.bankTableView.reloadData()
+                }
+                
             }
         }
     }
@@ -111,6 +117,5 @@ extension BanksVC: UISearchResultsUpdating {
     
     private func filterContentForSearchText(_ searchText: String) {
         filteredViewModel = vm.filter { $0.organization.title.lowercased().contains(searchText.lowercased()) }
-        contentView.bankTableView.reloadData()
     }
 }

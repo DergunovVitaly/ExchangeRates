@@ -30,6 +30,7 @@ class CreateTutorialView: UIView {
     }
     
     private func setupLayout() {
+        
         addSubview(imageView)
         self.imageView.image = image
         imageView.snp.makeConstraints { (make) in

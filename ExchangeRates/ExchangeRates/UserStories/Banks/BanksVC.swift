@@ -21,10 +21,6 @@ class BanksVC: UIViewController {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
-    private var isFiltering: Bool {
-        return true
-        return searchController.isActive && !searchBarIsEmpty
-    }
     
     override func loadView() {
         super.loadView()
@@ -53,13 +49,8 @@ class BanksVC: UIViewController {
                 for item in 0...bank[0].organizations.count - 1 {
                     self.viewModelsArray.append(BankViewModel(organization: organizations[item], regionName: regionName[item], cityName: cityName[item], urlBankLogo: urlBankLogo[item]))
                 }
-                if self.isFiltering {
-                    self.contentView.update(vm: self.filteredViewModel)
-                    self.contentView.bankTableView.reloadData()
-                } else {
-                    self.contentView.update(vm: self.viewModelsArray)
-                    self.contentView.bankTableView.reloadData()
-                }
+                self.contentView.update(vm: self.viewModelsArray)
+                self.contentView.bankTableView.reloadData()
             }
         }
     }
@@ -76,7 +67,7 @@ class BanksVC: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
         searchController.searchBar.placeholder = Localizable.find()
-
+        
     }
 }
 
@@ -111,6 +102,12 @@ extension BanksVC: UISearchResultsUpdating {
     
     private func filterContentForSearchText(_ searchText: String) {
         filteredViewModel = viewModelsArray.filter { $0.organization.title.lowercased().contains(searchText.lowercased())
+        }
+        
+        if searchController.isActive && !searchBarIsEmpty {
+            self.contentView.update(vm: self.filteredViewModel)
+        } else {
+            self.contentView.update(vm: self.viewModelsArray)
         }
         self.contentView.bankTableView.reloadData()
     }

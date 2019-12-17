@@ -34,7 +34,7 @@ class BanksVC: UIViewController {
         contentView.delegate = self
         setNavigationController()
         setupSearchController()
-        
+        //TODO: Move to ViewModel
         Request.fetch { [unowned self] (bank) in
             DispatchQueue.main.async {
                 let cityId = bank[0].organizations.map { $0.cityId }
@@ -49,7 +49,7 @@ class BanksVC: UIViewController {
                 for item in 0...bank[0].organizations.count - 1 {
                     self.viewModelsArray.append(BankViewModel(organization: organizations[item], regionName: regionName[item], cityName: cityName[item], urlBankLogo: urlBankLogo[item]))
                 }
-                self.contentView.update(vm: self.viewModelsArray)
+                self.contentView.update(viewModel: self.viewModelsArray)
                 self.contentView.bankTableView.reloadData()
             }
         }
@@ -78,7 +78,7 @@ extension BanksVC: BanksViewDelegate {
             let detailsBankVC = DetailBankVC(vm: filteredViewModel[indexPath.row])
             navigationController?.pushViewController(detailsBankVC, animated: true)
         } else {
-            self.contentView.update(vm: self.viewModelsArray)
+            self.contentView.update(viewModel: self.viewModelsArray)
             let detailsBankVC = DetailBankVC(vm: viewModelsArray[indexPath.row])
             navigationController?.pushViewController(detailsBankVC, animated: true)
         }
@@ -109,9 +109,9 @@ extension BanksVC: UISearchResultsUpdating {
         filteredViewModel = viewModelsArray.filter { $0.organization.title.lowercased().contains(searchText.lowercased())
         }
         if searchController.isActive && !searchBarIsEmpty {
-            self.contentView.update(vm: self.filteredViewModel)
+            self.contentView.update(viewModel: self.filteredViewModel)
         } else {
-            self.contentView.update(vm: self.viewModelsArray)
+            self.contentView.update(viewModel: self.viewModelsArray)
         }
         self.contentView.bankTableView.reloadData()
     }

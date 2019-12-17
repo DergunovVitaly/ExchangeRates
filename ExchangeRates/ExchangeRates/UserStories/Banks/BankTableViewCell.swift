@@ -20,10 +20,11 @@ class BankTableViewCell: UITableViewCell {
     
     weak var delegate: BanksTableViewCellDelegate?
     
-    let organizations: Organization
-    let regionsName: String
-    let cityName: String
-    let urlForImageBankLogo: String
+    var urlForImageBankLogo: String?
+    private var organizations: Organization?
+    private var regionsName: String?
+    private var cityName: String?
+    private let backgroundViewCell = UIView()
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
     private let nameCityLabel = UILabel()
@@ -36,12 +37,22 @@ class BankTableViewCell: UITableViewCell {
     private let phoneButton = UIButton()
     private let detailButton = UIButton()
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setupLayout()
+    }
     
-    init(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
-        self.organizations = organizations
-        self.cityName = cityName
-        self.regionsName = regionsName
-        self.urlForImageBankLogo = urlForImageBankLogo
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo ?? ""))
+        bankLogo.image = nil
+    }
+    
+    func update(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
         self.nameRegionsLabel.text = regionsName
         if self.nameRegionsLabel.text == cityName {
             self.nameRegionsLabel.text = regionsName.add(postfix: Localizable.longNameCountry())
@@ -50,21 +61,21 @@ class BankTableViewCell: UITableViewCell {
         self.titleBankLabel.text = organizations.title
         self.phoneLabel.text = organizations.phone.number().add(prefix: Localizable.titlePhoneShortNumber())
         self.adressLabel.text = organizations.address.add(prefix: Localizable.titleAdressBank())
-        bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo))
-        super.init(style: .default, reuseIdentifier: String(describing: BankTableViewCell.self))
-        setupLayout()
-        setLayerTableViewCell()
+        bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo ?? ""))
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     
     private func setupLayout() {
-        backgroundColor = .red
+        backgroundColor = .white
         
-        contentView.addSubview(titleBankLabel)
+        contentView.addSubview(backgroundViewCell)
+        backgroundViewCell.layer.borderColor = R.color.lightBlue()?.cgColor
+        backgroundViewCell.layer.borderWidth = 2
+        backgroundViewCell.layer.cornerRadius = 10
+        backgroundViewCell.snp.makeConstraints { (make) in
+            make.edges.equalTo(UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5))
+        }
+        
+        backgroundViewCell.addSubview(titleBankLabel)
         titleBankLabel.font = R.font.helveticaNeue(size: 26)
         titleBankLabel.textColor = R.color.lightDark()
         titleBankLabel.numberOfLines = 0
@@ -73,7 +84,7 @@ class BankTableViewCell: UITableViewCell {
             make.width.equalTo(200)
         }
         
-        contentView.addSubview(nameRegionsLabel)
+        backgroundViewCell.addSubview(nameRegionsLabel)
         nameRegionsLabel.textColor = R.color.lightGrey()
         nameRegionsLabel.font = R.font.helveticaNeue(size: 20)
         nameRegionsLabel.numberOfLines = 0
@@ -83,7 +94,7 @@ class BankTableViewCell: UITableViewCell {
             make.trailing.equalToSuperview().inset(115)
         }
         
-        contentView.addSubview(nameCityLabel)
+        backgroundViewCell.addSubview(nameCityLabel)
         nameCityLabel.textColor = R.color.lightGrey()
         nameCityLabel.font = R.font.helveticaNeue(size: 20)
         nameCityLabel.numberOfLines = 0
@@ -94,7 +105,7 @@ class BankTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-50)
         }
         
-        contentView.addSubview(bankLogo)
+        backgroundViewCell.addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
         bankLogo.snp.makeConstraints { (make) in
             make.top.equalTo(titleBankLabel)
@@ -103,7 +114,7 @@ class BankTableViewCell: UITableViewCell {
             make.height.equalTo(100)
         }
         
-        contentView.addSubview(phoneLabel)
+        backgroundViewCell.addSubview(phoneLabel)
         phoneLabel.numberOfLines = 0
         phoneLabel.textAlignment = .right
         phoneLabel.textColor = R.color.lightGrey()
@@ -113,7 +124,7 @@ class BankTableViewCell: UITableViewCell {
             make.top.equalTo(bankLogo.snp.bottom).offset(10)
         }
         
-        contentView.addSubview(adressLabel)
+        backgroundViewCell.addSubview(adressLabel)
         adressLabel.textAlignment = .right
         adressLabel.numberOfLines = 0
         adressLabel.textColor = R.color.lightGrey()
@@ -125,17 +136,17 @@ class BankTableViewCell: UITableViewCell {
             make.bottom.equalToSuperview().offset(-50)
         }
         
-        contentView.addSubview(barStackView)
+        backgroundViewCell.addSubview(barStackView)
         barStackView.contentMode = .scaleToFill
         barStackView.axis = .horizontal
         barStackView.spacing = 10
         barStackView.isLayoutMarginsRelativeArrangement = true
         barStackView.layoutMargins = UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
-        barStackView.addBackground(color: R.color.grayView()!)
+        barStackView.addBackground(color: R.color.grayView() ?? UIColor())
         barStackView.distribution = .equalSpacing
         barStackView.alignment = .center
         barStackView.snp.makeConstraints { (make) in
-            make.height.equalTo(40)
+            make.height.equalTo(44)
             make.bottom.leading.trailing.equalToSuperview()
         }
         
@@ -173,19 +184,5 @@ class BankTableViewCell: UITableViewCell {
         detailButton.addTargetClosure { [unowned self] (btn) in
             self.delegate?.detailButtonAction(cell: self)
         }
-    }
-    
-    private func setLayerTableViewCell() {
-        layer.cornerRadius = 5
-        layer.shadowOffset = CGSize(width: 5, height: 5)
-        layer.shadowOpacity = 0.1
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 15,
-                                                                     left: 15,
-                                                                     bottom: 0,
-                                                                     right: 15))
     }
 }

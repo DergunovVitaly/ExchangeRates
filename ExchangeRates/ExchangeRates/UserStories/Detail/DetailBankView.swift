@@ -165,7 +165,7 @@ extension DetailBankView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = DetailTableViewCell()
+        guard let cell = currencyTableView.dequeueReusableCell(withIdentifier: String(describing: DetailTableViewCell.self)) as? DetailTableViewCell else { return UITableViewCell() }
         cell.purchaseLabel.text = currencyArray[indexPath.row].bid
         cell.saleLabel.text = currencyArray[indexPath.row].ask
         cell.currencyNameLabel.text = currencyName[indexPath.row]

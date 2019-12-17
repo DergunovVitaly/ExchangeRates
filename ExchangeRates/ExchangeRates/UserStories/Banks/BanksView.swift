@@ -20,9 +20,8 @@ class BanksView: UIView {
     weak var delegate: BanksViewDelegate?
     
     let bankTableView = UITableView()
-    var vm: [BankViewModel] = []
+    var viewModel: [BankViewModel] = []
     private let searchController = UISearchController(searchResultsController: nil)
-
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -36,8 +35,8 @@ class BanksView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(vm: [BankViewModel]) {
-        self.vm = vm
+    func update(viewModel: [BankViewModel]) {
+        self.viewModel = viewModel
     }
     
     private func setupTableView() {
@@ -59,11 +58,14 @@ class BanksView: UIView {
 extension BanksView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm.count
+        return viewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = BankTableViewCell(organizations: vm[indexPath.row].organization, regionsName: vm[indexPath.row].regionName, cityName: vm[indexPath.row].cityName, urlForImageBankLogo: vm[indexPath.row].urlBankLogo)
+        
+        guard let cell = bankTableView.dequeueReusableCell(withIdentifier: String(describing: BankTableViewCell.self)) as? BankTableViewCell else { return UITableViewCell() }
+        cell.urlForImageBankLogo = viewModel[indexPath.row].urlBankLogo
+        cell.update(organizations: viewModel[indexPath.row].organization, regionsName: viewModel[indexPath.row].regionName, cityName: viewModel[indexPath.row].cityName, urlForImageBankLogo: viewModel[indexPath.row].urlBankLogo)
         cell.delegate = self
         return cell
     }

@@ -17,8 +17,8 @@ class DetailTableViewCell: UITableViewCell {
     private let imageUp = UIImageView()
     private let imageDown = UIImageView()
     
-    init() {
-        super.init(style: .default, reuseIdentifier: String(describing: DetailTableViewCell.self))
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
     }
     

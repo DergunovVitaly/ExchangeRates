@@ -11,7 +11,7 @@ import Moya
 
 class Request {
     
-    class func fetch(complition: @escaping ([BankModel]) -> ()) {
+    static func fetch(complition: @escaping ([BankModel]) -> ()) {
         
         var bankArray = [BankModel]()
         

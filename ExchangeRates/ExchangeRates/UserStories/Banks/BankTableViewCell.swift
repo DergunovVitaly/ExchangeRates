@@ -59,9 +59,9 @@ class BankTableViewCell: UITableViewCell {
         }
         self.nameCityLabel.text = cityName.add(prefix: Localizable.titleShortCityName())
         self.titleBankLabel.text = organizations.title
-        self.phoneLabel.text = organizations.phone.number().add(prefix: Localizable.titlePhoneShortNumber())
+        self.phoneLabel.text = organizations.phone.formatTelephoneNumber().add(prefix: Localizable.titlePhoneShortNumber())
         self.adressLabel.text = organizations.address.add(prefix: Localizable.titleAdressBank())
-        bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo ?? ""))
+        bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo))
     }
     
     private func setupLayout() {

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol TutorialViewDelegate: class {
-    func startButtonAction()
+    func startButtonEvent()
 }
 
 class TutorialView: UIView {
@@ -93,7 +93,7 @@ class TutorialView: UIView {
     }
     
     @objc func startButtonActionSelector() {
-        delegate?.startButtonAction()
+        delegate?.startButtonEvent()
     }
 }
 

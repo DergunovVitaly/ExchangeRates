@@ -31,7 +31,7 @@ class TutorialVC: UIViewController {
 
 extension TutorialVC: TutorialViewDelegate {
     
-    func startButtonAction() {
+    func startButtonEvent() {
         let navigation = UINavigationController(rootViewController: BanksVC())
         navigation.modalPresentationStyle = .fullScreen
         self.present(navigation, animated: true, completion: nil)

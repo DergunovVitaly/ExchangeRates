@@ -32,8 +32,9 @@ class BanksVC: UIViewController {
         super.viewDidLoad()
         
         contentView.delegate = self
-        setNavigationController()
+        
         setupSearchController()
+        
         //TODO: Move to ViewModel
         Request.fetch { [unowned self] (bank) in
             DispatchQueue.main.async {
@@ -53,6 +54,18 @@ class BanksVC: UIViewController {
                 self.contentView.bankTableView.reloadData()
             }
         }
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.backgroundColor = R.color.lightBlue()
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+            navigationItem.standardAppearance = appearance
+            navigationItem.scrollEdgeAppearance = appearance
+            searchController.searchBar.searchTextField.backgroundColor = .systemBackground
+            navigationController?.navigationBar.tintColor = .white
+        } else {
+            setNavigationController()
+        }
     }
     
     private func setNavigationController() {
@@ -65,8 +78,8 @@ class BanksVC: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = Localizable.find()
-        navigationItem.searchController = searchController
         definesPresentationContext = true
+        navigationItem.searchController = searchController
     }
 }
 

@@ -25,7 +25,7 @@ class DetailBankView: UIView {
     private let contentBankScrollView = UIScrollView()
     private let linkBankLabel = UILabel()
     private let adressBankLabel = UILabel()
-    private let numberTelephoneLabel = UILabel()
+    private let telephoneLabel = UILabel()
     private var currencyArray: [Currency] = []
     private var currencyName: [String] = []
     private var urlBankLogo = String()
@@ -49,7 +49,7 @@ class DetailBankView: UIView {
         self.currencyArray = vm.organization.currencies.map { $0.value }
         self.currencyName = vm.organization.currencies.map { $0.key }
         self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.link())
-        self.numberTelephoneLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.phone.number(), prefix: Localizable.titlePhoneLongNumber())
+        self.telephoneLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.phone.formatTelephoneNumber(), prefix: Localizable.titlePhoneLongNumber())
         self.adressBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.address, prefix: Localizable.titleAdressBank())
         self.urlBankLogo = ExchangeRatesCustomFunc.getStringfromAn(int: vm.organization.oldId)
         bankLogo.kf.setImage(with: URL(string: urlBankLogo))
@@ -138,10 +138,10 @@ class DetailBankView: UIView {
             make.width.equalToSuperview()
         }
         
-        contentBankScrollView.addSubview(numberTelephoneLabel)
-        numberTelephoneLabel.numberOfLines = 0
-        numberTelephoneLabel.textColor = R.color.lightBlue()
-        numberTelephoneLabel.snp.makeConstraints { (make) in
+        contentBankScrollView.addSubview(telephoneLabel)
+        telephoneLabel.numberOfLines = 0
+        telephoneLabel.textColor = R.color.lightBlue()
+        telephoneLabel.snp.makeConstraints { (make) in
             make.top.equalTo(adressBankLabel.snp.bottom).offset(5)
             make.width.equalToSuperview()
         }

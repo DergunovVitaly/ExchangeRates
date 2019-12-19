@@ -9,8 +9,9 @@
 import UIKit
 import WebKit
 import SafariServices
+
 class SafariViewController: SFSafariViewController {
-    //TODO: add activity indicator
+   
     private var bankWebView = WKWebView()
     private var urlBankWebView: URL
    

@@ -31,7 +31,7 @@ extension String {
         return mutableAttributedstring
     }
     
-     func formatTelephoneNumber() -> String {
+     func formatPhoneNumber() -> String {
         var string = self
         let start = string.startIndex
         string.insert(" ", at: string.index(start, offsetBy: 3))

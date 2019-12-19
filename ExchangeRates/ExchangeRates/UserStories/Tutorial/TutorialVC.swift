@@ -11,6 +11,7 @@ import UIKit
 
 class TutorialVC: UIViewController {
     
+    private let contentView: TutorialView?
     private let tutorialViewArray = [CreateTutorialView(image: R.image.piggyBank(),
                                                         titleLabelText: Localizable.titleTutorialFirstSlide(),
                                                         descriptionLabelText: Localizable.descriptionTutorialFirstSlide()),
@@ -21,17 +22,23 @@ class TutorialVC: UIViewController {
                                                         titleLabelText: Localizable.titleTutorialThirdSlide(),
                                                         descriptionLabelText: Localizable.descriptionTutorialThirdSlide())]
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.contentView = TutorialView(frame: .zero, imageArray: tutorialViewArray)
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
-        let contentView = TutorialView(frame: .zero, imageArray: tutorialViewArray)
-        contentView.delegate = self
+        contentView?.delegate = self
         view = contentView
-        navigationController?.navigationBar.barStyle = .black
     }
 }
 
 extension TutorialVC: TutorialViewDelegate {
-    
-    func startButtonEvent() {
+    func tapStartButtonEvent() {
         let navigation = UINavigationController(rootViewController: BanksVC())
         navigation.modalPresentationStyle = .fullScreen
         self.present(navigation, animated: true, completion: nil)

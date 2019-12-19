@@ -9,10 +9,10 @@
 import UIKit
 
 class ExtraMenuDetailVC: UIViewController {
+   
+    let contenView = ExtraMenuDetailView()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let contenView = ExtraMenuDetailView()
+    override func loadView() {
         view = contenView
         contenView.delegate = self
     }

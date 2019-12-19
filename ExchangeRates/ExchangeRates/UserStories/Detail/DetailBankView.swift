@@ -15,6 +15,9 @@ protocol BankViewDelegatDelegate: class {
 
 class DetailBankView: UIView {
     
+    private var currencyArray: [Currency] = []
+    private var currencyName: [String] = []
+    private var urlBankLogo = String()
     private let currencyTableView = UITableView()
     private let headerView = UIView()
     private let currencyHeaderName = UILabel()
@@ -25,10 +28,7 @@ class DetailBankView: UIView {
     private let contentBankScrollView = UIScrollView()
     private let linkBankLabel = UILabel()
     private let adressBankLabel = UILabel()
-    private let telephoneLabel = UILabel()
-    private var currencyArray: [Currency] = []
-    private var currencyName: [String] = []
-    private var urlBankLogo = String()
+    private let phoneNumberLabel = UILabel()
     
     weak var delegate: BankViewDelegatDelegate?
     
@@ -49,7 +49,7 @@ class DetailBankView: UIView {
         self.currencyArray = vm.organization.currencies.map { $0.value }
         self.currencyName = vm.organization.currencies.map { $0.key }
         self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.link())
-        self.telephoneLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.phone.formatTelephoneNumber(), prefix: Localizable.titlePhoneLongNumber())
+        self.phoneNumberLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.phone.formatPhoneNumber(), prefix: Localizable.titlePhoneLongNumber())
         self.adressBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.address, prefix: Localizable.titleAdressBank())
         self.urlBankLogo = ExchangeRatesCustomFunc.getStringfromAn(int: vm.organization.oldId)
         bankLogo.kf.setImage(with: URL(string: urlBankLogo))
@@ -138,10 +138,10 @@ class DetailBankView: UIView {
             make.width.equalToSuperview()
         }
         
-        contentBankScrollView.addSubview(telephoneLabel)
-        telephoneLabel.numberOfLines = 0
-        telephoneLabel.textColor = R.color.lightBlue()
-        telephoneLabel.snp.makeConstraints { (make) in
+        contentBankScrollView.addSubview(phoneNumberLabel)
+        phoneNumberLabel.numberOfLines = 0
+        phoneNumberLabel.textColor = R.color.lightBlue()
+        phoneNumberLabel.snp.makeConstraints { (make) in
             make.top.equalTo(adressBankLabel.snp.bottom).offset(5)
             make.width.equalToSuperview()
         }

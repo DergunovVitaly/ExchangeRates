@@ -10,17 +10,15 @@ import UIKit
 class BanksVC: UIViewController {
     
     private var viewModelsArray: [BankViewModel] = []
-    
-    private let contentView = BanksView()
-    private let detailView = DetailBankView()
-    private let searchController = UISearchController(searchResultsController: nil)
-    
     private var filteredViewModel: [BankViewModel] = []
-    
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
     }
+    
+    private let contentView = BanksView()
+    private let detailView = DetailBankView()
+    private let searchController = UISearchController(searchResultsController: nil)
     
     override func loadView() {
         super.loadView()

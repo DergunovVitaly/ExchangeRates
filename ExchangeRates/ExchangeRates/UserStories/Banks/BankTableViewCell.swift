@@ -66,6 +66,7 @@ class BankTableViewCell: UITableViewCell {
     
     private func setupLayout() {
         backgroundColor = .white
+        selectionStyle = .none
         
         contentView.addSubview(backgroundViewCell)
         backgroundViewCell.layer.borderColor = R.color.lightBlue()?.cgColor

@@ -82,6 +82,17 @@ class BanksVC: UIViewController {
 }
 
 extension BanksVC: BanksViewDelegate {
+    func detailButtonActionDidSelectRow(indexPath: IndexPath) {
+               if searchController.isActive && !searchBarIsEmpty {
+                   let detailsBankVC = DetailBankVC(vm: filteredViewModel[indexPath.row])
+                   navigationController?.pushViewController(detailsBankVC, animated: true)
+               } else {
+                   self.contentView.update(viewModel: self.viewModelsArray)
+                   let detailsBankVC = DetailBankVC(vm: viewModelsArray[indexPath.row])
+                   navigationController?.pushViewController(detailsBankVC, animated: true)
+               }
+    }
+    
     
     func detailButtonAction(cell: BankTableViewCell) {
         guard let indexPath = contentView.bankTableView.indexPath(for: cell) else { return }

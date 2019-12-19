@@ -13,6 +13,7 @@ protocol BanksViewDelegate: class {
     func locationButtonAction()
     func phoneButtonAction()
     func detailButtonAction(cell: BankTableViewCell)
+    func detailButtonActionDidSelectRow(indexPath: IndexPath)
 }
 
 class BanksView: UIView {
@@ -44,7 +45,6 @@ class BanksView: UIView {
         
         addSubview(bankTableView)
         bankTableView.separatorStyle = .none
-        bankTableView.allowsSelection = false
         bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = .white
         bankTableView.register(BankTableViewCell.self, forCellReuseIdentifier: String(describing: BankTableViewCell.self))
@@ -60,6 +60,12 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate?.detailButtonActionDidSelectRow(indexPath: indexPath)
+//        bankTableView.reloadData()
+    }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

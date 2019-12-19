@@ -63,10 +63,8 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.delegate?.detailButtonActionDidSelectRow(indexPath: indexPath)
-//        bankTableView.reloadData()
     }
 
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = bankTableView.dequeueReusableCell(withIdentifier: String(describing: BankTableViewCell.self)) as? BankTableViewCell else { return UITableViewCell() }

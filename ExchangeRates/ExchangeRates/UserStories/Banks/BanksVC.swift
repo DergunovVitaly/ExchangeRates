@@ -28,7 +28,7 @@ class BanksVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setApperanceForNavBar()
         contentView.delegate = self
         
         setupSearchController()
@@ -52,18 +52,7 @@ class BanksVC: UIViewController {
                 self.contentView.bankTableView.reloadData()
             }
         }
-        
-        if #available(iOS 13.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.backgroundColor = R.color.lightBlue()
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-            navigationItem.standardAppearance = appearance
-            navigationItem.scrollEdgeAppearance = appearance
-            searchController.searchBar.searchTextField.backgroundColor = .systemBackground
-            navigationController?.navigationBar.tintColor = .white
-        } else {
-            setNavigationController()
-        }
+        setNavigationController()
     }
     
     private func setNavigationController() {
@@ -83,14 +72,14 @@ class BanksVC: UIViewController {
 
 extension BanksVC: BanksViewDelegate {
     func detailButtonActionDidSelectRow(indexPath: IndexPath) {
-               if searchController.isActive && !searchBarIsEmpty {
-                   let detailsBankVC = DetailBankVC(vm: filteredViewModel[indexPath.row])
-                   navigationController?.pushViewController(detailsBankVC, animated: true)
-               } else {
-                   self.contentView.update(viewModel: self.viewModelsArray)
-                   let detailsBankVC = DetailBankVC(vm: viewModelsArray[indexPath.row])
-                   navigationController?.pushViewController(detailsBankVC, animated: true)
-               }
+        if searchController.isActive && !searchBarIsEmpty {
+            let detailsBankVC = DetailBankVC(vm: filteredViewModel[indexPath.row])
+            navigationController?.pushViewController(detailsBankVC, animated: true)
+        } else {
+            self.contentView.update(viewModel: self.viewModelsArray)
+            let detailsBankVC = DetailBankVC(vm: viewModelsArray[indexPath.row])
+            navigationController?.pushViewController(detailsBankVC, animated: true)
+        }
     }
     
     

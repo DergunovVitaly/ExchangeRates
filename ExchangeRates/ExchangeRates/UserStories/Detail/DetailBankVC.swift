@@ -28,6 +28,7 @@ class DetailBankVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setApperanceForNavBar()
         contenView.delegate = self
         setNavigationController()
         
@@ -37,7 +38,6 @@ class DetailBankVC: UIViewController {
     func setNavigationController(){
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
-        modalPresentationStyle = .fullScreen
         navigationController?.navigationBar.tintColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.share(), style: .done, target: self, action: #selector(share))
     }
@@ -55,7 +55,6 @@ class DetailBankVC: UIViewController {
 extension DetailBankVC: BankViewDelegatDelegate {
     func detailButtonAction() {
         let navigationViewController = ExtraMenuDetailVC()
-        navigationViewController.modalPresentationStyle = .overCurrentContext
         navigationController?.pushViewController(navigationViewController, animated: false)
     }
 }

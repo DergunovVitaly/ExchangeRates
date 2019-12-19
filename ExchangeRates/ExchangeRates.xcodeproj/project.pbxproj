@@ -37,6 +37,7 @@
 		1F30B108236C16F2005E0C7F /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */; };
 		1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42BE22236581BA00A5AF81 /* NetworkService.swift */; };
 		1FD0170D2365F59900BC5CC8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0170C2365F59900BC5CC8 /* Request.swift */; };
+		1FE862C423AB9DAC004998CA /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE862C323AB9DAC004998CA /* UIViewController + Ext.swift */; };
 		1FECEB7523A7DC020001AD15 /* UIScreen+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECEB7423A7DC020001AD15 /* UIScreen+Ext.swift */; };
 		1FECEB7723A7DDBA0001AD15 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FECEB7623A7DDBA0001AD15 /* UIButton+Ext.swift */; };
 		5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBD71BD2348B75C00D0B9EA /* AppDelegate.swift */; };
@@ -77,6 +78,7 @@
 		1F42BE22236581BA00A5AF81 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1FCD2C0023846BB1007B77D5 /* ExchangeRates.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ExchangeRates.entitlements; sourceTree = "<group>"; };
 		1FD0170C2365F59900BC5CC8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		1FE862C323AB9DAC004998CA /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
 		1FECEB7423A7DC020001AD15 /* UIScreen+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Ext.swift"; sourceTree = "<group>"; };
 		1FECEB7623A7DDBA0001AD15 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		215B438D33C5DB212CC5FE8D /* Pods-ExchangeRates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExchangeRates.release.xcconfig"; path = "Target Support Files/Pods-ExchangeRates/Pods-ExchangeRates.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				0479AF7D237B2C9800038838 /* String+Ext.swift */,
 				0496B85E2375A56500407371 /* ExchangeRatesCustomFunc.swift */,
 				04E9BCF92385DA7100BF213B /* UILabel+Ext.swift */,
+				1FE862C323AB9DAC004998CA /* UIViewController + Ext.swift */,
 				1FECEB7623A7DDBA0001AD15 /* UIButton+Ext.swift */,
 			);
 			path = Extensions;
@@ -473,6 +476,7 @@
 				1FECEB7723A7DDBA0001AD15 /* UIButton+Ext.swift in Sources */,
 				04F74ADF2364EA880089B919 /* ExtraMenuDetailVC.swift in Sources */,
 				04D6DBA6235E286C00618A66 /* BankTableViewCell.swift in Sources */,
+				1FE862C423AB9DAC004998CA /* UIViewController + Ext.swift in Sources */,
 				5BBD71BE2348B75C00D0B9EA /* AppDelegate.swift in Sources */,
 				04E9BCFA2385DA7100BF213B /* UILabel+Ext.swift in Sources */,
 			);

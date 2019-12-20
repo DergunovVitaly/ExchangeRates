@@ -26,6 +26,7 @@ class Request {
                 bankArray.append(bank)
                 complition(bankArray)
             case .failure(let error):
+                AlertViewController.showAlertView(title: "Увага", subTitle: "увага", style: .warning, closeButtonTitle: "Гаразд")
                 print(error.errorDescription ?? "Unknown error")
             }
         }

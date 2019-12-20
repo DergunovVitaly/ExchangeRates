@@ -35,6 +35,7 @@
 		1F1CFAF723893ECF00BD31F0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CFAF623893ECF00BD31F0 /* AlertController.swift */; };
 		1F1CFAF92389654F00BD31F0 /* BankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CFAF82389654F00BD31F0 /* BankViewModel.swift */; };
 		1F30B108236C16F2005E0C7F /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */; };
+		1F3CCCDB23AD60D800265375 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CCCDA23AD60D800265375 /* UIView+Ext.swift */; };
 		1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F42BE22236581BA00A5AF81 /* NetworkService.swift */; };
 		1FD0170D2365F59900BC5CC8 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0170C2365F59900BC5CC8 /* Request.swift */; };
 		1FE862C423AB9DAC004998CA /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE862C323AB9DAC004998CA /* UIViewController + Ext.swift */; };
@@ -75,6 +76,7 @@
 		1F1CFAF623893ECF00BD31F0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		1F1CFAF82389654F00BD31F0 /* BankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewModel.swift; sourceTree = "<group>"; };
 		1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
+		1F3CCCDA23AD60D800265375 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		1F42BE22236581BA00A5AF81 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		1FCD2C0023846BB1007B77D5 /* ExchangeRates.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = ExchangeRates.entitlements; sourceTree = "<group>"; };
 		1FD0170C2365F59900BC5CC8 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				1F30B107236C16F2005E0C7F /* UIStackView+Ext.swift */,
+				1F3CCCDA23AD60D800265375 /* UIView+Ext.swift */,
 				1FECEB7423A7DC020001AD15 /* UIScreen+Ext.swift */,
 				04A3D13A236C547A005C44E7 /* UserDefaults+Ext.swift */,
 				0479AF7D237B2C9800038838 /* String+Ext.swift */,
@@ -463,6 +466,7 @@
 				048C5390234BA13600ED883F /* TutorialVC.swift in Sources */,
 				1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */,
 				1F1CFAF723893ECF00BD31F0 /* AlertController.swift in Sources */,
+				1F3CCCDB23AD60D800265375 /* UIView+Ext.swift in Sources */,
 				0479AF7E237B2C9800038838 /* String+Ext.swift in Sources */,
 				04A3D13B236C547A005C44E7 /* UserDefaults+Ext.swift in Sources */,
 				04ACED9F234A04F700264199 /* TutorialView.swift in Sources */,

@@ -28,12 +28,12 @@ class BanksVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setApperanceForNavBar()
         contentView.delegate = self
-        
         setupSearchController()
+        setNavigationController()
         
-        //TODO: Move to ViewModel
         Request.fetch { [unowned self] (bank) in
             DispatchQueue.main.async {
                 let cityId = bank[0].organizations.map { $0.cityId }
@@ -52,7 +52,6 @@ class BanksVC: UIViewController {
                 self.contentView.bankTableView.reloadData()
             }
         }
-        setNavigationController()
     }
     
     private func setNavigationController() {
@@ -63,6 +62,17 @@ class BanksVC: UIViewController {
     
     private func setupSearchController() {
         searchController.searchResultsUpdater = self
+        if #available(iOS 13.0, *) {
+            searchController.searchBar.searchTextField.backgroundColor = .white
+            searchController.searchBar.searchTextField.tintColor = R.color.lightBlue()
+        } else {
+            for textField in searchController.searchBar.subviews.first!.subviews where textField is UITextField {
+                textField.subviews.first?.backgroundColor = .white
+                textField.subviews.first?.layer.cornerRadius = 10.5
+                textField.subviews.first?.layer.masksToBounds = true
+                textField.tintColor = R.color.lightBlue()
+            }
+        }
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = Localizable.find()
         definesPresentationContext = true

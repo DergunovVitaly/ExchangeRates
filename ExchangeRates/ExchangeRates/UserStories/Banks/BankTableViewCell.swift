@@ -64,6 +64,16 @@ class BankTableViewCell: UITableViewCell {
         bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo))
     }
     
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        
+        UIView.animate(withDuration: 0.2) {
+            self.backgroundViewCell.transform = highlighted ? CGAffineTransform(scaleX: 0.95, y: 0.95) : CGAffineTransform.identity
+            self.backgroundViewCell.backgroundColor = highlighted ? R.color.lightBlue()?.withAlphaComponent(0.5) : UIColor.white.withAlphaComponent(0.1)
+            highlighted ? self.bankLogo.setIsHidden(true, animated: true) : self.bankLogo.setIsHidden(false, animated: true)
+        }
+    }
+    
     private func setupLayout() {
         backgroundColor = .white
         selectionStyle = .none

@@ -20,7 +20,7 @@ class SafariViewController: SFSafariViewController {
         super.init(url: self.urlBankWebView, configuration: SafariViewController.safariConfiguration())
         delegate = self
     }
-    
+
     static func safariConfiguration() -> Configuration {
         let safariConfiguration = SFSafariViewController.Configuration()
         safariConfiguration.barCollapsingEnabled = true

@@ -44,7 +44,7 @@ class BanksView: UIView {
         backgroundColor = .white
         
         addSubview(bankTableView)
-        bankTableView.rowHeight = 150
+        bankTableView.rowHeight = 240
         bankTableView.separatorStyle = .none
         bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = .white

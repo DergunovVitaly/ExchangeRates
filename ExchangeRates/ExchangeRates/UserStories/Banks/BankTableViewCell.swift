@@ -84,13 +84,14 @@ class BankTableViewCell: UITableViewCell {
         bankLogo.snp.makeConstraints { (make) in
             make.top.equalTo(titleBankLabel.snp.top)
             make.trailing.equalToSuperview().offset(-10)
-            make.width.equalTo(100)
-            make.height.equalTo(100)
+            make.width.equalTo(150)
+            make.height.equalTo(150)
         }
         
         backgroundViewCell.addSubview(collectionView)
         collectionView.backgroundColor = .green
         collectionView.snp.makeConstraints { (make) in
+            make.top.equalTo(bankLogo.snp.bottom).offset(10)
             make.height.equalTo(50)
             make.bottom.leading.trailing.equalToSuperview()
         }

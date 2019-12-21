@@ -179,6 +179,7 @@
 		04D6DBA7235E287E00618A66 /* Banks */ = {
 			isa = PBXGroup;
 			children = (
+				1F3CCCDC23AD68ED00265375 /* BankBidAskCollectionView */,
 				04D6DBA5235E286C00618A66 /* BankTableViewCell.swift */,
 				04D6DBA8235E28C400618A66 /* BanksView.swift */,
 				04D6DBAA235E28D700618A66 /* BanksVC.swift */,
@@ -210,6 +211,13 @@
 				1F1CFAF623893ECF00BD31F0 /* AlertController.swift */,
 			);
 			path = Reusable;
+			sourceTree = "<group>";
+		};
+		1F3CCCDC23AD68ED00265375 /* BankBidAskCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BankBidAskCollectionView;
 			sourceTree = "<group>";
 		};
 		1F42BE212365819800A5AF81 /* Managers */ = {

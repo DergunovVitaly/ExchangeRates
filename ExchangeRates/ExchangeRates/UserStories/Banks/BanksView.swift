@@ -44,6 +44,7 @@ class BanksView: UIView {
         backgroundColor = .white
         
         addSubview(bankTableView)
+        bankTableView.rowHeight = 150
         bankTableView.separatorStyle = .none
         bankTableView.showsVerticalScrollIndicator = false
         bankTableView.backgroundColor = .white
@@ -70,26 +71,6 @@ extension BanksView: UITableViewDelegate, UITableViewDataSource {
         guard let cell = bankTableView.dequeueReusableCell(withIdentifier: String(describing: BankTableViewCell.self)) as? BankTableViewCell else { return UITableViewCell() }
         cell.urlForImageBankLogo = viewModel[indexPath.row].urlBankLogo
         cell.update(organizations: viewModel[indexPath.row].organization, regionsName: viewModel[indexPath.row].regionName, cityName: viewModel[indexPath.row].cityName, urlForImageBankLogo: viewModel[indexPath.row].urlBankLogo)
-        cell.delegate = self
         return cell
-    }
-}
-
-extension BanksView: BanksTableViewCellDelegate {
-    
-    func detailButtonAction(cell: BankTableViewCell) {
-        self.delegate?.detailButtonAction(cell: cell)
-    }
-    
-    func linkButtonAction(cell: BankTableViewCell) {
-        self.delegate?.linkButtonAction(cell: cell)
-    }
-    
-    func locationButtonAction() {
-        self.delegate?.locationButtonAction()
-    }
-    
-    func phoneButtonAction() {
-        self.delegate?.phoneButtonAction()
     }
 }

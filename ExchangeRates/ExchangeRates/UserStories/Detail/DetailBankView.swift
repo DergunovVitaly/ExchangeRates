@@ -113,7 +113,7 @@ class DetailBankView: UIView {
             make.trailing.equalToSuperview().inset(80)
             make.bottom.equalTo(headerView.snp.top)
         }
-
+        
         contentBankScrollView.addSubview(bankLogoImageView)
         bankLogoImageView.contentMode = .scaleAspectFit
         bankLogoImageView.snp.makeConstraints { (make) in

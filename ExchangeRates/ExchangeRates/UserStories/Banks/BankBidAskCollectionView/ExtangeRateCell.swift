@@ -34,6 +34,7 @@ class ExtangeRateCell: UICollectionViewCell {
         contentView.layer.borderColor = R.color.lightBlue()?.cgColor
         contentView.layer.borderWidth = 2
         currencyNameLabel.textAlignment = .center
+        currencyNameLabel.textColor = .black
         currencyNameLabel.snp.makeConstraints { (make) in
             make.leading.equalToSuperview().offset(5)
             make.top.bottom.equalToSuperview()

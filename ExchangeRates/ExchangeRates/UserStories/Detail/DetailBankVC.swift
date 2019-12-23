@@ -53,6 +53,14 @@ class DetailBankVC: UIViewController {
 }
 
 extension DetailBankVC: BankViewDelegatDelegate {
+    func tapAddressLabelEvent(address: String) {
+        debugPrint(address)
+    }
+    
+    func tapLinkLabelEvent(url: URL) {
+        self.navigationController?.present(SafariViewController(url: url), animated: true, completion: nil)
+    }
+    
     func detailButtonAction() {
         let navigationViewController = ExtraMenuDetailVC()
         navigationController?.pushViewController(navigationViewController, animated: false)

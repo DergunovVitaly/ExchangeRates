@@ -6,17 +6,25 @@
 //  Copyright © 2019 Denis Melnikov. All rights reserved.
 //
 
+import Foundation
 import Kingfisher
 import UIKit
+import Closures
 
 protocol BankViewDelegatDelegate: class {
     func detailButtonAction()
+    func tapLinkLabelEvent(url: URL)
+    func tapAddressLabelEvent(address: String)
 }
 
 class DetailBankView: UIView {
+   
+    weak var delegate: BankViewDelegatDelegate?
     
     private var currencyArray: [Currency] = []
     private var currencyName: [String] = []
+    private var linkURL: URL?
+    private var address: String?
     private var urlBankLogo = String()
     private let currencyTableView = UITableView()
     private let headerView = UIView()
@@ -27,10 +35,8 @@ class DetailBankView: UIView {
     private let detailButton = UIButton()
     private let contentBankScrollView = UIScrollView()
     private let linkBankLabel = UILabel()
-    private let adressBankLabel = UILabel()
-    private let phoneNumberLabel = UILabel()
-    
-    weak var delegate: BankViewDelegatDelegate?
+    private let addressBankLabel = UILabel()
+    private let phoneNumberBankLabel = UILabel()
     
     init() {
         super.init(frame: .zero)
@@ -49,10 +55,12 @@ class DetailBankView: UIView {
         self.currencyArray = vm.organization.currencies.map { $0.value }
         self.currencyName = vm.organization.currencies.map { $0.key }
         self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.link())
-        self.phoneNumberLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.phone.formatPhoneNumber(), prefix: Localizable.titlePhoneLongNumber())
-        self.adressBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.address, prefix: Localizable.titleAdressBank())
+        self.phoneNumberBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.phone.formatPhoneNumber(), prefix: Localizable.titlePhoneLongNumber())
+        self.addressBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.address, prefix: Localizable.titleAdressBank())
         self.urlBankLogo = ExchangeRatesCustomFunc.getStringfromAn(int: vm.organization.oldId)
         bankLogoImageView.kf.setImage(with: URL(string: urlBankLogo))
+        self.linkURL = URL(string: vm.organization.link.deleteLastLettersAfter(character: "/"))
+        self.address = vm.organization.address
     }
     
     func setupLayout() {
@@ -105,7 +113,7 @@ class DetailBankView: UIView {
         
         addSubview(contentBankScrollView)
         contentBankScrollView.bounces = false
-        contentBankScrollView.showsVerticalScrollIndicator = false
+        contentBankScrollView.showsVerticalScrollIndicator = true
         contentBankScrollView.contentSize = CGSize(width: contentBankScrollView.bounds.size.width, height: 270)
         contentBankScrollView.snp.makeConstraints { (make) in
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
@@ -123,6 +131,7 @@ class DetailBankView: UIView {
         }
         
         contentBankScrollView.addSubview(linkBankLabel)
+        linkBankLabel.isUserInteractionEnabled = true
         linkBankLabel.numberOfLines = 0
         linkBankLabel.textColor = R.color.lightBlue()
         linkBankLabel.snp.makeConstraints { (make) in
@@ -130,19 +139,28 @@ class DetailBankView: UIView {
             make.top.equalTo(bankLogoImageView.snp.bottom).offset(20)
         }
         
-        contentBankScrollView.addSubview(adressBankLabel)
-        adressBankLabel.numberOfLines = 0
-        adressBankLabel.textColor = R.color.lightBlue()
-        adressBankLabel.snp.makeConstraints { (make) in
+        linkBankLabel.addTapGesture { [unowned self] (_) in
+            guard let url = self.linkURL else { return }
+            self.delegate?.tapLinkLabelEvent(url: url)
+        }
+
+        contentBankScrollView.addSubview(addressBankLabel)
+        addressBankLabel.numberOfLines = 0
+        addressBankLabel.isUserInteractionEnabled = true
+        addressBankLabel.textColor = R.color.lightBlue()
+        addressBankLabel.snp.makeConstraints { (make) in
             make.top.equalTo(linkBankLabel.snp.bottom).offset(5)
             make.width.equalToSuperview()
         }
+        addressBankLabel.addTapGesture { [unowned self] (_) in
+            self.delegate?.tapAddressLabelEvent(address: self.address ?? "")
+        }
         
-        contentBankScrollView.addSubview(phoneNumberLabel)
-        phoneNumberLabel.numberOfLines = 0
-        phoneNumberLabel.textColor = R.color.lightBlue()
-        phoneNumberLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(adressBankLabel.snp.bottom).offset(5)
+        contentBankScrollView.addSubview(phoneNumberBankLabel)
+        phoneNumberBankLabel.numberOfLines = 0
+        phoneNumberBankLabel.textColor = R.color.lightBlue()
+        phoneNumberBankLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(addressBankLabel.snp.bottom).offset(5)
             make.width.equalToSuperview()
         }
         

@@ -15,4 +15,5 @@ pod 'SwiftyJSON'
 pod 'ReachabilitySwift'
 pod 'ActiveLabel'
 pod 'SCLAlertView'
+pod 'Closures'
 end

@@ -6,6 +6,7 @@
 //  Copyright © 2019 ExchangeRates. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Kingfisher
 
@@ -17,9 +18,11 @@ class BankTableViewCell: UITableViewCell {
     private var organizations: Organization?
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
-    private let cityNameLabel = UILabel()
-    private let regionName = UILabel()
-    private let phoneLabel = UILabel()
+    private let linkButton = UIButton()
+    private let callButton = UIButton()
+    private let locationButton = UIButton()
+    private let bankDetailsButton = UIButton()
+
     private let collectionView: UICollectionView
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -38,7 +41,10 @@ class BankTableViewCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 20
         layout.itemSize = CGSize(width: 140, height: 55)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
+        layout.sectionInset = UIEdgeInsets(top: 0,
+                                           left: 7,
+                                           bottom: 0,
+                                           right: 7)
         return layout
     }
     
@@ -66,9 +72,6 @@ class BankTableViewCell: UITableViewCell {
     
     func update(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
         self.titleBankLabel.text = organizations.title
-        self.cityNameLabel.text = cityName
-        self.regionName.text = regionsName
-        self.phoneLabel.text = organizations.phone
         self.currencyArray = organizations.currencies.map { $0.value }
         self.currencyName = organizations.currencies.map { $0.key }
         bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo))
@@ -97,7 +100,7 @@ class BankTableViewCell: UITableViewCell {
             make.top.leading.equalToSuperview().offset(15)
             make.width.equalTo(200)
         }
-        
+    
         contentView.addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
         bankLogo.snp.makeConstraints { (make) in
@@ -107,10 +110,37 @@ class BankTableViewCell: UITableViewCell {
             make.height.equalTo(100)
         }
         
+        let linkCallStackView = UIStackView(arrangedSubviews: [linkButton, callButton])
+        linkButton.setImage(R.image.link(), for: .normal)
+        callButton.setImage(R.image.phone(), for: .normal)
+        linkCallStackView.axis = .horizontal
+        linkCallStackView.alignment = .fill
+        linkCallStackView.spacing = 20
+        contentView.addSubview(linkCallStackView)
+        linkCallStackView.snp.makeConstraints { (make) in
+            make.top.equalTo(titleBankLabel.snp.bottom).offset(30)
+            make.leading.equalToSuperview().offset(20)
+            make.size.equalTo(CGSize(width: 108, height: 44))
+        }
+        
+        
         contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
             make.height.equalTo(80)
             make.bottom.leading.trailing.equalToSuperview()
+        }
+        
+        let locationDetailsStackView = UIStackView(arrangedSubviews: [locationButton, bankDetailsButton])
+        locationButton.setImage(R.image.location(), for: .normal)
+        bankDetailsButton.setImage(R.image.menu(), for: .normal)
+        locationDetailsStackView.axis = .horizontal
+        locationDetailsStackView.alignment = .fill
+        locationDetailsStackView.spacing = 25
+        contentView.addSubview(locationDetailsStackView)
+        locationDetailsStackView.snp.makeConstraints { (make) in
+            make.top.equalTo(linkCallStackView.snp.bottom).offset(25)
+            make.leading.equalTo(linkCallStackView)
+            make.bottom.equalTo(collectionView.snp.top)
         }
     }
 }

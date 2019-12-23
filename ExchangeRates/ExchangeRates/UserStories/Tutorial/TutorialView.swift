@@ -26,8 +26,8 @@ class TutorialView: UIView {
     private let xPositionCoinsImageView: CGFloat = UIScreen.width * 0.66
     private(set) var yPositionCoinsImageView: CGFloat = UIScreen.height * 0.75
     
-    init(frame: CGRect, imageArray: [CreateTutorialView]) {
-        self.viewArray = imageArray
+    init(frame: CGRect, tutorialView: [CreateTutorialView]) {
+        self.viewArray = tutorialView
         coinsImageView = UIImageView(frame: CGRect(x: xPositionCoinsImageView, y: yPositionCoinsImageView, width: widthCoinsImageView, height: heightCoinsImageView))
         super.init(frame: frame)
         

@@ -20,10 +20,10 @@ class DetailBankView: UIView {
     private var urlBankLogo = String()
     private let currencyTableView = UITableView()
     private let headerView = UIView()
-    private let currencyHeaderName = UILabel()
+    private let currencyHeaderNameLabel = UILabel()
     private let purchaseSaleTitleHeaderLabel = UILabel()
     private let titleLabel = UILabel()
-    private let bankLogo = UIImageView()
+    private let bankLogoImageView = UIImageView()
     private let detailButton = UIButton()
     private let contentBankScrollView = UIScrollView()
     private let linkBankLabel = UILabel()
@@ -52,7 +52,7 @@ class DetailBankView: UIView {
         self.phoneNumberLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.phone.formatPhoneNumber(), prefix: Localizable.titlePhoneLongNumber())
         self.adressBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.address, prefix: Localizable.titleAdressBank())
         self.urlBankLogo = ExchangeRatesCustomFunc.getStringfromAn(int: vm.organization.oldId)
-        bankLogo.kf.setImage(with: URL(string: urlBankLogo))
+        bankLogoImageView.kf.setImage(with: URL(string: urlBankLogo))
     }
     
     func setupLayout() {
@@ -75,11 +75,11 @@ class DetailBankView: UIView {
             make.height.equalTo(50)
         }
         
-        headerView.addSubview(currencyHeaderName)
-        currencyHeaderName.text = Localizable.nameCurrent()
-        currencyHeaderName.font = R.font.helveticaNeue(size: 18)
-        currencyHeaderName.textColor = R.color.lightGrey()
-        currencyHeaderName.snp.makeConstraints { (make) in
+        headerView.addSubview(currencyHeaderNameLabel)
+        currencyHeaderNameLabel.text = Localizable.nameCurrent()
+        currencyHeaderNameLabel.font = R.font.helveticaNeue(size: 18)
+        currencyHeaderNameLabel.textColor = R.color.lightGrey()
+        currencyHeaderNameLabel.snp.makeConstraints { (make) in
             make.top.height.equalToSuperview()
             make.leading.equalToSuperview().offset(20)
             make.width.equalTo(150)
@@ -114,9 +114,9 @@ class DetailBankView: UIView {
             make.bottom.equalTo(headerView.snp.top)
         }
 
-        contentBankScrollView.addSubview(bankLogo)
-        bankLogo.contentMode = .scaleAspectFit
-        bankLogo.snp.makeConstraints { (make) in
+        contentBankScrollView.addSubview(bankLogoImageView)
+        bankLogoImageView.contentMode = .scaleAspectFit
+        bankLogoImageView.snp.makeConstraints { (make) in
             make.top.width.equalToSuperview()
             make.height.equalTo(120)
             make.centerX.equalTo(headerView.snp.centerX)
@@ -127,7 +127,7 @@ class DetailBankView: UIView {
         linkBankLabel.textColor = R.color.lightBlue()
         linkBankLabel.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
-            make.top.equalTo(bankLogo.snp.bottom).offset(20)
+            make.top.equalTo(bankLogoImageView.snp.bottom).offset(20)
         }
         
         contentBankScrollView.addSubview(adressBankLabel)
@@ -166,8 +166,8 @@ extension DetailBankView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = currencyTableView.dequeueReusableCell(withIdentifier: String(describing: DetailTableViewCell.self)) as? DetailTableViewCell else { return UITableViewCell() }
-        cell.purchaseLabel.text = currencyArray[indexPath.row].bid
-        cell.saleLabel.text = currencyArray[indexPath.row].ask
+        cell.askLabel.text = currencyArray[indexPath.row].bid
+        cell.bidLabel.text = currencyArray[indexPath.row].ask
         cell.currencyNameLabel.text = currencyName[indexPath.row]
         return cell
     }

@@ -10,12 +10,12 @@ import UIKit
 
 class DetailTableViewCell: UITableViewCell {
     
-    let purchaseLabel = UILabel()
-    let saleLabel = UILabel()
+    let askLabel = UILabel()
+    let bidLabel = UILabel()
     let currencyNameLabel = UILabel()
     private let nameLabel = UILabel()
-    private let imageUp = UIImageView()
-    private let imageDown = UIImageView()
+    private let imageUpImageView = UIImageView()
+    private let imageDownImageView = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -47,37 +47,37 @@ class DetailTableViewCell: UITableViewCell {
             make.width.equalTo(150)
         }
         
-        addSubview(purchaseLabel)
-        purchaseLabel.font = R.font.helveticaNeue(size: 14)
-        purchaseLabel.textColor = R.color.lightGrey()
-        purchaseLabel.snp.makeConstraints { (make) in
+        addSubview(askLabel)
+        askLabel.font = R.font.helveticaNeue(size: 14)
+        askLabel.textColor = R.color.lightGrey()
+        askLabel.snp.makeConstraints { (make) in
             make.top.trailing.equalToSuperview().offset(15)
             make.height.equalTo(bounds.height / 2)
             make.width.equalTo(100)
         }
         
-        addSubview(saleLabel)
-        saleLabel.font = R.font.helveticaNeue(size: 14)
-        saleLabel.textColor = R.color.lightGrey()
-        saleLabel.snp.makeConstraints { (make) in
-            make.trailing.equalTo(purchaseLabel)
-            make.top.equalTo(purchaseLabel).offset(22)
-            make.height.width.equalTo(purchaseLabel)
+        addSubview(bidLabel)
+        bidLabel.font = R.font.helveticaNeue(size: 14)
+        bidLabel.textColor = R.color.lightGrey()
+        bidLabel.snp.makeConstraints { (make) in
+            make.trailing.equalTo(askLabel)
+            make.top.equalTo(askLabel).offset(22)
+            make.height.width.equalTo(askLabel)
         }
         
-        addSubview(imageUp)
-        imageUp.image = R.image.arrowUp()
-        imageUp.snp.makeConstraints { (make) in
-            make.top.equalTo(purchaseLabel).offset(5)
-            make.height.equalTo(purchaseLabel).offset(-10)
-            make.leading.equalTo(purchaseLabel).offset(-30)
+        addSubview(imageUpImageView)
+        imageUpImageView.image = R.image.arrowUp()
+        imageUpImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(askLabel).offset(5)
+            make.height.equalTo(askLabel).offset(-10)
+            make.leading.equalTo(askLabel).offset(-30)
         }
         
-        addSubview(imageDown)
-        imageDown.image = R.image.arrowDown()
-        imageDown.snp.makeConstraints { (make) in
-            make.height.leading.equalTo(imageUp)
-            make.top.equalTo(saleLabel).offset(5)
+        addSubview(imageDownImageView)
+        imageDownImageView.image = R.image.arrowDown()
+        imageDownImageView.snp.makeConstraints { (make) in
+            make.height.leading.equalTo(imageUpImageView)
+            make.top.equalTo(bidLabel).offset(5)
         }
     }
 }

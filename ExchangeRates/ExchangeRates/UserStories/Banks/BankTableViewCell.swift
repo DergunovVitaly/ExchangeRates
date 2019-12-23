@@ -12,16 +12,21 @@ import Kingfisher
 class BankTableViewCell: UITableViewCell {
     
     var urlForImageBankLogo: String?
+    private var currencyArray: [Currency] = []
+    private var currencyName: [String] = []
     private var organizations: Organization?
-    private let backgroundViewCell = UIView()
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
+    private let cityNameLabel = UILabel()
+    private let regionName = UILabel()
+    private let phoneLabel = UILabel()
     private let collectionView: UICollectionView
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: BankTableViewCell.collectionViewLayout())
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupLayout()
+        setupCollectionView()
     }
     
     required init?(coder: NSCoder) {
@@ -31,9 +36,9 @@ class BankTableViewCell: UITableViewCell {
     static func collectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 50, height: 50)
-        layout.minimumLineSpacing = .zero
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 20
+        layout.itemSize = CGSize(width: 140, height: 55)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
         return layout
     }
     
@@ -43,34 +48,48 @@ class BankTableViewCell: UITableViewCell {
         bankLogo.image = nil
     }
     
-    func update(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
-        self.titleBankLabel.text = organizations.title
-        bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo))
-    }
-    
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         super.setHighlighted(highlighted, animated: animated)
         
         UIView.animate(withDuration: 0.2) {
-            self.backgroundViewCell.transform = highlighted ? CGAffineTransform(scaleX: 0.95, y: 0.95) : CGAffineTransform.identity
-            self.backgroundViewCell.backgroundColor = highlighted ? R.color.lightBlue()?.withAlphaComponent(0.5) : UIColor.white.withAlphaComponent(0.1)
-            highlighted ? self.bankLogo.setIsHidden(true, animated: true) : self.bankLogo.setIsHidden(false, animated: true)
+            self.transform = highlighted ? CGAffineTransform(scaleX: 0.95, y: 0.95) : CGAffineTransform.identity
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10,
+                                                                     left: 10,
+                                                                     bottom: 10,
+                                                                     right: 10))
+    }
+    
+    func update(organizations: Organization, regionsName: String, cityName: String, urlForImageBankLogo: String) {
+        self.titleBankLabel.text = organizations.title
+        self.cityNameLabel.text = cityName
+        self.regionName.text = regionsName
+        self.phoneLabel.text = organizations.phone
+        self.currencyArray = organizations.currencies.map { $0.value }
+        self.currencyName = organizations.currencies.map { $0.key }
+        bankLogo.kf.setImage(with: URL(string: urlForImageBankLogo))
+        collectionView.reloadData()
+    }
+    
+    private func setupCollectionView() {
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .white
+        collectionView.register(ExtangeRateCell.self, forCellWithReuseIdentifier: String(describing: ExtangeRateCell.self))
     }
     
     private func setupLayout() {
         backgroundColor = .white
         selectionStyle = .none
         
-        contentView.addSubview(backgroundViewCell)
-        backgroundViewCell.layer.borderColor = R.color.lightBlue()?.cgColor
-        backgroundViewCell.layer.borderWidth = 2
-        backgroundViewCell.layer.cornerRadius = 10
-        backgroundViewCell.snp.makeConstraints { (make) in
-            make.edges.equalTo(UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5))
-        }
+        contentView.layer.borderColor = R.color.lightBlue()?.cgColor
+        contentView.layer.borderWidth = 3
+        contentView.layer.cornerRadius = 10
         
-        backgroundViewCell.addSubview(titleBankLabel)
+        contentView.addSubview(titleBankLabel)
         titleBankLabel.font = R.font.helveticaNeue(size: 26)
         titleBankLabel.textColor = R.color.lightDark()
         titleBankLabel.numberOfLines = 0
@@ -79,21 +98,33 @@ class BankTableViewCell: UITableViewCell {
             make.width.equalTo(200)
         }
         
-        backgroundViewCell.addSubview(bankLogo)
+        contentView.addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
         bankLogo.snp.makeConstraints { (make) in
             make.top.equalTo(titleBankLabel.snp.top)
             make.trailing.equalToSuperview().offset(-10)
-            make.width.equalTo(150)
-            make.height.equalTo(150)
+            make.width.equalTo(100)
+            make.height.equalTo(100)
         }
         
-        backgroundViewCell.addSubview(collectionView)
-        collectionView.backgroundColor = .green
+        contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(bankLogo.snp.bottom).offset(10)
-            make.height.equalTo(50)
+            make.height.equalTo(80)
             make.bottom.leading.trailing.equalToSuperview()
         }
+    }
+}
+
+extension BankTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return currencyArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ExtangeRateCell.self), for: indexPath) as? ExtangeRateCell else { return UICollectionViewCell() }
+        cell.currencyNameLabel.text = currencyName[indexPath.row]
+        cell.askLabel.text = currencyArray[indexPath.row].ask
+        cell.bidLabel.text = currencyArray[indexPath.row].bid
+        return cell
     }
 }

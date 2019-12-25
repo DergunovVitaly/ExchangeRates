@@ -31,6 +31,8 @@
 		04FBDFEC23799D8300C856D1 /* SafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FBDFEB23799D8300C856D1 /* SafariViewController.swift */; };
 		1F0E7539234E1F1B00A32B96 /* helveticaneue.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */; };
 		1F0E753A234E1F1B00A32B96 /* HelveticaNeueBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */; };
+		1F12BD2C23B263650061996E /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12BD2B23B263650061996E /* LocationViewController.swift */; };
+		1F12BD3023B269960061996E /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F12BD2F23B269960061996E /* MapView.swift */; };
 		1F1C075F238673380090B58B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1C075E238673380090B58B /* NetworkManager.swift */; };
 		1F1CFAF723893ECF00BD31F0 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CFAF623893ECF00BD31F0 /* AlertController.swift */; };
 		1F1CFAF92389654F00BD31F0 /* BankViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1CFAF82389654F00BD31F0 /* BankViewModel.swift */; };
@@ -73,6 +75,8 @@
 		04FBDFEB23799D8300C856D1 /* SafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariViewController.swift; sourceTree = "<group>"; };
 		1F0E7537234E1F1B00A32B96 /* helveticaneue.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = helveticaneue.ttf; sourceTree = "<group>"; };
 		1F0E7538234E1F1B00A32B96 /* HelveticaNeueBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HelveticaNeueBold.ttf; sourceTree = "<group>"; };
+		1F12BD2B23B263650061996E /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		1F12BD2F23B269960061996E /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1F1C075E238673380090B58B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		1F1CFAF623893ECF00BD31F0 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		1F1CFAF82389654F00BD31F0 /* BankViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankViewModel.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 		04D5F6B02349D6B800B25A05 /* UserStories */ = {
 			isa = PBXGroup;
 			children = (
+				1F12BD2A23B263310061996E /* LocationScreen */,
 				04FBDFED23799D8800C856D1 /* SafariController */,
 				046B7E782363822E00C97B93 /* Detail */,
 				04D6DBA7235E287E00618A66 /* Banks */,
@@ -205,6 +210,15 @@
 				04FBDFEB23799D8300C856D1 /* SafariViewController.swift */,
 			);
 			path = SafariController;
+			sourceTree = "<group>";
+		};
+		1F12BD2A23B263310061996E /* LocationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1F12BD2F23B269960061996E /* MapView.swift */,
+				1F12BD2B23B263650061996E /* LocationViewController.swift */,
+			);
+			path = LocationScreen;
 			sourceTree = "<group>";
 		};
 		1F1CFAF523893EA000BD31F0 /* Reusable */ = {
@@ -479,6 +493,7 @@
 				1F42BE23236581BA00A5AF81 /* NetworkService.swift in Sources */,
 				1F1CFAF723893ECF00BD31F0 /* AlertController.swift in Sources */,
 				1F3CCCDB23AD60D800265375 /* UIView+Ext.swift in Sources */,
+				1F12BD2C23B263650061996E /* LocationViewController.swift in Sources */,
 				0479AF7E237B2C9800038838 /* String+Ext.swift in Sources */,
 				04A3D13B236C547A005C44E7 /* UserDefaults+Ext.swift in Sources */,
 				04ACED9F234A04F700264199 /* TutorialView.swift in Sources */,
@@ -488,6 +503,7 @@
 				1FECEB7523A7DC020001AD15 /* UIScreen+Ext.swift in Sources */,
 				1FD0170D2365F59900BC5CC8 /* Request.swift in Sources */,
 				04D6DBA9235E28C400618A66 /* BanksView.swift in Sources */,
+				1F12BD3023B269960061996E /* MapView.swift in Sources */,
 				04ACED9D2349F31300264199 /* Typealias.swift in Sources */,
 				1FECEB7723A7DDBA0001AD15 /* UIButton+Ext.swift in Sources */,
 				04F74ADF2364EA880089B919 /* ExtraMenuDetailVC.swift in Sources */,

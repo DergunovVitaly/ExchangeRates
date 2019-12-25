@@ -58,6 +58,13 @@ class BanksVC: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
         navigationController?.navigationBar.tintColor = .white
+        if #available(iOS 13.0, *) {
+            let smallConfiguration = UIImage.SymbolConfiguration(scale: .large)
+            let smallSymbolImage = UIImage(systemName: "person.circle", withConfiguration: smallConfiguration)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: smallSymbolImage, style: .done, target: self, action: #selector(share))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "person.circle"), style: .done, target: self, action: #selector(share))
+        }
     }
     
     private func setupSearchController() {
@@ -77,6 +84,10 @@ class BanksVC: UIViewController {
         searchController.searchBar.placeholder = Localizable.find()
         definesPresentationContext = true
         navigationItem.searchController = searchController
+    }
+    
+    @objc func share() {
+        
     }
 }
 

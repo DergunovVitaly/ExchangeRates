@@ -18,10 +18,6 @@ class BankTableViewCell: UITableViewCell {
     private var organizations: Organization?
     private let titleBankLabel = UILabel()
     private let bankLogo = UIImageView()
-    private let linkButton = UIButton()
-    private let callButton = UIButton()
-    private let locationButton = UIButton()
-    private let bankDetailsButton = UIButton()
 
     private let collectionView: UICollectionView
     
@@ -89,7 +85,7 @@ class BankTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         contentView.layer.borderColor = R.color.lightBlue()?.cgColor
-        contentView.layer.borderWidth = 3
+        contentView.layer.borderWidth = 4
         contentView.layer.cornerRadius = 10
         
         contentView.addSubview(titleBankLabel)
@@ -98,31 +94,19 @@ class BankTableViewCell: UITableViewCell {
         titleBankLabel.numberOfLines = 0
         titleBankLabel.snp.makeConstraints { (make) in
             make.top.leading.equalToSuperview().offset(15)
-            make.width.equalTo(200)
+            make.trailing.equalToSuperview().offset(-120)
+            make.height.greaterThanOrEqualTo(27)
+
         }
     
         contentView.addSubview(bankLogo)
         bankLogo.contentMode = .scaleAspectFit
         bankLogo.snp.makeConstraints { (make) in
             make.top.equalTo(titleBankLabel.snp.top)
-            make.trailing.equalToSuperview().offset(-10)
-            make.width.equalTo(100)
-            make.height.equalTo(100)
+            make.trailing.equalToSuperview().inset(10)
+            make.width.equalTo(80)
+            make.height.equalTo(80)
         }
-        
-        let linkCallStackView = UIStackView(arrangedSubviews: [linkButton, callButton])
-        linkButton.setImage(R.image.link(), for: .normal)
-        callButton.setImage(R.image.phone(), for: .normal)
-        linkCallStackView.axis = .horizontal
-        linkCallStackView.alignment = .fill
-        linkCallStackView.spacing = 20
-        contentView.addSubview(linkCallStackView)
-        linkCallStackView.snp.makeConstraints { (make) in
-            make.top.equalTo(titleBankLabel.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(20)
-            make.size.equalTo(CGSize(width: 108, height: 44))
-        }
-        
         
         contentView.addSubview(collectionView)
         collectionView.snp.makeConstraints { (make) in
@@ -130,18 +114,6 @@ class BankTableViewCell: UITableViewCell {
             make.bottom.leading.trailing.equalToSuperview()
         }
         
-        let locationDetailsStackView = UIStackView(arrangedSubviews: [locationButton, bankDetailsButton])
-        locationButton.setImage(R.image.location(), for: .normal)
-        bankDetailsButton.setImage(R.image.menu(), for: .normal)
-        locationDetailsStackView.axis = .horizontal
-        locationDetailsStackView.alignment = .fill
-        locationDetailsStackView.spacing = 25
-        contentView.addSubview(locationDetailsStackView)
-        locationDetailsStackView.snp.makeConstraints { (make) in
-            make.top.equalTo(linkCallStackView.snp.bottom).offset(25)
-            make.leading.equalTo(linkCallStackView)
-            make.bottom.equalTo(collectionView.snp.top)
-        }
     }
 }
 

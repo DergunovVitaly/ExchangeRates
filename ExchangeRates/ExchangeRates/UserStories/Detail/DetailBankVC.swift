@@ -53,8 +53,12 @@ class DetailBankVC: UIViewController {
 }
 
 extension DetailBankVC: BankViewDelegatDelegate {
+    func tapPhoneNumberLabelEvent(number: String) {
+        number.makeACall()
+    }
+    
     func tapAddressLabelEvent(address: String) {
-        debugPrint(address)
+         self.navigationController?.pushViewController(LocationViewController(), animated: true)
     }
     
     func tapLinkLabelEvent(url: URL) {

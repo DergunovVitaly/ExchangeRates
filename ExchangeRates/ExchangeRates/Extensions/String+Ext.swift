@@ -31,12 +31,30 @@ extension String {
         return mutableAttributedstring
     }
     
-     func formatPhoneNumber() -> String {
+    func formatPhoneNumber() -> String {
         var string = self
         let start = string.startIndex
         string.insert(" ", at: string.index(start, offsetBy: 3))
         string.insert(" ", at: string.index(start, offsetBy: 6))
         string.insert(" ", at: string.index(start, offsetBy: 10))
         return string
+    }
+    
+    enum RegularExpressions: String {
+        case phone = "^\\s*(?:\\+?(\\d{1,3}))?([-. (]*(\\d{3})[-. )]*)?((\\d{3})[-. ]*(\\d{2,4})(?:[-.x ]*(\\d+))?)\\s*$"
+    }
+    
+    func isValid(regex: RegularExpressions) -> Bool { return isValid(regex: regex.rawValue) }
+    func isValid(regex: String) -> Bool { return range(of: regex, options: .regularExpression) != nil }
+    
+    func onlyDigits() -> String {
+        let filtredUnicodeScalars = unicodeScalars.filter { CharacterSet.decimalDigits.contains($0) }
+        return String(String.UnicodeScalarView(filtredUnicodeScalars))
+    }
+    
+    func makeACall() {
+        guard isValid(regex: .phone),
+            let url = URL(string: "tel://\(self.onlyDigits())") else { return }
+        UIApplication.shared.open(url)
     }
 }

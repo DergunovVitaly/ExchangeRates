@@ -15,6 +15,7 @@ protocol BankViewDelegatDelegate: class {
     func detailButtonAction()
     func tapLinkLabelEvent(url: URL)
     func tapAddressLabelEvent(address: String)
+    func tapPhoneNumberLabelEvent(number: String)
 }
 
 class DetailBankView: UIView {
@@ -25,6 +26,7 @@ class DetailBankView: UIView {
     private var currencyName: [String] = []
     private var linkURL: URL?
     private var address: String?
+    private var phoneNumber: String?
     private var urlBankLogo = String()
     private let currencyTableView = UITableView()
     private let headerView = UIView()
@@ -61,6 +63,7 @@ class DetailBankView: UIView {
         bankLogoImageView.kf.setImage(with: URL(string: urlBankLogo))
         self.linkURL = URL(string: vm.organization.link.deleteLastLettersAfter(character: "/"))
         self.address = vm.organization.address
+        self.phoneNumber = vm.organization.phone
     }
     
     func setupLayout() {
@@ -158,10 +161,14 @@ class DetailBankView: UIView {
         
         contentBankScrollView.addSubview(phoneNumberBankLabel)
         phoneNumberBankLabel.numberOfLines = 0
+        phoneNumberBankLabel.isUserInteractionEnabled = true
         phoneNumberBankLabel.textColor = R.color.lightBlue()
         phoneNumberBankLabel.snp.makeConstraints { (make) in
             make.top.equalTo(addressBankLabel.snp.bottom).offset(5)
             make.width.equalToSuperview()
+        }
+        phoneNumberBankLabel.addTapGesture { [unowned self] (_) in
+            self.delegate?.tapPhoneNumberLabelEvent(number: self.phoneNumber ?? "")
         }
         
         addSubview(detailButton)

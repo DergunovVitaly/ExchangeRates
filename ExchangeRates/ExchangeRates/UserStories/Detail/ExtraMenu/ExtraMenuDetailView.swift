@@ -3,7 +3,7 @@
 //  ExchangeRates
 //
 //  Created by Mac on 26.10.2019.
-//  Copyright © 2019 Denis Melnikov. All rights reserved.
+//  Copyright © 2019 ExchangeRates. All rights reserved.
 //
 
 import UIKit
@@ -39,7 +39,6 @@ class ExtraMenuDetailView: UIView {
         
         addSubview(exitButton)
         exitButton.setImage(R.image.quit(), for: .normal)
-        exitButton.addTarget(self, action: #selector(exitButtonActionSelector), for: .touchUpInside)
         exitButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview()
             make.trailing.equalToSuperview().offset(-45)
@@ -48,7 +47,6 @@ class ExtraMenuDetailView: UIView {
         
         addSubview(callButton)
         callButton.setImage(R.image.callButton(), for: .normal)
-        callButton.addTarget(self, action: #selector(callButtonActionSelector), for: .touchUpInside)
         callButton.snp.makeConstraints { (make) in
             make.width.height.trailing.equalTo(exitButton)
             make.bottom.equalTo(exitButton).offset(-60)
@@ -56,7 +54,6 @@ class ExtraMenuDetailView: UIView {
         
         addSubview(mapButton)
         mapButton.setImage(R.image.mapButton(), for: .normal)
-        mapButton.addTarget(self, action: #selector(mapButtonActionSelector), for: .touchUpInside)
         mapButton.snp.makeConstraints { (make) in
             make.width.height.trailing.equalTo(callButton)
             make.bottom.equalTo(callButton).offset(-60)
@@ -64,22 +61,9 @@ class ExtraMenuDetailView: UIView {
         
         addSubview(linkButton)
         linkButton.setImage(R.image.linkButton(), for: .normal)
-        linkButton.addTarget(self, action: #selector(linkButtonActionSelector), for: .touchUpInside)
         linkButton.snp.makeConstraints { (make) in
             make.width.height.trailing.equalTo(mapButton)
             make.bottom.equalTo(mapButton).offset(-60)
         }
-    }
-    @objc func exitButtonActionSelector() {
-        delegate?.exitButtonAction()
-    }
-    @objc func linkButtonActionSelector() {
-        delegate?.linkButtonAction()
-    }
-    @objc func mapButtonActionSelector() {
-        delegate?.mapButtonAction()
-    }
-    @objc func callButtonActionSelector() {
-        delegate?.callButtonAction()
     }
 }

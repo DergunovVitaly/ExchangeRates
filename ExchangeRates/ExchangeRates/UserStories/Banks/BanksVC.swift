@@ -34,22 +34,25 @@ class BanksVC: UIViewController {
         setupSearchController()
         setNavigationController()
         
-        Request.fetch { [unowned self] (bank) in
-            DispatchQueue.main.async {
-                let cityId = bank[0].organizations.map { $0.cityId }
-                let cityDict = bank[0].cities
+        Request.fetch { [unowned self] result in
+            switch result {
+            case .success(let bank):
+                let cityId = bank.organizations.map { $0.cityId }
+                let cityDict = bank.cities
                 let cityName = ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: cityId, dict: cityDict)
-                let regionId = bank[0].organizations.map { $0.regionId }
-                let regionDict = bank[0].regions
+                let regionId = bank.organizations.map { $0.regionId }
+                let regionDict = bank.regions
                 let regionName = ExchangeRatesCustomFunc.compareArrayWithDictionaryKeys(keyArray: regionId, dict: regionDict)
-                let organizations = bank[0].organizations
-                let oldID = bank[0].organizations.map { $0.oldId }
+                let organizations = bank.organizations
+                let oldID = bank.organizations.map { $0.oldId }
                 let urlBankLogo = ExchangeRatesCustomFunc.gettingStringsArrayFromAn(array: oldID)
-                for item in 0...bank[0].organizations.count - 1 {
+                for item in 0...bank.organizations.count - 1 {
                     self.viewModelsArray.append(BankViewModel(organization: organizations[item], regionName: regionName[item], cityName: cityName[item], urlBankLogo: urlBankLogo[item]))
                 }
                 self.contentView.update(viewModel: self.viewModelsArray)
                 self.contentView.bankTableView.reloadData()
+            case .failure:
+                AlertViewController.showAlertView(title: "Увага", subTitle: "Внимание", style: .warning, closeButtonTitle: "Ok")
             }
         }
     }

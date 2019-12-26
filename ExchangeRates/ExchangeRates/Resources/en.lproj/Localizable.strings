@@ -3,7 +3,7 @@
   ExchangeRates
 
   Created by Mac on 06/10/2019.
-  Copyright © 2019 Denis Melnikov. All rights reserved.
+  Copyright © 2019 ExchangeRates. All rights reserved.
 */
 // Tutorial
 
@@ -17,7 +17,6 @@
 "titleNameFirstView" = "Bank Informer";
 "nameCurrent" = "Назва Валюти";
 "actionCurrent" = "Покупка / Продаж";
-"url" = "https://resources.finance.ua/ua/public/currency-cash.json";
 "link" = "Посилання: ";
 "titleAdressBank" = "Адреса: ";
 "titlePhoneLongNumber" = "Телефон: ";

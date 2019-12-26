@@ -3,7 +3,7 @@
 //  ExchangeRates
 //
 //  Created by Mac on 25.10.2019.
-//  Copyright © 2019 Denis Melnikov. All rights reserved.
+//  Copyright © 2019 ExchangeRates. All rights reserved.
 //
 
 import Foundation
@@ -178,7 +178,8 @@ class DetailBankView: UIView {
             make.trailing.equalToSuperview().offset(-45)
             make.width.height.equalTo(70)
         }
-        detailButton.addTargetClosure { [unowned self] _ in
+        
+        detailButton.onTap { [unowned self] in
             self.delegate?.detailButtonAction()
         }
     }

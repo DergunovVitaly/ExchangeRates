@@ -23,7 +23,7 @@ class TutorialVC: UIViewController {
                                                         descriptionLabelText: Localizable.descriptionTutorialThirdSlide())]
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        self.contentView = TutorialView(frame: .zero, tutorialView: tutorialViewArray)
+        self.contentView = TutorialView(tutorialView: tutorialViewArray)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     

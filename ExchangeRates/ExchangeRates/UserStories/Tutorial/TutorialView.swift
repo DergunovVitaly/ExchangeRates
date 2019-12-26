@@ -26,10 +26,10 @@ class TutorialView: UIView {
     private let xPositionCoinsImageView: CGFloat = UIScreen.width * 0.66
     private(set) var yPositionCoinsImageView: CGFloat = UIScreen.height * 0.75
     
-    init(frame: CGRect, tutorialView: [CreateTutorialView]) {
+    init(tutorialView: [CreateTutorialView]) {
         self.viewArray = tutorialView
         coinsImageView = UIImageView(frame: CGRect(x: xPositionCoinsImageView, y: yPositionCoinsImageView, width: widthCoinsImageView, height: heightCoinsImageView))
-        super.init(frame: frame)
+        super.init(frame: .zero)
         
         backgroundColor = .white
         scrollView.delegate = self
@@ -83,17 +83,16 @@ class TutorialView: UIView {
         startButtonAction.titleLabel?.font = R.font.helveticaNeueBold(size: 14)
         startButtonAction.setTitle(Localizable.titleButton(), for: .normal)
         startButtonAction.layer.cornerRadius = 30
-        startButtonAction.addTarget(self, action: #selector(startButtonActionSelector), for: .touchUpInside)
         startButtonAction.snp.makeConstraints { (make) in
             make.width.equalTo(250)
             make.height.equalTo(60)
             make.bottom.equalToSuperview().offset(-30)
             make.centerX.equalToSuperview()
         }
-    }
-    
-    @objc func startButtonActionSelector() {
-        delegate?.tapStartButtonEvent()
+        
+        startButtonAction.onTap { [unowned self] in
+            self.delegate?.tapStartButtonEvent()
+        }
     }
 }
 

@@ -20,16 +20,11 @@ class ExchangeRatesCustomFunc {
     }
     
     static func gettingStringsArrayFromAn(array: [Int]) -> [String] {
-        
-        var resultArray = [String]()
-        for i in 0..<array.count {
-            resultArray.append("https://static.finance.ua/img/ext/org-logo/88/\(String(array[i])).png")
-        }
-        return resultArray
+        array.map { "https://static.finance.ua/img/ext/org-logo/88/\($0).png" }
     }
    
     static func getStringfromAn(int: Int) -> String {
-        return "https://static.finance.ua/img/ext/org-logo/88/\(String(int)).png"
+        "https://static.finance.ua/img/ext/org-logo/88/\(String(int)).png"
     }
 }
 

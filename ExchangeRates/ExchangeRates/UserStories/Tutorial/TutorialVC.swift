@@ -75,7 +75,7 @@ class TutorialVC: UIViewController {
 extension TutorialVC: TutorialViewDelegate {
     func tapStartButtonEvent() {
         let navigation = UINavigationController(rootViewController: BanksVC())
-        navigation.modalPresentationStyle = .fullScreen
-        self.present(navigation, animated: true, completion: nil)
+        UIApplication.shared.windows.first?.rootViewController = navigation
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }

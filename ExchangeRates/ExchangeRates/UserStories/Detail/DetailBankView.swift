@@ -53,17 +53,17 @@ class DetailBankView: UIView {
     }
     
     func getOrganizations(vm: BankViewModel) {
-        self.titleLabel.text = vm.organization.title
+        self.titleLabel.text = vm.organizationTitle
         self.currencyArray = vm.organization.currencies.map { $0.value }
         self.currencyName = vm.organization.currencies.map { $0.key }
-        self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.link.deleteLastLettersAfter(character: "/"), prefix: Localizable.link())
+        self.linkBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organizationLink.deleteLastLettersAfter(character: "/"), prefix: Localizable.link())
         self.phoneNumberBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.phone.formatPhoneNumber(), prefix: Localizable.titlePhoneLongNumber())
         self.addressBankLabel.addPrefixWithSpecialColorOnLabel(text: vm.organization.address, prefix: Localizable.titleAdressBank())
         self.urlBankLogo = ExchangeRatesCustomFunc.getStringfromAn(int: vm.organization.oldId)
         bankLogoImageView.kf.setImage(with: URL(string: urlBankLogo))
-        self.linkURL = URL(string: vm.organization.link.deleteLastLettersAfter(character: "/"))
-        self.address = vm.organization.address
-        self.phoneNumber = vm.organization.phone
+        self.linkURL = URL(string: vm.organizationLink.deleteLastLettersAfter(character: "/"))
+        self.address = vm.organizationAddress
+        self.phoneNumber = vm.organizationPhone
     }
     
     func setupLayout() {

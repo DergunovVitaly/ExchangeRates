@@ -15,6 +15,27 @@ class BankViewModel {
     let cityName: String
     let urlBankLogo: String
     
+    var organizationTitle: String {
+        organization.title
+    }
+    
+    var organizationID: String {
+        return organization.id
+    }
+    
+    var organizationLink: String {
+        return organization.link
+    }
+    
+    var organizationAddress: String {
+        return organization.address
+    }
+    
+    var organizationPhone: String {
+        return organization.phone
+    }
+    
+    
     init(organization: Organization, regionName: String, cityName: String, urlBankLogo: String) {
         self.organization = organization
         self.regionName = regionName

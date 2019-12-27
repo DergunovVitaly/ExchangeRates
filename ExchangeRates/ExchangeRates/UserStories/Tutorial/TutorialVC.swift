@@ -9,20 +9,54 @@
 import Foundation
 import UIKit
 
+enum Tutorial: CaseIterable {
+    case save
+    case earn
+    case analyze
+    
+    var title: String {
+        switch self {
+        case .save:
+            return Localizable.titleTutorialFirstSlide()
+        case .earn:
+            return Localizable.titleTutorialSecondSlide()
+        case .analyze:
+            return Localizable.titleTutorialThirdSlide()
+        }
+    }
+    
+    var details: String {
+        switch self {
+        case .save:
+            return Localizable.descriptionTutorialFirstSlide()
+        case .earn:
+            return Localizable.descriptionTutorialSecondSlide()
+        case .analyze:
+            return Localizable.descriptionTutorialThirdSlide()
+        }
+    }
+    
+    var logo: UIImage {
+        switch self {
+        case .save:
+            return R.image.piggyBank() ?? UIImage()
+        case .earn:
+            return R.image.money() ?? UIImage()
+        case .analyze:
+            return R.image.analysis() ?? UIImage()
+        }
+    }
+}
+
 class TutorialVC: UIViewController {
     
     private let contentView: TutorialView?
-    private let tutorialViewArray = [CreateTutorialView(image: R.image.piggyBank(),
-                                                        titleLabelText: Localizable.titleTutorialFirstSlide(),
-                                                        descriptionLabelText: Localizable.descriptionTutorialFirstSlide()),
-                                     CreateTutorialView(image: R.image.money(),
-                                                        titleLabelText: Localizable.titleTutorialSecondSlide(),
-                                                        descriptionLabelText: Localizable.descriptionTutorialSecondSlide()),
-                                     CreateTutorialView(image: R.image.analysis(),
-                                                        titleLabelText: Localizable.titleTutorialThirdSlide(),
-                                                        descriptionLabelText: Localizable.descriptionTutorialThirdSlide())]
+    private let tutorialViewArray: [CreateTutorialView]
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        tutorialViewArray = Tutorial.allCases.map { CreateTutorialView(image: $0.logo,
+                                                                       titleLabelText: $0.title,
+                                                                       descriptionLabelText: $0.details) }
         self.contentView = TutorialView(tutorialView: tutorialViewArray)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -32,6 +66,7 @@ class TutorialVC: UIViewController {
     }
     
     override func loadView() {
+        navigationController?.setNavigationBarHidden(true, animated: true)
         contentView?.delegate = self
         view = contentView
     }

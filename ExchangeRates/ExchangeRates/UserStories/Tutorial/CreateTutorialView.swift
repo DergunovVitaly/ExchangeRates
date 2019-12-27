@@ -36,7 +36,10 @@ class CreateTutorialView: UIView {
         imageView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(80)
             make.centerX.equalToSuperview()
-            make.width.height.equalTo(250)
+            if UIScreen.screenType == .iphone5 {
+                make.size.equalTo(200)
+            }
+             make.size.equalTo(250)
         }
         
         addSubview(titleLabel)
@@ -58,7 +61,7 @@ class CreateTutorialView: UIView {
         self.descriptionLabel.numberOfLines = 0
         self.descriptionLabel.font = R.font.helveticaNeue(size: 16)
         descriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(30)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.centerX.width.equalTo(titleLabel)
             make.height.greaterThanOrEqualTo(65)
         }

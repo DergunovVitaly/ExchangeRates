@@ -39,7 +39,13 @@ class DetailBankVC: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
         navigationController?.navigationBar.tintColor = .white
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: R.image.share(), style: .done, target: self, action: #selector(share))
+        if #available(iOS 13.0, *) {
+            let largeConfiguration = UIImage.SymbolConfiguration(scale: .large)
+            let largeSymbolImage = UIImage(systemName: "info.circle", withConfiguration: largeConfiguration)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: largeSymbolImage, style: .done, target: self, action: #selector(share))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "info.circle"), style: .done, target: self, action: #selector(share))
+        }
     }
     
     @objc func share() {
@@ -58,7 +64,7 @@ extension DetailBankVC: BankViewDelegatDelegate {
     }
     
     func tapAddressLabelEvent(address: String) {
-         self.navigationController?.pushViewController(LocationViewController(), animated: true)
+        self.navigationController?.pushViewController(LocationViewController(), animated: true)
     }
     
     func tapLinkLabelEvent(url: URL) {
@@ -66,7 +72,7 @@ extension DetailBankVC: BankViewDelegatDelegate {
     }
     
     func detailButtonAction() {
-        let navigationViewController = ExtraMenuDetailVC()
+        let navigationViewController = TutorialVC()
         navigationController?.pushViewController(navigationViewController, animated: false)
     }
 }

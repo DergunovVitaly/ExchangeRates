@@ -52,7 +52,7 @@ class BanksVC: UIViewController {
                 self.contentView.update(viewModel: self.viewModelsArray)
                 self.contentView.bankTableView.reloadData()
             case .failure:
-                AlertViewController.showAlertView(title: "Увага", subTitle: "Внимание", style: .warning, closeButtonTitle: "Ok")
+                AlertViewController.showErrorAlertView()
             }
         }
     }
@@ -62,9 +62,9 @@ class BanksVC: UIViewController {
         navigationController?.navigationBar.barTintColor = R.color.lightBlue()
         navigationController?.navigationBar.tintColor = .white
         if #available(iOS 13.0, *) {
-            let smallConfiguration = UIImage.SymbolConfiguration(scale: .large)
-            let smallSymbolImage = UIImage(systemName: "person.circle", withConfiguration: smallConfiguration)
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: smallSymbolImage, style: .done, target: self, action: #selector(share))
+            let largeConfiguration = UIImage.SymbolConfiguration(scale: .large)
+            let largeSymbolImage = UIImage(systemName: "person.circle", withConfiguration: largeConfiguration)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: largeSymbolImage, style: .done, target: self, action: #selector(share))
         } else {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "person.circle"), style: .done, target: self, action: #selector(share))
         }

@@ -13,7 +13,7 @@ class NetworkReachabilityManager {
     
     let reachability: Reachability?
     
-    static var shared = NetworkReachabilityManager()
+    static let shared = NetworkReachabilityManager()
     
     private init() {
         self.reachability = try? Reachability()
@@ -35,19 +35,19 @@ class NetworkReachabilityManager {
         }
     }
     
-    func stopReachability() {
+    private func stopReachability() {
         reachability?.stopNotifier()
         NotificationCenter.default.removeObserver(self, name: .reachabilityChanged, object: reachability)
     }
     
-    func rebootReachability() {
+    private func rebootReachability() {
         stopReachability()
         beginReachability()
     }
     
     @objc func reachabilityChanged(note: Notification) {
         guard let reachability = note.object as? Reachability
-            else { rebootReachability(); return }
+            else { return rebootReachability() }
         
         switch reachability.connection {
         case .wifi:
@@ -57,7 +57,10 @@ class NetworkReachabilityManager {
         case .none:
             debugPrint("Network not reachable")
         case .unavailable:
-            AlertViewController.showAlertView(title: Localizable.alertWarring(), subTitle: Localizable.alertNoCoonection(), style: .warning, closeButtonTitle: Localizable.alertGarazd())
+            AlertViewController.showAlertView(title: Localizable.alertWarring(),
+                                              subTitle: Localizable.alertNoCoonection(),
+                                              style: .warning,
+                                              closeButtonTitle: Localizable.alertGarazd())
             debugPrint("Network is unavailable")
         }
     }

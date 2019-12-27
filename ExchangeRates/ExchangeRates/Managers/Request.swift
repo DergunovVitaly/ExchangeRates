@@ -25,8 +25,9 @@ class Request {
                     completion(.failure(error))
                 }
             case .failure(let error):
-                AlertViewController.showAlertView(title: "Увага", subTitle: "увага", style: .warning, closeButtonTitle: "Гаразд")
-                print(error.errorDescription ?? "Unknown error")
+                completion(.failure(error))
+                AlertViewController.showErrorAlertView()
+                debugPrint(error.errorDescription ?? "Unknown error")
             }
         }
     }

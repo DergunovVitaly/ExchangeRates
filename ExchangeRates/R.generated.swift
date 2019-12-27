@@ -280,7 +280,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 20 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 21 localization keys.
     struct localizable {
       /// en translation: Bank Informer
       /// 
@@ -298,6 +298,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let alertNoCoonection = Rswift.StringResource(key: "alert.noCoonection", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Вибачте, щось пішло не так. Будь ласка, спробуйте пізніше.
+      /// 
+      /// Locales: en
+      static let error = Rswift.StringResource(key: "error", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Добре
       /// 
       /// Locales: en
@@ -389,6 +393,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func alertNoCoonection(_: Void = ()) -> String {
         return NSLocalizedString("alert.noCoonection", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Вибачте, щось пішло не так. Будь ласка, спробуйте пізніше.
+      /// 
+      /// Locales: en
+      static func error(_: Void = ()) -> String {
+        return NSLocalizedString("error", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Добре

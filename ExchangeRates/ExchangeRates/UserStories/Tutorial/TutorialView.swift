@@ -18,17 +18,14 @@ class TutorialView: UIView {
     private var viewArray: [CreateTutorialView]
     private let scrollView = UIScrollView()
     private let pageControl = UIPageControl()
-    private let boundsWight = UIScreen.main.bounds.width
     private let startButtonAction = UIButton()
     private var coinsImageView: UIImageView
-    private let widthCoinsImageView: CGFloat = 150
-    private let heightCoinsImageView: CGFloat = UIScreen.height * 0.54
-    private let xPositionCoinsImageView: CGFloat = UIScreen.width * 0.66
+    
     private(set) var yPositionCoinsImageView: CGFloat = UIScreen.height * 0.75
     
     init(tutorialView: [CreateTutorialView]) {
         self.viewArray = tutorialView
-        coinsImageView = UIImageView(frame: CGRect(x: xPositionCoinsImageView, y: yPositionCoinsImageView, width: widthCoinsImageView, height: heightCoinsImageView))
+        coinsImageView = UIImageView(frame: CGRect(x: Constants.xPositionCoinsImageView, y: yPositionCoinsImageView, width: Constants.widthCoinsImageView, height: Constants.heightCoinsImageView))
         super.init(frame: .zero)
         
         backgroundColor = .white
@@ -50,7 +47,7 @@ class TutorialView: UIView {
         coinsImageView.alpha = 0.4
         
         addSubview(scrollView)
-        scrollView.contentSize = CGSize(width: boundsWight * CGFloat(viewArray.count), height: UIScreen.main.bounds.height)
+        scrollView.contentSize = CGSize(width: UIScreen.width * CGFloat(viewArray.count), height: UIScreen.height)
         scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.bounces = false
@@ -63,20 +60,10 @@ class TutorialView: UIView {
             scrollView.addSubview(viewArray[index])
             viewArray[index].snp.makeConstraints { (make) in
                 make.width.height.equalToSuperview()
-                make.leading.equalToSuperview().offset(boundsWight * CGFloat(index))
+                make.leading.equalToSuperview().offset(UIScreen.width * CGFloat(index))
             }
         }
         
-        addSubview(pageControl)
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.hidesForSinglePage = true
-        pageControl.pageIndicatorTintColor = R.color.lightGrey()
-        pageControl.currentPageIndicatorTintColor = R.color.lightBlue()
-        pageControl.numberOfPages = viewArray.count
-        pageControl.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-150)
-        }
         
         addSubview(startButtonAction)
         startButtonAction.backgroundColor = R.color.lightBlue()
@@ -90,6 +77,17 @@ class TutorialView: UIView {
             make.centerX.equalToSuperview()
         }
         
+        addSubview(pageControl)
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.hidesForSinglePage = true
+        pageControl.pageIndicatorTintColor = R.color.lightGrey()
+        pageControl.currentPageIndicatorTintColor = R.color.lightBlue()
+        pageControl.numberOfPages = viewArray.count
+        pageControl.snp.makeConstraints { (make) in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(startButtonAction.snp.top).offset(-20)
+        }
+        
         startButtonAction.onTap { [unowned self] in
             self.delegate?.tapStartButtonEvent()
         }
@@ -100,14 +98,22 @@ extension TutorialView: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOfsetX = scrollView.contentOffset.x
-        let frame = boundsWight
+        let frame = UIScreen.width
         let pageIndex = round(CGFloat(contentOfsetX) / frame)
         pageControl.currentPage = Int(pageIndex)
         
         self.yPositionCoinsImageView = UIScreen.main.bounds.height * 0.75
         self.yPositionCoinsImageView -= round(CGFloat(contentOfsetX) / 5 )
         UIView.animate(withDuration: 1.0, animations: {
-            self.coinsImageView.frame = CGRect(x: self.xPositionCoinsImageView, y: self.yPositionCoinsImageView, width: self.widthCoinsImageView, height: self.heightCoinsImageView)
+            self.coinsImageView.frame = CGRect(x: Constants.xPositionCoinsImageView, y: self.yPositionCoinsImageView, width: Constants.widthCoinsImageView, height: Constants.heightCoinsImageView)
         })
+    }
+}
+
+extension TutorialView {
+    enum Constants {
+        static let widthCoinsImageView: CGFloat = 150
+        static let heightCoinsImageView: CGFloat = UIScreen.height * 0.54
+        static let xPositionCoinsImageView: CGFloat = UIScreen.width * 0.66
     }
 }

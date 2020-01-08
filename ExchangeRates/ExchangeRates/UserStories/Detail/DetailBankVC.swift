@@ -31,7 +31,6 @@ class DetailBankVC: UIViewController {
         setApperanceForNavBar()
         contenView.delegate = self
         setNavigationController()
-        
         contenView.getOrganizations(vm: vm)
     }
     
